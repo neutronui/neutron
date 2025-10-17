@@ -1,0 +1,30 @@
+{
+  "outDir": "./src/color",
+  "themes": [
+    {
+      "name": "default",
+      "default": true,
+      "description": "Default theme with a modern color palette.",
+      "tones": [5,10,20,30,40,50,60,70,80,90,95],
+      "scales": {
+        "blue": "#3500FF",
+        "red": "#FA4B5A",
+        "green": "#3DF956",
+        "pink": "#E84BD2",
+        "lime": "#C0FE04",
+        "gray": "#1C1C20",
+        "cyan": "#7BEBED",
+        "orange": "#FF7400",
+        "purple": "#2C068B"
+      },
+      "semanticColors": {
+        "brand": "blue",
+        "neutral": "gray",
+        "success": "green",
+        "warning": "orange",
+        "danger": "red",
+        "info": "cyan"
+      }
+    }
+  ]
+}

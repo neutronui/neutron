@@ -1,0 +1,26 @@
+{
+  "name": "@neutron-ui/substrate",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Nathan Brown",
+    "email": "me@nathanbrown.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neutronui/substrate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neutronui/substrate/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/main.css"
+    }
+  },
+  "scripts": {
+    "setup": "pip install -r requirements.txt",
+    "build:color": "python build/color_gen.py ./color.config.json"
+  }
+}
