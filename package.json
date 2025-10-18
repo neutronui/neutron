@@ -22,5 +22,15 @@
   "scripts": {
     "setup": "pip install -r requirements.txt",
     "build:color": "python build/color_gen.py ./color.config.json"
+  },
+  "devDependencies": {
+    "@csstools/postcss-random-function": "^2.0.1",
+    "esbuild": "^0.25.11",
+    "parcel": "^2.16.0",
+    "postcss": "^8.5.6",
+    "postcss-import": "^16.1.1",
+    "postcss-preset-env": "^10.4.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.3"
   }
 }
