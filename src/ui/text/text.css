@@ -1,0 +1,134 @@
+/* Block Text */
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-condensed);
+  text-wrap: balance;
+}
+
+:where(h1) {
+  font-size: var(--font-size-3xl);
+  font-variant-ligatures: discretionary-ligatures;
+  font-size-adjust: 0.521;
+}
+
+:where(h2, h3, h4) {
+  font-size-adjust: 0.514;
+  font-variant-numeric: lining-nums;
+}
+
+:where(h2) {
+  font-size: var(--font-size-2xl);
+}
+
+:where(h3) {
+  font-size: var(--font-size-xl);
+}
+
+:where(h4) {
+  font-size: var(--font-size-l);
+}
+
+:where(h5) {
+  font-size: var(--font-size-m);
+}
+
+:where(h6) {
+  font-size: var(--font-size-s);
+}
+
+:where(p) {
+  text-wrap: pretty;
+}
+
+/* Inline Text */
+:where(strong, b) {
+  font-weight: var(--font-weight-bold);
+}
+
+:where(em, i) {
+  font-style: italic;
+}
+
+:where(u) {
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.09375em;
+  text-underline-offset: 0.125em;
+}
+
+:where(s) {
+  text-decoration-line: line-through;
+  text-decoration-thickness: 0.09375em;
+}
+
+:where(ins) {
+  text-decoration-color: var(--color-success-on-subtle);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.09375em;
+  text-underline-offset: 0.125em;
+}
+
+:where(del) {
+  color: color-mix(in oklab, currentColor, transparent 10%);
+  text-decoration-color: var(--color-danger-on-subtle);
+  text-decoration-line: line-through;
+  text-decoration-thickness: 0.09375em;
+}
+
+:where(mark) {
+  padding: 0.125em 0.25em;
+
+  color: var(--color-warning-on-subtle);
+
+  background-color: var(--color-warning-fill-subtle);
+  border-radius: var(--corner-radius-s);
+  corner-shape: var(--corner-shape, round);
+}
+
+:where(small) {
+  font-size: var(--font-size-smaller);
+}
+
+:where(sub, sup) {
+  font-size: var(--font-size-smaller);
+  line-height: 0;
+}
+
+:where(sub) {
+  vertical-align: sub;
+
+  @supports (font-variant-position: sub) {
+    font-variant-position: sub;
+  }
+}
+
+:where(sup) {
+  vertical-align: super;
+  
+  @supports (font-variant-position: super) {
+    font-variant-position: super;
+  }
+}
+
+:where(abbr[title]) {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 0.09375em;
+  text-underline-offset: 0.125em;
+  cursor: var(--cursor-help, help);
+}
+
+:where(kbd) {
+  padding: 0.125em 0.25em;
+  font-family: var(--font-family-monospace);
+  font-size: var(--font-size-smaller);
+  border: var(--stroke-width-s) solid color-mix(in oklab, currentColor, transparent 50%);
+  border-radius: var(--corner-radius-s);
+  corner-shape: var(--corner-shape, round);
+  box-shadow: 0 0.125em 0 0 color-mix(in oklab, currentColor, transparent 50%);
+
+  svg {
+    display: inline;
+    vertical-align: -2px;
+  }
+}

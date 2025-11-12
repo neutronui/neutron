@@ -1,6 +1,8 @@
 @layer neutron;
 @layer neutron.utilities, neutron.ui, neutron.color-palette, neutron.color-variant, neutron.theme, neutron.base;
 
+@import "./root.css" layer(neutron);
+
 @import "./utilities/gap.css" layer(neutron.utilities);
 @import "./utilities/size.css" layer(neutron.utilities);
 @import "./utilities/text.css" layer(neutron.utilities);
@@ -8,6 +10,9 @@
 @import "./utilities/visually-hidden.css" layer(neutron.utilities);
 
 @import "./ui/callout/callout.css" layer(neutron.ui);
+@import "./ui/code/code.css" layer(neutron.ui);
+@import "./ui/form/form.css" layer(neutron.ui);
+@import "./ui/text/text.css" layer(neutron.ui);
 
 @import "./themes/default.css";
 @import "./root.css";

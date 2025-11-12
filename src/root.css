@@ -1,0 +1,139 @@
+@import "./internal/selectors.postcss";
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  tab-size: 4;
+  scrollbar-gutter: auto;
+  scroll-behavior: smooth;
+  color: var(--color-text-normal);
+  background-color: var(--color-layer-base);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  interpolate-size: allow-keywords;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  margin: inherit;
+  padding: inherit;
+  color: inherit;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+}
+
+:where(*) {
+  margin: inherit;
+  font-feature-settings:
+    var(--opentype-case, 'case' off),
+    var(--opentype-sinf, 'sinf' off);
+}
+
+:where(:--media) {
+  display: block;
+  max-width: 100%;
+}
+
+:where(input, button, textarea, select) {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:where(p, :--heading) {
+  overflow-wrap: break-word;
+}
+
+:where(p) {
+  text-wrap: pretty;
+}
+
+:where(input, textarea, progress, meter) {
+  accent-color: var(--form-control-activated-color);
+}
+
+:where(
+  address,
+  audio,
+  blockquote,
+  dd,
+  details:not(.accordion > details),
+  dl,
+  fieldset,
+  figure,
+  h1, h2, h3, h4, h5, h6,
+  hr,
+  iframe,
+  ol, ul,
+  p,
+  pre,
+  table,
+  video
+) {
+  margin: 0;
+
+  &:has(+ *) {
+    margin-block-end: var(--content-spacing);
+  }
+}
+
+:where(hr) {
+  border: none;
+  border-bottom: var(--stroke-width-s) var(--stroke-style) var(--color-layer-stroke);
+  margin: var(--content-spacing) 0;
+}
+
+:where(td, math, time[datetime*=':']) {
+  font-variant-numeric: tabular-nums lining-nums slashed-zero;
+}
+
+:lang(en) > * {
+  quotes: '“' '”' '‘' '’';
+}
+
+:lang(en-GB) > * {
+  quotes: '‘' '’' '“' '”';
+}
+
+:lang(fr) > * {
+  quotes: '«?0202F' '?0202F»' '“' '”';
+}
+
+:where(q, .quoted p:first-of-type, blockquote p:first-of-type) {
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}
+
+:where(.quoted p, blockquote p) {
+  hanging-punctuation: first last;
+
+  &:first-of-type::before {
+    margin-inline-start: -0.87ch;
+  }
+
+  @supports (hanging-punctuation: first last) {
+    &:first-of-type::before {
+      margin-inline-start: 0;
+    }
+  }
+}

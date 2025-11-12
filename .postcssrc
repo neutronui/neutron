@@ -1,6 +1,7 @@
 {
   "plugins": {
     "postcss-import": true,
-    "postcss-custom-media": true
+    "postcss-custom-media": true,
+    "postcss-custom-selectors": true
   }
 }

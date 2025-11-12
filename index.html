@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/main.css">
+  <link rel="stylesheet" href="dist/main.css">
   <title>Document</title>
 </head>
 <body>
-  <article class="callout danger">
+  <article class="callout success">
     <h3 class="callout-title uppercase">Callout Title</h3>
     <p>This is the content of the callout. It provides important information to the reader.</p>
   </article>
+  <pre><code class="code-block language-js">
+  // Example JavaScript code
+
+  function greet(name) {
+      console.log(`Hello, ${name}!`);
+  }
+  greet('World');
+  </code></pre>
+
+  <time datetime="2024-06-15T12:00:00Z">June 15, 2024</time>
+
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <mark>mark</mark>
 </body>
 </html>

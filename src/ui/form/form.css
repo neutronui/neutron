@@ -1,0 +1,74 @@
+:where(label) {
+  display: inline-block;
+  color: var(--form-control-label-color);
+  font-weight: var(--form-control-label-font-weight);
+  line-height: var(--form-control-label-line-height);
+
+  &:has(input:is([type="checkbox"], [type="radio"])) {
+    display: flex inline;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  &:has(input:not(
+    [type="button"],
+    [type="checkbox"],
+    [type="color"],
+    [type="file"],
+    [type="hidden"],
+    [type="image"],
+    [type="radio"],
+    [type="range"],
+    [type="reset"],
+    [type="submit"]
+  ),
+  select,
+  textarea) {
+    width: 100%;
+  }
+
+  & + :is(input:not([type='checkbox'], [type='radio']), textarea, select),
+  & > :is(input:not([type='checkbox'], [type='radio']), textarea, select) {
+    margin-block-start: var(--space-xs);
+  }
+}
+
+:where(fieldset) {
+  border: var(--stroke-style) var(--color-layer-stroke);
+  border-radius: var(--corner-radius-m);
+  corner-shape: var(--corner-shape, round);
+  padding: var(--space-m);
+  padding-block-end: var(--space-xl);
+}
+
+:where(legend) {
+  padding: 0;
+  padding-inline: var(--space-2xs);
+  font-weight: var(--form-control-label-font-weight);
+}
+
+:where(button, input, select, textarea) {
+  font: inherit;
+}
+
+:where(form) {
+  :where(.valid, .invalid, :user-valid, :user-invalid) {
+    --focus-ring: var(--focus-stroke-width) var(--focus-stroke-style) var(--color-focus);
+  }
+  
+  :where(.invalid, :user-invalid) {
+    --form-control-stroke-color: var(--color-danger-stroke-strong);
+    --form-control-activated-color: var(--color-danger-fill-strong);
+    --form-control-value-color: var(--color-danger-on-subtle);
+    --color-focus: var(--color-danger-stroke-strong);
+    --color-text-subtle: var(--color-danger-on-subtle);
+  }
+  
+  :where(.valid, :user-valid) {
+    --form-control-stroke-color: var(--color-success-stroke-strong);
+    --form-control-activated-color: var(--color-success-fill-strong);
+    --form-control-value-color: var(--color-success-on-subtle);
+    --color-focus: var(--color-success-stroke-strong);
+    --color-text-subtle: var(--color-success-on-subtle);
+  }
+}

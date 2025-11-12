@@ -1,0 +1,14 @@
+:where(img, svg, picture, video) {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--corner-radius-m);
+  corner-shape: var(--corner-shape);
+}
+
+:where(embed, iframe, object) {
+  max-width: 100%;
+}
+
+:where(iframe, canvas) {
+  border: none;
+}
