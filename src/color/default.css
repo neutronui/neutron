@@ -1,0 +1,245 @@
+
+/*
+  default Palette
+  Default theme with a modern color palette.
+*/
+
+:where(:root) {
+  --color-cyan-gte-60: calc(100% - (clamp(0, 60 - var(--color-cyan-key), 1) * 100%));
+  --color-gray-gte-60: calc(100% - (clamp(0, 60 - var(--color-gray-key), 1) * 100%));
+  --color-blue-gte-60: calc(100% - (clamp(0, 60 - var(--color-blue-key), 1) * 100%));
+  --color-lime-gte-60: calc(100% - (clamp(0, 60 - var(--color-lime-key), 1) * 100%));
+  --color-orange-gte-60: calc(100% - (clamp(0, 60 - var(--color-orange-key), 1) * 100%));
+  --color-green-gte-60: calc(100% - (clamp(0, 60 - var(--color-green-key), 1) * 100%));
+  --color-pink-gte-60: calc(100% - (clamp(0, 60 - var(--color-pink-key), 1) * 100%));
+  --color-purple-gte-60: calc(100% - (clamp(0, 60 - var(--color-purple-key), 1) * 100%));
+  --color-red-gte-60: calc(100% - (clamp(0, 60 - var(--color-red-key), 1) * 100%));
+
+  --color-cyan-on: color-mix(in oklab, var(--color-cyan-10) var(--color-cyan-gte-60), white);
+  --color-gray-on: color-mix(in oklab, var(--color-gray-10) var(--color-gray-gte-60), white);
+  --color-blue-on: color-mix(in oklab, var(--color-blue-10) var(--color-blue-gte-60), white);
+  --color-lime-on: color-mix(in oklab, var(--color-lime-10) var(--color-lime-gte-60), white);
+  --color-orange-on: color-mix(in oklab, var(--color-orange-10) var(--color-orange-gte-60), white);
+  --color-green-on: color-mix(in oklab, var(--color-green-10) var(--color-green-gte-60), white);
+  --color-pink-on: color-mix(in oklab, var(--color-pink-10) var(--color-pink-gte-60), white);
+  --color-purple-on: color-mix(in oklab, var(--color-purple-10) var(--color-purple-gte-60), white);
+  --color-red-on: color-mix(in oklab, var(--color-red-10) var(--color-red-gte-60), white);
+}
+
+@layer neutron.color-palette {
+  :where(:root), .default-palette {
+    --color-cyan-05: oklch(5% 0.1 197);
+    --color-cyan-10: oklch(14% 0.1 197);
+    --color-cyan-20: oklch(23% 0.1 197);
+    --color-cyan-30: oklch(32% 0.1 197);
+    --color-cyan-40: oklch(41% 0.1 197);
+    --color-cyan-50: oklch(50% 0.1 197);
+    --color-cyan-60: oklch(60.000004% 0.1 197);
+    --color-cyan-70: oklch(69% 0.1 197);
+    --color-cyan-80: oklch(78% 0.1 197);
+    --color-cyan-90: oklch(87% 0.1 197);
+    --color-cyan-95: oklch(96% 0.1 197);
+    --color-cyan: var(--color-cyan-90);
+    --cyan-key: 90;
+    
+    --color-gray-05: oklch(5% 0.01 286);
+    --color-gray-10: oklch(14% 0.01 286);
+    --color-gray-20: oklch(23% 0.01 286);
+    --color-gray-30: oklch(32% 0.01 286);
+    --color-gray-40: oklch(41% 0.01 286);
+    --color-gray-50: oklch(50% 0.01 286);
+    --color-gray-60: oklch(60.000004% 0.01 286);
+    --color-gray-70: oklch(69% 0.01 286);
+    --color-gray-80: oklch(78% 0.01 286);
+    --color-gray-90: oklch(87% 0.01 286);
+    --color-gray-95: oklch(96% 0.01 286);
+    --color-gray: var(--color-gray-20);
+    --gray-key: 20;
+    
+    --color-blue-05: oklch(5% 0.3 271);
+    --color-blue-10: oklch(14% 0.3 271);
+    --color-blue-20: oklch(23% 0.3 271);
+    --color-blue-30: oklch(32% 0.3 271);
+    --color-blue-40: oklch(41% 0.3 271);
+    --color-blue-50: oklch(50% 0.3 271);
+    --color-blue-60: oklch(60.000004% 0.3 271);
+    --color-blue-70: oklch(69% 0.3 271);
+    --color-blue-80: oklch(78% 0.3 271);
+    --color-blue-90: oklch(87% 0.3 271);
+    --color-blue-95: oklch(96% 0.3 271);
+    --color-blue: var(--color-blue-50);
+    --blue-key: 50;
+    
+    --color-lime-05: oklch(5% 0.23 126);
+    --color-lime-10: oklch(14% 0.23 126);
+    --color-lime-20: oklch(23% 0.23 126);
+    --color-lime-30: oklch(32% 0.23 126);
+    --color-lime-40: oklch(41% 0.23 126);
+    --color-lime-50: oklch(50% 0.23 126);
+    --color-lime-60: oklch(60.000004% 0.23 126);
+    --color-lime-70: oklch(69% 0.23 126);
+    --color-lime-80: oklch(78% 0.23 126);
+    --color-lime-90: oklch(87% 0.23 126);
+    --color-lime-95: oklch(96% 0.23 126);
+    --color-lime: var(--color-lime-95);
+    --lime-key: 95;
+    
+    --color-orange-05: oklch(5% 0.19 48);
+    --color-orange-10: oklch(14% 0.19 48);
+    --color-orange-20: oklch(23% 0.19 48);
+    --color-orange-30: oklch(32% 0.19 48);
+    --color-orange-40: oklch(41% 0.19 48);
+    --color-orange-50: oklch(50% 0.19 48);
+    --color-orange-60: oklch(60.000004% 0.19 48);
+    --color-orange-70: oklch(69% 0.19 48);
+    --color-orange-80: oklch(78% 0.19 48);
+    --color-orange-90: oklch(87% 0.19 48);
+    --color-orange-95: oklch(96% 0.19 48);
+    --color-orange: var(--color-orange-70);
+    --orange-key: 70;
+    
+    --color-green-05: oklch(5% 0.25 145);
+    --color-green-10: oklch(14% 0.25 145);
+    --color-green-20: oklch(23% 0.25 145);
+    --color-green-30: oklch(32% 0.25 145);
+    --color-green-40: oklch(41% 0.25 145);
+    --color-green-50: oklch(50% 0.25 145);
+    --color-green-60: oklch(60.000004% 0.25 145);
+    --color-green-70: oklch(69% 0.25 145);
+    --color-green-80: oklch(78% 0.25 145);
+    --color-green-90: oklch(87% 0.25 145);
+    --color-green-95: oklch(96% 0.25 145);
+    --color-green: var(--color-green-90);
+    --green-key: 90;
+    
+    --color-pink-05: oklch(5% 0.24 334);
+    --color-pink-10: oklch(14% 0.24 334);
+    --color-pink-20: oklch(23% 0.24 334);
+    --color-pink-30: oklch(32% 0.24 334);
+    --color-pink-40: oklch(41% 0.24 334);
+    --color-pink-50: oklch(50% 0.24 334);
+    --color-pink-60: oklch(60.000004% 0.24 334);
+    --color-pink-70: oklch(69% 0.24 334);
+    --color-pink-80: oklch(78% 0.24 334);
+    --color-pink-90: oklch(87% 0.24 334);
+    --color-pink-95: oklch(96% 0.24 334);
+    --color-pink: var(--color-pink-70);
+    --pink-key: 70;
+    
+    --color-purple-05: oklch(5% 0.19 281);
+    --color-purple-10: oklch(14% 0.19 281);
+    --color-purple-20: oklch(23% 0.19 281);
+    --color-purple-30: oklch(32% 0.19 281);
+    --color-purple-40: oklch(41% 0.19 281);
+    --color-purple-50: oklch(50% 0.19 281);
+    --color-purple-60: oklch(60.000004% 0.19 281);
+    --color-purple-70: oklch(69% 0.19 281);
+    --color-purple-80: oklch(78% 0.19 281);
+    --color-purple-90: oklch(87% 0.19 281);
+    --color-purple-95: oklch(96% 0.19 281);
+    --color-purple: var(--color-purple-30);
+    --purple-key: 30;
+    
+    --color-red-05: oklch(5% 0.21 20);
+    --color-red-10: oklch(14% 0.21 20);
+    --color-red-20: oklch(23% 0.21 20);
+    --color-red-30: oklch(32% 0.21 20);
+    --color-red-40: oklch(41% 0.21 20);
+    --color-red-50: oklch(50% 0.21 20);
+    --color-red-60: oklch(60.000004% 0.21 20);
+    --color-red-70: oklch(69% 0.21 20);
+    --color-red-80: oklch(78% 0.21 20);
+    --color-red-90: oklch(87% 0.21 20);
+    --color-red-95: oklch(96% 0.21 20);
+    --color-red: var(--color-red-70);
+    --red-key: 70;
+  }
+}
+
+@layer neutron.color-variant {
+  :where(:root) {
+    --color-brand-05: var(--color-blue-05);
+    --color-brand-10: var(--color-blue-10);
+    --color-brand-20: var(--color-blue-20);
+    --color-brand-30: var(--color-blue-30);
+    --color-brand-40: var(--color-blue-40);
+    --color-brand-50: var(--color-blue-50);
+    --color-brand-60: var(--color-blue-60);
+    --color-brand-70: var(--color-blue-70);
+    --color-brand-80: var(--color-blue-80);
+    --color-brand-90: var(--color-blue-90);
+    --color-brand-95: var(--color-blue-95);
+    --color-brand: var(--color-blue-50);
+    --color-brand-on: var(--color-blue-on);
+
+    --color-info-05: var(--color-cyan-05);
+    --color-info-10: var(--color-cyan-10);
+    --color-info-20: var(--color-cyan-20);
+    --color-info-30: var(--color-cyan-30);
+    --color-info-40: var(--color-cyan-40);
+    --color-info-50: var(--color-cyan-50);
+    --color-info-60: var(--color-cyan-60);
+    --color-info-70: var(--color-cyan-70);
+    --color-info-80: var(--color-cyan-80);
+    --color-info-90: var(--color-cyan-90);
+    --color-info-95: var(--color-cyan-95);
+    --color-info: var(--color-cyan-90);
+    --color-info-on: var(--color-cyan-on);
+
+    --color-danger-05: var(--color-red-05);
+    --color-danger-10: var(--color-red-10);
+    --color-danger-20: var(--color-red-20);
+    --color-danger-30: var(--color-red-30);
+    --color-danger-40: var(--color-red-40);
+    --color-danger-50: var(--color-red-50);
+    --color-danger-60: var(--color-red-60);
+    --color-danger-70: var(--color-red-70);
+    --color-danger-80: var(--color-red-80);
+    --color-danger-90: var(--color-red-90);
+    --color-danger-95: var(--color-red-95);
+    --color-danger: var(--color-red-70);
+    --color-danger-on: var(--color-red-on);
+
+    --color-neutral-05: var(--color-gray-05);
+    --color-neutral-10: var(--color-gray-10);
+    --color-neutral-20: var(--color-gray-20);
+    --color-neutral-30: var(--color-gray-30);
+    --color-neutral-40: var(--color-gray-40);
+    --color-neutral-50: var(--color-gray-50);
+    --color-neutral-60: var(--color-gray-60);
+    --color-neutral-70: var(--color-gray-70);
+    --color-neutral-80: var(--color-gray-80);
+    --color-neutral-90: var(--color-gray-90);
+    --color-neutral-95: var(--color-gray-95);
+    --color-neutral: var(--color-gray-20);
+    --color-neutral-on: var(--color-gray-on);
+
+    --color-success-05: var(--color-green-05);
+    --color-success-10: var(--color-green-10);
+    --color-success-20: var(--color-green-20);
+    --color-success-30: var(--color-green-30);
+    --color-success-40: var(--color-green-40);
+    --color-success-50: var(--color-green-50);
+    --color-success-60: var(--color-green-60);
+    --color-success-70: var(--color-green-70);
+    --color-success-80: var(--color-green-80);
+    --color-success-90: var(--color-green-90);
+    --color-success-95: var(--color-green-95);
+    --color-success: var(--color-green-90);
+    --color-success-on: var(--color-green-on);
+
+    --color-warning-05: var(--color-orange-05);
+    --color-warning-10: var(--color-orange-10);
+    --color-warning-20: var(--color-orange-20);
+    --color-warning-30: var(--color-orange-30);
+    --color-warning-40: var(--color-orange-40);
+    --color-warning-50: var(--color-orange-50);
+    --color-warning-60: var(--color-orange-60);
+    --color-warning-70: var(--color-orange-70);
+    --color-warning-80: var(--color-orange-80);
+    --color-warning-90: var(--color-orange-90);
+    --color-warning-95: var(--color-orange-95);
+    --color-warning: var(--color-orange-70);
+    --color-warning-on: var(--color-orange-on);
+  }
+}

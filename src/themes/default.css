@@ -1,4 +1,4 @@
-@import "../color/default/default.css";
+@import "../color/default.css";
 
 @layer neutron.theme {
   :where(:root),
