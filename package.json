@@ -23,8 +23,8 @@
     }
   },
   "scripts": {
-    "setup": "pip install -r requirements.txt",
-    "build:color": "python build/color_gen.py ./color.config.json"
+    "build:clear": "rimraf -rf dist",
+    "build:css": "npm run build:clear && parcel build --dist-dir dist"
   },
   "devDependencies": {
     "@csstools/postcss-random-function": "^2.0.1",
@@ -35,5 +35,29 @@
     "postcss-preset-env": "^10.4.0",
     "rimraf": "^6.0.1",
     "typescript": "^5.9.3"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "targets": {
+    "themes": {
+      "source": "src/themes/*.css",
+      "distDir": "dist",
+      "isLibrary": true,
+      "optimize": false,
+      "sourceMap": false
+    },
+    "utils": {
+      "source": "src/utilities/*.css",
+      "distDir": "dist",
+      "isLibrary": true,
+      "optimize": false,
+      "sourceMap": false
+    },
+    "bundle": {
+      "source": "src/main.css",
+      "distDir": "dist",
+      "isLibrary": true,
+      "optimize": true,
+      "sourceMap": false
+    }
   }
 }
