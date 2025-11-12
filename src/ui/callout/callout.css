@@ -1,0 +1,20 @@
+:where(.callout) {
+  display: block;
+  align-items: stretch;
+  padding: var(--space-m);
+
+  border-width: var(--stroke-width-s);
+  border-style: var(--stroke-style);
+  border-color: transparent;
+  border-radius: var(--corner-radius-m);
+  corner-shape: var(--corner-shape, round);
+
+  background-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+  color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+}

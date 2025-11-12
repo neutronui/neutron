@@ -17,6 +17,9 @@
   "exports": {
     ".": {
       "import": "./dist/main.css"
+    },
+    "./palette/*.css": {
+      "import": "./dist/color/*/*.css"
     }
   },
   "scripts": {

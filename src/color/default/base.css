@@ -1,0 +1,37 @@
+:where(:root),
+:host {
+  /**
+    * Conditional tokens to check if the key color is >= 60
+    * Key colors are the most colorful tint in a scale, recorded as --color-{hue} in each palette
+    * The numeric value of the key is isolated as --color-{hue}-key
+    * If key < 60, the result is 0%
+    * If key >= 60, the result is 100%
+    * Intended to be used in the color-mix() functions below
+    */
+
+  --color-cyan-gte-60: calc(100% - (clamp(0, 60 - var(--color-cyan-key), 1) * 100%));
+  --color-gray-gte-60: calc(100% - (clamp(0, 60 - var(--color-gray-key), 1) * 100%));
+  --color-blue-gte-60: calc(100% - (clamp(0, 60 - var(--color-blue-key), 1) * 100%));
+  --color-lime-gte-60: calc(100% - (clamp(0, 60 - var(--color-lime-key), 1) * 100%));
+  --color-orange-gte-60: calc(100% - (clamp(0, 60 - var(--color-orange-key), 1) * 100%));
+  --color-green-gte-60: calc(100% - (clamp(0, 60 - var(--color-green-key), 1) * 100%));
+  --color-pink-gte-60: calc(100% - (clamp(0, 60 - var(--color-pink-key), 1) * 100%));
+  --color-purple-gte-60: calc(100% - (clamp(0, 60 - var(--color-purple-key), 1) * 100%));
+  --color-red-gte-60: calc(100% - (clamp(0, 60 - var(--color-red-key), 1) * 100%));
+
+  /**
+    * Tokens to set text color with appropriate WCAG 2.1 contrast
+    * If key < 60, the text color is white
+    * If key >= 60, the text color is {hue}-10
+    */
+
+  --color-cyan-on: color-mix(in oklab, var(--color-cyan-10) var(--color-cyan-gte-60), white);
+  --color-gray-on: color-mix(in oklab, var(--color-gray-10) var(--color-gray-gte-60), white);
+  --color-blue-on: color-mix(in oklab, var(--color-blue-10) var(--color-blue-gte-60), white);
+  --color-lime-on: color-mix(in oklab, var(--color-lime-10) var(--color-lime-gte-60), white);
+  --color-orange-on: color-mix(in oklab, var(--color-orange-10) var(--color-orange-gte-60), white);
+  --color-green-on: color-mix(in oklab, var(--color-green-10) var(--color-green-gte-60), white);
+  --color-pink-on: color-mix(in oklab, var(--color-pink-10) var(--color-pink-gte-60), white);
+  --color-purple-on: color-mix(in oklab, var(--color-purple-10) var(--color-purple-gte-60), white);
+  --color-red-on: color-mix(in oklab, var(--color-red-10) var(--color-red-gte-60), white);
+}

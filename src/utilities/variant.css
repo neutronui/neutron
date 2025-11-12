@@ -1,0 +1,148 @@
+@property --color-fill-strong {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-fill-normal {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-fill-subtle {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-stroke-strong {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-stroke-normal {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-stroke-subtle {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-on-strong {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-on-normal {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --color-on-subtle {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}
+
+:not(.neutral, .brand, .success, .warning, .danger, .info) {
+  --color-fill-strong: var(--no-variant, var(--color-neutral-fill-strong));
+  --color-fill-normal: var(--no-variant, var(--color-neutral-fill-normal));
+  --color-fill-subtle: var(--no-variant, var(--color-neutral-fill-subtle));
+  --color-stroke-strong: var(--no-variant, var(--color-neutral-stroke-strong));
+  --color-stroke-normal: var(--no-variant, var(--color-neutral-stroke-normal));
+  --color-stroke-subtle: var(--no-variant, var(--color-neutral-stroke-subtle));
+  --color-on-strong: var(--no-variant, var(--color-neutral-on-strong));
+  --color-on-normal: var(--no-variant, var(--color-neutral-on-normal));
+  --color-on-subtle: var(--no-variant, var(--color-neutral-on-subtle));
+}
+
+:where(:root),
+.neutral,
+:host([variant='neutral']) {
+  --color-fill-strong: var(--color-neutral-fill-strong);
+  --color-fill-normal: var(--color-neutral-fill-normal);
+  --color-fill-subtle: var(--color-neutral-fill-subtle);
+  --color-stroke-strong: var(--color-neutral-stroke-strong);
+  --color-stroke-normal: var(--color-neutral-stroke-normal);
+  --color-stroke-subtle: var(--color-neutral-stroke-subtle);
+  --color-on-strong: var(--color-neutral-on-strong);
+  --color-on-normal: var(--color-neutral-on-normal);
+  --color-on-subtle: var(--color-neutral-on-subtle);
+}
+
+.brand,
+:host([variant='brand']) {
+  --color-fill-strong: var(--color-brand-fill-strong);
+  --color-fill-normal: var(--color-brand-fill-normal);
+  --color-fill-subtle: var(--color-brand-fill-subtle);
+  --color-stroke-strong: var(--color-brand-stroke-strong);
+  --color-stroke-normal: var(--color-brand-stroke-normal);
+  --color-stroke-subtle: var(--color-brand-stroke-subtle);
+  --color-on-strong: var(--color-brand-on-strong);
+  --color-on-normal: var(--color-brand-on-normal);
+  --color-on-subtle: var(--color-brand-on-subtle);
+}
+
+.success,
+:host([variant='success']) {
+  --color-fill-strong: var(--color-success-fill-strong);
+  --color-fill-normal: var(--color-success-fill-normal);
+  --color-fill-subtle: var(--color-success-fill-subtle);
+  --color-stroke-strong: var(--color-success-stroke-strong);
+  --color-stroke-normal: var(--color-success-stroke-normal);
+  --color-stroke-subtle: var(--color-success-stroke-subtle);
+  --color-on-strong: var(--color-success-on-strong);
+  --color-on-normal: var(--color-success-on-normal);
+  --color-on-subtle: var(--color-success-on-subtle);
+}
+
+.warning,
+:host([variant='warning']) {
+  --color-fill-strong: var(--color-warning-fill-strong);
+  --color-fill-normal: var(--color-warning-fill-normal);
+  --color-fill-subtle: var(--color-warning-fill-subtle);
+  --color-stroke-strong: var(--color-warning-stroke-strong);
+  --color-stroke-normal: var(--color-warning-stroke-normal);
+  --color-stroke-subtle: var(--color-warning-stroke-subtle);
+  --color-on-strong: var(--color-warning-on-strong);
+  --color-on-normal: var(--color-warning-on-normal);
+  --color-on-subtle: var(--color-warning-on-subtle);
+}
+
+.danger,
+:host([variant='danger']) {
+  --color-fill-strong: var(--color-danger-fill-strong);
+  --color-fill-normal: var(--color-danger-fill-normal);
+  --color-fill-subtle: var(--color-danger-fill-subtle);
+  --color-stroke-strong: var(--color-danger-stroke-strong);
+  --color-stroke-normal: var(--color-danger-stroke-normal);
+  --color-stroke-subtle: var(--color-danger-stroke-subtle);
+  --color-on-strong: var(--color-danger-on-strong);
+  --color-on-normal: var(--color-danger-on-normal);
+  --color-on-subtle: var(--color-danger-on-subtle);
+}
+
+.info,
+:host([variant='info']) {
+  --color-fill-strong: var(--color-info-fill-strong);
+  --color-fill-normal: var(--color-info-fill-normal);
+  --color-fill-subtle: var(--color-info-fill-subtle);
+  --color-stroke-strong: var(--color-info-stroke-strong);
+  --color-stroke-normal: var(--color-info-stroke-normal);
+  --color-stroke-subtle: var(--color-info-stroke-subtle);
+  --color-on-strong: var(--color-info-on-strong);
+  --color-on-normal: var(--color-info-on-normal);
+  --color-on-subtle: var(--color-info-on-subtle);
+}
+
+:where(.neutral, .brand, .success, .warning, .danger, .info) {
+  --no-variant: /* space toggle */;
+}

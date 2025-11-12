@@ -1,0 +1,140 @@
+
+/*
+  default Palette
+  Default theme with a modern color palette.
+*/
+
+@import("./base.css");
+@import("./brand.css");
+@import("./success.css");
+@import("./neutral.css");
+@import("./danger.css");
+@import("./info.css");
+@import("./warning.css");
+:where(:root), .default-palette {
+  --color-cyan-05: oklch(5% 0.1 197);
+  --color-cyan-10: oklch(14% 0.1 197);
+  --color-cyan-20: oklch(23% 0.1 197);
+  --color-cyan-30: oklch(32% 0.1 197);
+  --color-cyan-40: oklch(41% 0.1 197);
+  --color-cyan-50: oklch(50% 0.1 197);
+  --color-cyan-60: oklch(60.000004% 0.1 197);
+  --color-cyan-70: oklch(69% 0.1 197);
+  --color-cyan-80: oklch(78% 0.1 197);
+  --color-cyan-90: oklch(87% 0.1 197);
+  --color-cyan-95: oklch(96% 0.1 197);
+  --color-cyan: var(--color-cyan-90);
+  --cyan-key: 90;
+  
+  --color-gray-05: oklch(5% 0.01 286);
+  --color-gray-10: oklch(14% 0.01 286);
+  --color-gray-20: oklch(23% 0.01 286);
+  --color-gray-30: oklch(32% 0.01 286);
+  --color-gray-40: oklch(41% 0.01 286);
+  --color-gray-50: oklch(50% 0.01 286);
+  --color-gray-60: oklch(60.000004% 0.01 286);
+  --color-gray-70: oklch(69% 0.01 286);
+  --color-gray-80: oklch(78% 0.01 286);
+  --color-gray-90: oklch(87% 0.01 286);
+  --color-gray-95: oklch(96% 0.01 286);
+  --color-gray: var(--color-gray-20);
+  --gray-key: 20;
+  
+  --color-blue-05: oklch(5% 0.3 271);
+  --color-blue-10: oklch(14% 0.3 271);
+  --color-blue-20: oklch(23% 0.3 271);
+  --color-blue-30: oklch(32% 0.3 271);
+  --color-blue-40: oklch(41% 0.3 271);
+  --color-blue-50: oklch(50% 0.3 271);
+  --color-blue-60: oklch(60.000004% 0.3 271);
+  --color-blue-70: oklch(69% 0.3 271);
+  --color-blue-80: oklch(78% 0.3 271);
+  --color-blue-90: oklch(87% 0.3 271);
+  --color-blue-95: oklch(96% 0.3 271);
+  --color-blue: var(--color-blue-50);
+  --blue-key: 50;
+  
+  --color-lime-05: oklch(5% 0.23 126);
+  --color-lime-10: oklch(14% 0.23 126);
+  --color-lime-20: oklch(23% 0.23 126);
+  --color-lime-30: oklch(32% 0.23 126);
+  --color-lime-40: oklch(41% 0.23 126);
+  --color-lime-50: oklch(50% 0.23 126);
+  --color-lime-60: oklch(60.000004% 0.23 126);
+  --color-lime-70: oklch(69% 0.23 126);
+  --color-lime-80: oklch(78% 0.23 126);
+  --color-lime-90: oklch(87% 0.23 126);
+  --color-lime-95: oklch(96% 0.23 126);
+  --color-lime: var(--color-lime-95);
+  --lime-key: 95;
+  
+  --color-orange-05: oklch(5% 0.19 48);
+  --color-orange-10: oklch(14% 0.19 48);
+  --color-orange-20: oklch(23% 0.19 48);
+  --color-orange-30: oklch(32% 0.19 48);
+  --color-orange-40: oklch(41% 0.19 48);
+  --color-orange-50: oklch(50% 0.19 48);
+  --color-orange-60: oklch(60.000004% 0.19 48);
+  --color-orange-70: oklch(69% 0.19 48);
+  --color-orange-80: oklch(78% 0.19 48);
+  --color-orange-90: oklch(87% 0.19 48);
+  --color-orange-95: oklch(96% 0.19 48);
+  --color-orange: var(--color-orange-70);
+  --orange-key: 70;
+  
+  --color-green-05: oklch(5% 0.25 145);
+  --color-green-10: oklch(14% 0.25 145);
+  --color-green-20: oklch(23% 0.25 145);
+  --color-green-30: oklch(32% 0.25 145);
+  --color-green-40: oklch(41% 0.25 145);
+  --color-green-50: oklch(50% 0.25 145);
+  --color-green-60: oklch(60.000004% 0.25 145);
+  --color-green-70: oklch(69% 0.25 145);
+  --color-green-80: oklch(78% 0.25 145);
+  --color-green-90: oklch(87% 0.25 145);
+  --color-green-95: oklch(96% 0.25 145);
+  --color-green: var(--color-green-90);
+  --green-key: 90;
+  
+  --color-pink-05: oklch(5% 0.24 334);
+  --color-pink-10: oklch(14% 0.24 334);
+  --color-pink-20: oklch(23% 0.24 334);
+  --color-pink-30: oklch(32% 0.24 334);
+  --color-pink-40: oklch(41% 0.24 334);
+  --color-pink-50: oklch(50% 0.24 334);
+  --color-pink-60: oklch(60.000004% 0.24 334);
+  --color-pink-70: oklch(69% 0.24 334);
+  --color-pink-80: oklch(78% 0.24 334);
+  --color-pink-90: oklch(87% 0.24 334);
+  --color-pink-95: oklch(96% 0.24 334);
+  --color-pink: var(--color-pink-70);
+  --pink-key: 70;
+  
+  --color-purple-05: oklch(5% 0.19 281);
+  --color-purple-10: oklch(14% 0.19 281);
+  --color-purple-20: oklch(23% 0.19 281);
+  --color-purple-30: oklch(32% 0.19 281);
+  --color-purple-40: oklch(41% 0.19 281);
+  --color-purple-50: oklch(50% 0.19 281);
+  --color-purple-60: oklch(60.000004% 0.19 281);
+  --color-purple-70: oklch(69% 0.19 281);
+  --color-purple-80: oklch(78% 0.19 281);
+  --color-purple-90: oklch(87% 0.19 281);
+  --color-purple-95: oklch(96% 0.19 281);
+  --color-purple: var(--color-purple-30);
+  --purple-key: 30;
+  
+  --color-red-05: oklch(5% 0.21 20);
+  --color-red-10: oklch(14% 0.21 20);
+  --color-red-20: oklch(23% 0.21 20);
+  --color-red-30: oklch(32% 0.21 20);
+  --color-red-40: oklch(41% 0.21 20);
+  --color-red-50: oklch(50% 0.21 20);
+  --color-red-60: oklch(60.000004% 0.21 20);
+  --color-red-70: oklch(69% 0.21 20);
+  --color-red-80: oklch(78% 0.21 20);
+  --color-red-90: oklch(87% 0.21 20);
+  --color-red-95: oklch(96% 0.21 20);
+  --color-red: var(--color-red-70);
+  --red-key: 70;
+}

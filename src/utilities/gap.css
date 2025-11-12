@@ -1,0 +1,54 @@
+:where(
+  .gap-none,
+  .gap-3xs,
+  .gap-2xs,
+  .gap-xs,
+  .gap-s,
+  .gap-m,
+  .gap-l,
+  .gap-xl,
+  .gap-2xl,
+  .gap-3xl,
+) {
+  display: flex;
+}
+
+.gap-none {
+  gap: 0;
+}
+
+.gap-3xs {
+  gap: var(--space-3xs);
+}
+
+.gap-2xs {
+  gap: var(--space-2xs);
+}
+
+.gap-xs {
+  gap: var(--space-xs);
+}
+
+.gap-s {
+  gap: var(--space-s);
+}
+
+.gap-m {
+  gap: var(--space-m);
+}
+
+.gap-l {
+  gap: var(--space-l);
+}
+
+.gap-xl {
+  gap: var(--space-xl);
+}
+
+.gap-2xl {
+  gap: var(--space-2xl);
+}
+
+.gap-3xl {
+  gap: var(--space-3xl);
+}
