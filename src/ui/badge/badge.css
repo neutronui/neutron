@@ -2,7 +2,7 @@
   display: flex inline;
   align-items: center;
   justify-content: center;
-  vertical-align: middle;
+  vertical-align: top;
   font-size: var(--font-size-xs);
   line-height: var(--line-height-normal);
   font-weight: var(--font-weight-semibold);
