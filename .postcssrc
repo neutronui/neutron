@@ -1,6 +1,5 @@
 {
   "plugins": {
-    "@csstools/postcss-random-function": { "preserve": true },
     "postcss-import": true,
     "postcss-url": true,
     "postcss-custom-media": true,

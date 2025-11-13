@@ -67,73 +67,75 @@ body {
   accent-color: var(--form-control-activated-color);
 }
 
-:where(
-  address,
-  audio,
-  blockquote,
-  dd,
-  details:not(.accordion > details),
-  dl,
-  fieldset,
-  figure,
-  h1, h2, h3, h4, h5, h6,
-  hr,
-  iframe,
-  ol, ul,
-  p,
-  pre,
-  table,
-  video
-) {
-  margin: 0;
+:where(.prose) {
+  :where(
+    address,
+    audio,
+    blockquote,
+    dd,
+    details:not(.accordion > details),
+    dl,
+    fieldset,
+    figure,
+    h1, h2, h3, h4, h5, h6,
+    hr,
+    iframe,
+    ol, ul,
+    p,
+    pre,
+    table,
+    video
+  ) {
+    margin: 0;
 
-  &:has(+ *) {
-    margin-block-end: var(--content-spacing);
-  }
-}
-
-:where(hr) {
-  border: none;
-  border-bottom: var(--stroke-width-s) var(--stroke-style) var(--color-layer-stroke);
-  margin: var(--content-spacing) 0;
-}
-
-:where(td, math, time[datetime*=':']) {
-  font-variant-numeric: tabular-nums lining-nums slashed-zero;
-}
-
-:lang(en) > * {
-  quotes: '“' '”' '‘' '’';
-}
-
-:lang(en-GB) > * {
-  quotes: '‘' '’' '“' '”';
-}
-
-:lang(fr) > * {
-  quotes: '«?0202F' '?0202F»' '“' '”';
-}
-
-:where(q, .quoted p:first-of-type, blockquote p:first-of-type) {
-  &::before {
-    content: open-quote;
+    &:has(+ *) {
+      margin-block-end: var(--content-spacing);
+    }
   }
 
-  &::after {
-    content: close-quote;
-  }
-}
-
-:where(.quoted p, blockquote p) {
-  hanging-punctuation: first last;
-
-  &:first-of-type::before {
-    margin-inline-start: -0.87ch;
+  :where(hr) {
+    border: none;
+    border-bottom: var(--stroke-width-s) var(--stroke-style) var(--color-layer-stroke);
+    margin: var(--content-spacing) 0;
   }
 
-  @supports (hanging-punctuation: first last) {
+  :where(td, math, time[datetime*=':']) {
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;
+  }
+
+  :lang(en) > * {
+    quotes: '“' '”' '‘' '’';
+  }
+
+  :lang(en-GB) > * {
+    quotes: '‘' '’' '“' '”';
+  }
+
+  :lang(fr) > * {
+    quotes: '«?0202F' '?0202F»' '“' '”';
+  }
+
+  :where(q, .quoted p:first-of-type, blockquote p:first-of-type) {
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
+
+  :where(.quoted p, blockquote p) {
+    hanging-punctuation: first last;
+
     &:first-of-type::before {
-      margin-inline-start: 0;
+      margin-inline-start: -0.87ch;
+    }
+
+    @supports (hanging-punctuation: first last) {
+      &:first-of-type::before {
+        margin-inline-start: 0;
+      }
     }
   }
 }

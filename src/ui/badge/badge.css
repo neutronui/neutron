@@ -16,6 +16,7 @@
   border-color: transparent;
   border-radius: var(--corner-radius-m);
   corner-shape: var(--corner-shape);
-  block-size: 1lh;
+  min-block-size: 1lh;
+  block-size: fit-content;
   inline-size: fit-content;
 }
