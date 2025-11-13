@@ -1,0 +1,96 @@
+@import '../../internal/media-queries.postcss';
+
+:where(:root:has(dialog)) {
+  transition: overflow var(--duration-none) allow-discrete;
+  transition-delay: var(--duration-normal);
+
+  &:has(dialog:open) {
+    overflow: hidden;
+    transition: unset;
+    transition-delay: unset;
+  }
+}
+
+:where(dialog) {
+  flex-flow: column;
+  inset: 0;
+  width: 31rem;
+  max-width: calc(100% - var(--space-2xl));
+  max-height: calc(100% - var(--space-2xl));
+  background-color: var(--color-layer-floating);
+  padding-block: var(--space-xl);
+  padding-inline: var(--space-xl);
+  border: var(--stroke-width-m) var(--stroke-style) var(--color-stroke-strong, transparent);
+  border-radius: var(--corner-radius-m);
+  corner-shape: var(--corner-shape);
+  color: var(--color-text-normal);
+  box-shadow: var(--shadow-l);
+  margin: auto;
+
+  @media (--forced-colors) {
+    border: solid 1px white;
+  }
+
+  @media screen and (max-width: 420px) {
+    max-height: 80vh;
+  }
+
+  @media (--motion-ok) {
+    & {
+      transition:
+        display var(--duration-normal) allow-discrete,
+        margin-block-start var(--duration-normal) var(--ease-decelerate-mid),
+        overlay var(--duration-normal) allow-discrete,
+        opacity var(--duration-normal) var(--ease-decelerate-mid);
+    }
+
+    &:open {
+      margin-block-start: 25vh;
+    }
+
+    &::backdrop {
+      backdrop-filter: blur(5px);
+    }
+  }
+
+  &:open {
+    display: flex;
+
+    &::backdrop {
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    @starting-style {
+      margin-block-start: 27vh;
+      opacity: 0;
+    }
+  }
+
+  &:not(:open) {
+    margin-block-start: 27vh;
+
+    &,
+    &::backdrop {
+      opacity: 0;
+    }
+  }
+
+  &::backdrop {
+    background-color: var(--color-overlay-modal);
+    transition: inherit;
+    opacity: 1;
+  }
+
+  footer, .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-2xs);
+  }
+
+  * {
+    margin: 0;
+  }
+}

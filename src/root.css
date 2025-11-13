@@ -16,8 +16,8 @@ html {
   interpolate-size: allow-keywords;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+:where(*), :where(*)::before, :where(*)::after {
+  box-sizing: border-box;
 }
 
 body {

@@ -1,5 +1,5 @@
 {
-  "name": "@neutron-ui/substrate",
+  "name": "@neutron-ui/neutron",
   "version": "0.0.1",
   "license": "MIT",
   "author": {
@@ -8,56 +8,56 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neutronui/substrate.git"
+    "url": "git+https://github.com/neutronui/neutron.git"
   },
   "bugs": {
-    "url": "https://github.com/neutronui/substrate/issues"
+    "url": "https://github.com/neutronui/neutron/issues"
   },
   "type": "module",
+  "files": [
+    "dist/",
+    "README.md",
+    "package.json",
+    "LICENSE"
+  ],
   "exports": {
     ".": {
-      "import": "./dist/main.css"
+      "import": "./dist/main.css",
+      "default": "./dist/main.css.br"
+    },
+    "./ui/*/*.css": {
+      "import": "./dist/ui/*/*.css"
+    },
+    "./bundle.css": {
+      "import": "./dist/bundle.css",
+      "default": "./dist/bundle.css.br"
+    },
+    "./utils/*.css": {
+      "import": "./dist/utilities/*.css"
     },
     "./palette/*.css": {
-      "import": "./dist/color/*/*.css"
+      "import": "./dist/color/*.css"
+    },
+    "./theme/*.css": {
+      "import": "./dist/themes/*.css"
     }
   },
   "scripts": {
-    "build:clear": "rimraf -rf dist",
-    "build:css": "npm run build:clear && parcel build --dist-dir dist"
+    "build:clean": "rimraf -rf dist",
+    "build": "npm run build:clean && node ./esbuild.mjs",
+    "dev": "http-server -o"
   },
   "devDependencies": {
     "@csstools/postcss-random-function": "^2.0.1",
-    "esbuild": "^0.25.11",
-    "parcel": "^2.16.0",
+    "esbuild": "^0.25.12",
+    "esbuild-postcss": "^0.0.4",
+    "http-server": "^14.1.1",
+    "parcel": "^2.16.1",
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.4.0",
+    "postcss-url": "^10.1.3",
     "rimraf": "^6.0.1",
     "typescript": "^5.9.3"
-  },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "targets": {
-    "themes": {
-      "source": "src/themes/*.css",
-      "distDir": "dist",
-      "isLibrary": true,
-      "optimize": false,
-      "sourceMap": false
-    },
-    "utils": {
-      "source": "src/utilities/*.css",
-      "distDir": "dist",
-      "isLibrary": true,
-      "optimize": false,
-      "sourceMap": false
-    },
-    "bundle": {
-      "source": "src/main.css",
-      "distDir": "dist",
-      "isLibrary": true,
-      "optimize": true,
-      "sourceMap": false
-    }
   }
 }

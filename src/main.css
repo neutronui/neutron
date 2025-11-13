@@ -9,10 +9,12 @@
 @import "./utilities/variant.css" layer(neutron.utilities);
 @import "./utilities/visually-hidden.css" layer(neutron.utilities);
 
-@import "./ui/callout/callout.css" layer(neutron.ui);
-@import "./ui/code/code.css" layer(neutron.ui);
-@import "./ui/form/form.css" layer(neutron.ui);
-@import "./ui/text/text.css" layer(neutron.ui);
-
 @import "./themes/default.css";
 @import "./root.css";
+
+.test {
+  color: oklch(0.7 0.2 random(120deg, 240deg, 180deg, 200deg));
+  color: oklch(0.7 0.2 random(100deg, 120deg, 240deg, 180deg));
+  color: oklch(0.7 0.2 random(300deg, 180deg, 120deg, 240deg));
+  color: oklch(0.7 0.2 random(50deg, 120deg, 240deg, 180deg));
+}

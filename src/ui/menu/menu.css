@@ -1,0 +1,213 @@
+:where(.menu) {
+  display: flex block;
+  flex-flow: column;
+  list-style: none;
+  background-color: var(--color-fill-subtle);
+  color: var(--color-on-subtle);
+  padding-block: var(--space-s);
+  box-sizing: border-box;
+  border-radius: var(--corner-radius-m);
+  corner-shape: var(--corner-shape);
+
+  &.dense {
+    :where(li, option) {
+      gap: var(--space-xs);
+      font-size: var(--font-size-s);
+      padding-block: var(--space-2xs);
+      padding-inline: var(--space-xs);
+
+      &:has(> a, > button, > label) {
+        min-block-size: auto;
+        padding: 0;
+      }
+
+      & > :where(a, button, label) {
+        gap: var(--space-3xs);
+        font-size: var(--font-size-s);
+        padding-block: var(--space-2xs);
+        padding-inline: var(--space-xs);
+      }
+
+      &.inset .text {
+        padding-inline-start: var(--space-m);
+      }
+    }
+  }
+
+  :where(li, option, [role="group"] > label) {
+    display: flex block;
+    align-items: center;
+    margin: 0;
+    min-block-size: var(--form-control-height);
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-s);
+    gap: var(--space-xs);
+
+    &::before, &::checkmark {
+      display: none;
+    }
+
+    * {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
+
+    &:has(> a, > button, > label) {
+      background-color: transparent;
+      display: block;
+      min-block-size: auto;
+      padding: 0;
+    }
+
+    &:where(option) {
+      display: flex block;
+      align-items: center;
+      color: inherit;
+      cursor: var(--cursor-pointer);
+      gap: var(--space-xs);
+      inline-size: 100%;
+      margin: 0;
+      min-block-size: var(--form-control-height);
+      padding: var(--space-xs) var(--space-s);
+      text-align: start;
+      text-decoration: none;
+
+      &:not(:disabled):hover {
+        color: var(--color-on-subtle);
+        background-color: color-mix(in oklab, var(--color-fill-subtle), var(--color-mix-hover));
+      }
+
+      &:not(:disabled):checked {
+        color: var(--color-on-subtle);
+        background-color: color-mix(in oklab, var(--color-fill-subtle), var(--color-mix-active));
+      }
+
+      &:disabled {
+        cursor: var(--cursor-not-allowed);
+        opacity: var(--disabled-opacity);
+      }
+    }
+
+    & > button {
+      all: unset;
+      box-sizing: border-box;
+    }
+
+    & > a,
+    & > button,
+    & > label {
+      display: flex block;
+      align-items: center;
+      color: inherit;
+      font: inherit;
+      cursor: var(--cursor-pointer);
+      gap: var(--space-xs);
+      inline-size: 100%;
+      margin: 0;
+      min-block-size: var(--form-control-height);
+      padding: var(--space-xs) var(--space-s);
+      text-align: start;
+      text-decoration: none;
+
+      &:not(:disabled):active,
+      &:has(:not(:disabled):checked) {
+        color: var(--color-on-subtle);
+        background-color: color-mix(in oklab, var(--color-fill-subtle), var(--color-mix-active));
+      }
+
+      &:not(:disabled):hover {
+        color: var(--color-on-subtle);
+        background-color: color-mix(in oklab, var(--color-fill-subtle), var(--color-mix-hover));
+      }
+    }
+
+    &.separator {
+      position: relative;
+      margin-block-start: var(--space-xs);
+      
+      &::before {
+        content: '';
+        display: block;
+        block-size: 1px;
+        inline-size: 100%;
+        position: absolute;
+        border-block-start: var(--stroke-width-s) var(--stroke-style) var(--color-stroke-subtle);
+        inset: calc(-1 * var(--space-2xs) - 1px) 0 auto 0;
+      }
+    }
+
+    .text {
+      flex: 1;
+      line-height: var(--line-height-normal);
+
+      :where(h1, h2, h3, h4, h5, h6, p, span) {
+        color: inherit;
+        font-weight: var(--font-weight-normal);
+      }
+
+      p + p {
+        font-size: var(--font-size-smaller);
+      }
+    }
+
+    .start {
+      display: grid;
+      align-self: center;
+      align-items: center;
+
+      &:has(svg) {
+        max-inline-size: var(--space-l);
+      }
+
+      .avatar {
+        --avatar-size: 48px;
+      }
+
+      img {
+        aspect-ratio: 1;
+        inline-size: 56px;
+        object-fit: cover;
+      }
+
+      video {
+        aspect-ratio: 16/9;
+        inline-size: 64px;
+        object-fit: cover;
+      }
+    }
+
+    .end {
+      display: flex inline;
+      align-items: center;
+      text-align: end;
+
+      &:not(:has(a, button, input)) {
+        pointer-events: none;
+      }
+
+      kbd {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        color: inherit;
+        opacity: 0.6;
+      }
+
+      svg {
+        max-inline-size: var(--space-l);
+        inline-size: 100%;
+      }
+    }
+
+    &.inset {
+      .start {
+        display: none;
+      }
+
+      .text {
+        padding-inline-start: var(--space-l);
+      }
+    }
+  }
+}

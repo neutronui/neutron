@@ -1,0 +1,131 @@
+:where(select) {
+  --fill-color: var(--form-control-fill-color);
+  --stroke-color: var(--form-control-stroke-color);
+  --text-color: var(--form-control-value-color);
+  --stroke-width: var(--form-control-stroke-width);
+  --corner-radius: var(--form-control-corner-radius);
+  --padding-block: var(--space-xs);
+  --padding-inline: var(--space-xs);
+  --icon-collapsed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+  --icon-expanded: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z'/%3E%3C/svg%3E");
+  --icon-checked: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M14.046 3.486a.75.75 0 0 1-.032 1.06l-7.93 7.474a.85.85 0 0 1-1.188-.022l-2.68-2.72a.75.75 0 1 1 1.068-1.053l2.234 2.267l7.468-7.038a.75.75 0 0 1 1.06.032'/%3E%3C/svg%3E");
+  --list-gap: var(--space-2xs);
+  --list-padding-block: var(--space-2xs);
+  --list-padding-inline: var(--space-2xs);
+
+  display: flex block;
+  position: relative;
+  overflow: hidden;
+  inline-size: fit-content;
+  background-color: var(--fill-color);
+  color: var(--text-color);
+  border: var(--stroke-width) var(--stroke-style) var(--stroke-color);
+  border-radius: var(--corner-radius);
+  corner-shape: var(--corner-shape);
+  cursor: var(--cursor-pointer, pointer);
+}
+
+:where(select:has(button)) {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  &::picker-icon {
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    mask-image: var(--icon-collapsed);
+    mask-repeat: no-repeat;
+    align-self: center;
+  }
+
+  &:open::picker-icon {
+    mask-image: var(--icon-expanded);
+  }
+
+  button {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    height: fit-content;
+    justify-content: space-between;
+  }
+
+  selectedcontent {
+    display: contents;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: inherit;
+  }
+
+  &::picker(select) {
+    border: 0;
+    inset: auto;
+    border-radius: var(--corner-radius);
+    corner-shape: var(--corner-shape);
+    box-shadow: var(--shadow-l);
+    border-width: var(--stroke-width-s);
+    border-style: var(--stroke-style);
+    border-color: var(--color-stroke-subtle);
+  }
+
+  .menu {
+    background-color: var(--color-layer-floating);
+  }
+}
+
+:where(.select:not(:has(button))) {
+  display: flex block;
+  width: fit-content;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    align-self: center;
+    right: var(--padding-inline);
+    background-color: currentColor;
+    mask-image: var(--icon-collapsed);
+    mask-repeat: no-repeat;
+    pointer-events: none;
+  }
+
+  &:has(:open)::after {
+    mask-image: var(--icon-expanded);
+  }
+
+  select {
+    appearance: none;
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+    padding-inline-end: var(--space-s);
+    font-weight: var(--font-weight-semibold);
+
+    &:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
+  }
+}
+
+:where(select:not(button)) {
+  font-weight: var(--font-weight-semibold);
+
+  &:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+select:has(button), ::picker(select) {
+  appearance: base-select;
+}

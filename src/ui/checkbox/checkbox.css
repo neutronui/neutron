@@ -1,0 +1,124 @@
+:where(
+  :where(
+    input[type="checkbox"],
+    label:has(input[type="checkbox"]),
+    input[type="radio"],
+    label:has(input[type="radio"]),
+    .checkbox,
+    .radio
+  ):not([role="switch"])
+) {
+  display: flex inline;
+  width: fit-content;
+  
+  color: var(--form-control-value-color);
+  font-family: inherit;
+  font-size: var(--form-control-value-font-size);
+  font-weight: var(--form-control-value-font-weight);
+  line-height: var(--form-control-value-line-height);
+  
+  user-select: none;
+  -webkit-user-select: none;
+
+  &,
+  + label {
+    cursor: var(--cursor-pointer, pointer);
+  }
+
+  &:disabled,
+  &:has(:disabled) {
+    opacity: var(--disabled-opacity);
+    cursor: var(--cursor-not-allowed, not-allowed);
+  }
+}
+
+:where(
+  input[type="checkbox"],
+  input[type="radio"],
+  .checkbox,
+  .radio
+):not([role="switch"]) {
+  appearance: none;
+  position: relative;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+
+  inline-size: var(--form-control-toggle-size);
+  block-size: var(--form-control-toggle-size);
+
+  background-color: var(--form-control-fill-color);
+  border-color: var(--form-control-stroke-color);
+  border-style: var(--form-control-stroke-style);
+  border-width: var(--form-control-stroke-width);
+
+  &:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+:where(:where(input[type="checkbox"], .checkbox):not([role="switch"])) {
+  --icon-checked: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M14.046 3.486a.75.75 0 0 1-.032 1.06l-7.93 7.474a.85.85 0 0 1-1.188-.022l-2.68-2.72a.75.75 0 1 1 1.068-1.053l2.234 2.267l7.468-7.038a.75.75 0 0 1 1.06.032'/%3E%3C/svg%3E");
+  --icon-indeterminate: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M2 7.75A.75.75 0 0 1 2.75 7h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 7.75'/%3E%3C/svg%3E");
+  --checked-icon-color: var(--color-brand-on-strong);
+  --checked-icon-scale: 1;
+
+  border-radius: min(
+    calc(var(--form-control-toggle-size) * 0.375),
+    var(--corner-radius-s)
+  );
+  corner-shape: var(--corner-shape, round);
+
+  &:checked,
+  &:indeterminate {
+    color: var(--checked-icon-color);
+    background-color: var(--form-control-activated-color);
+    border-color: var(--form-control-activated-color);
+  }
+
+  &:checked::after,
+  &:indeterminate::after {
+    content: "";
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+
+    background-color: currentColor;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    scale: var(--checked-icon-scale);
+  }
+
+  &:checked::after {
+    mask-image: var(--icon-checked);
+  }
+
+  &:indeterminate::after {
+    mask-image: var(--icon-indeterminate);
+  }
+}
+
+:where(input[type="radio"], .radio):not([role="switch"]) {
+  --checked-icon-color: var(--form-control-activated-color);
+  --checked-icon-scale: 0.65;
+
+  color: transparent;
+  border-radius: var(--corner-radius-circle);
+  corner-shape: var(--corner-shape);
+
+  &:checked {
+    color: var(--checked-icon-color);
+    border-color: var(--form-control-activated-color);
+
+    &::after {
+      position: absolute;
+      content: '';
+      aspect-ratio: 1;
+      width: round(calc(100% * var(--checked-icon-scale)), 1px);
+      background-color: currentColor;
+      border-radius: var(--corner-radius-circle);
+    }
+  }
+}

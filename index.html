@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="dist/main.css">
+  <link rel="stylesheet" href="dist/bundle.css">
   <title>Document</title>
 </head>
 <body>
@@ -22,6 +22,8 @@
 
   <time datetime="2024-06-15T12:00:00Z">June 15, 2024</time>
 
+  <div class="test">test random</div>
+
   <form>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
@@ -29,5 +31,36 @@
   </form>
 
   <mark>mark</mark>
+  <div class="badge danger">badge</div>
+
+  <select>
+    <button>
+      <selectedcontent></selectedcontent>
+    </button>
+    <ul class="menu">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </ul>
+  </select>
+
+  <details>
+    <summary>More Information</summary>
+    <p>This section contains additional details that can be expanded or collapsed.</p>
+  </details>
+  <details>
+    <summary>Additional Details</summary>
+    <p>Here are some more details that can be viewed by expanding this section.</p>
+  </details>
+  <div class="accordion">
+    <details name="section1">
+      <summary>More Information</summary>
+      <p>This section contains additional details that can be expanded or collapsed.</p>
+    </details>
+    <details name="section1">
+      <summary>Additional Details</summary>
+      <p>Here are some more details that can be viewed by expanding this section.</p>
+    </details>
+  </div>
 </body>
 </html>

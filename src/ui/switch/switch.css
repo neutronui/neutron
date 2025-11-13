@@ -1,0 +1,50 @@
+@import '../../internal/media-queries.postcss';
+
+:where(input[type="checkbox"][role="switch"]) {
+  appearance: none;
+  contain: paint;
+  display: flex inline;
+  position: relative;
+  background-color: var(--form-control-fill-color);
+  cursor: var(--cursor-pointer, pointer);
+  line-height: calc(var(--form-control-height) - var(--stroke-width) * 2);
+  cursor: var(--cursor-pointer, pointer);
+  user-select: none;
+  block-size: var(--form-control-toggle-size);
+  inline-size: calc(var(--form-control-toggle-size) * 2);
+  border-width: var(--form-control-stroke-width);
+  border-style: var(--form-control-stroke-style);
+  border-color: var(--form-control-stroke-color);
+  border-radius: var(--corner-radius-pill);
+  corner-shape: var(--corner-shape);
+
+  &::after {
+    content: '';
+    display: flex inline;
+    position: absolute;
+    background-color: var(--form-control-value-color);
+    block-size: calc(var(--form-control-toggle-size) - var(--form-control-stroke-width) * 4);
+    inline-size: calc(var(--form-control-toggle-size) - var(--form-control-stroke-width) * 4);
+    inset: var(--form-control-stroke-width);
+    border-radius: var(--corner-radius-circle);
+    corner-shape: inherit;
+    
+    @media (--motion-ok) {
+      transition: transform var(--duration-fast) var(--ease-easy);
+    }
+  }
+
+  &:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  &:checked {
+    border-color: var(--form-control-activated-color);
+
+    &::after {
+      background-color:var(--form-control-activated-color);
+      transform: translateX(var(--form-control-toggle-size));
+    }
+  }
+}

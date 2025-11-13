@@ -1,0 +1,80 @@
+:where(.accordion) {
+  --item-gap: var(--space-2xs);
+
+  display: flex block;
+  flex-flow: column;
+  gap: var(--item-gap);
+  block-size: fit-content;
+  inline-size: 100%;
+  padding-block: var(--space-nudge);
+}
+
+:where(details, .accordion-item) {
+  --icon-collapsed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+  --icon-expanded: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z'/%3E%3C/svg%3E");
+
+  display: block;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  cursor: var(--cursor-pointer, pointer);
+  user-select: none;
+  height: min-content;
+  inline-size: 100%;
+  color: var(--color-neutral-on-normal);
+  border: var(--stroke-width-s) var(--stroke-style) transparent;
+  background-color: var(--color-neutral-fill-subtle);
+  border-radius: var(--corner-radius-s);
+  corner-shape: var(--corner-shape, round);
+  position: relative;
+  overflow-anchor: none;
+
+  summary {
+    display: flex inline;
+    position: relative;
+    inline-size: 100%;
+    color: inherit;
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-xs);
+    background-color: inherit;
+    cursor: var(--cursor-pointer, pointer);
+    box-sizing: border-box;
+
+    &:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      inset-inline-end: var(--space-xs);
+      top: calc(var(--space-xs) + 0.25lh);
+      background-color: var(--color-text-normal);
+      mask-image: var(--icon-collapsed);
+      mask-repeat: no-repeat;
+    }
+  }
+
+  summary + *, .content {
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-xs);
+  }
+
+  &::details-content {
+    block-size: 0;
+    transition: block-size 400ms ease, content-visibility 400ms ease;
+    transition-behavior: allow-discrete;
+    contain: content;
+  }
+
+  &:is([open], :open) summary::after {
+    mask-image: var(--icon-expanded);
+  }
+
+  &:is([open], :open)::details-content {
+    block-size: auto;
+  }
+}

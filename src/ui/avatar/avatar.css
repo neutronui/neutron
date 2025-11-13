@@ -1,0 +1,23 @@
+:where(.avatar) {
+  display: flex block;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-larger);
+  line-height: var(--line-height-condensed);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-on-subtle);
+  background-color: var(--color-fill-subtle);
+  inline-size: var(--avatar-size, 60px);
+  block-size: var(--avatar-size, 60px);
+  aspect-ratio: 1;
+  border-width: var(--stroke-width-m);
+  border-style: var(--stroke-style);
+  border-color: var(--color-stroke-normal);
+  border-radius: var(--corner-radius-circle);
+  contain: content;
+
+  img {
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+}

@@ -1,0 +1,66 @@
+:where(.card) {
+  display: flex block;
+  flex-flow: column;
+  contain: content;
+  block-size: var(--card-height, fit-content);
+  inline-size: var(--card-height, fit-content);
+
+  color: var(--color-text-normal);
+  background-color: var(--color-layer-1);
+
+  border-width: var(--stroke-width-s);
+  border-style: var(--stroke-style);
+  border-color: var(--color-stroke-subtle);
+  border-radius: var(--corner-radius-l);
+  corner-shape: var(--corner-shape);
+
+  .badges {
+    display: flex block;
+    flex-flow: row wrap;
+    gap: var(--space-2xs);
+    padding: var(--space-xs);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .media > * {
+    border-radius: 0;
+  }
+
+  .title {
+    padding-block-start: var(--space-2xs);
+    padding-inline: var(--space-xs);
+  }
+
+  .action {
+    display: flex block;
+    padding: var(--space-xs);
+
+    > :is(button, .button) {
+      flex: 1 1 auto;
+    }
+  }
+
+  &[clickable] {
+    position: relative;
+
+    &:has(:focus-visible) {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    :is(button, .button, a):focus-visible {
+      outline: none;
+    }
+
+    :is(button, .button, a)::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      block-size: 100%;
+      inline-size: 100%;
+      border-radius: inherit;
+      z-index: 2;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+:where(.badge) {
+  display: flex inline;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-semibold);
+  gap: var(--space-3xs);
+  padding-inline: var(--space-2xs);
+  padding-block: var(--space-3xs);
+  background-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+  color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+  border-width: var(--stroke-width-s);
+  border-style: var(--stroke-style);
+  border-color: transparent;
+  border-radius: var(--corner-radius-m);
+  corner-shape: var(--corner-shape);
+  block-size: 1lh;
+  inline-size: fit-content;
+}
