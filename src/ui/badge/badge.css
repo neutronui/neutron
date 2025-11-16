@@ -2,7 +2,7 @@
   display: flex inline;
   align-items: center;
   justify-content: center;
-  vertical-align: middle;
+  vertical-align: top;
   font-size: var(--font-size-xs);
   line-height: var(--line-height-normal);
   font-weight: var(--font-weight-semibold);
@@ -16,6 +16,7 @@
   border-color: transparent;
   border-radius: var(--corner-radius-m);
   corner-shape: var(--corner-shape);
-  block-size: 1lh;
+  min-block-size: 1lh;
+  block-size: fit-content;
   inline-size: fit-content;
 }

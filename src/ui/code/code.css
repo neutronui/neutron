@@ -15,6 +15,7 @@
   background-color: var(--color-overlay-inline);
   border-radius: var(--border-radius-m);
   corner-shape: var(--corner-shape, round);
+  overflow-inline: auto;
 
   & code,
   & samp,

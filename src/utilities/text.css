@@ -103,3 +103,7 @@
 .uppercase {
   text-transform: uppercase;
 }
+
+.text-subtle {
+  color: var(--color-text-subtle);
+}
