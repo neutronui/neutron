@@ -24,6 +24,27 @@
     "package.json",
     "LICENSE"
   ],
+  "keywords": [
+    "ui",
+    "html",
+    "css",
+    "design-system",
+    "component-library",
+    "neutron",
+    "neutron-ui",
+    "modern",
+    "web",
+    "postcss",
+    "frontend",
+    "themes",
+    "utilities",
+    "palette",
+    "colors",
+    "oklch",
+    "accessible",
+    "responsive",
+    "web-standards"
+  ],
   "exports": {
     ".": {
       "import": "./dist/main.css",
