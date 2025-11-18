@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -22,23 +22,31 @@ jobs:
           node-version: '24'
           cache: 'npm'
       - run: npm ci
+      - run: npm run build
 
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '24'
-          cache: 'npm'
-      
-      - run: npm ci
-      - name: Create Release
+      - name: Create Release PR or Publish
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: npm publish --access public
+          version: npm run version
+          publish: npm run publish
+          commit: "[ci] release"
+          title: "[ci] release"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ''
+
+      - name: Generate Announcement
+        id: message
+        if: steps.changesets.outputs.published == 'true'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: node .github/scripts/announcement.mjs '${{ steps.changesets.outputs.publishedPackages }}'
+
+      - name: Post to Discord
+        if: steps.changesets.outputs.published == 'true'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@d2594079a10f1d6739ee50a2471f0ca57418b554
+        with:
+          args: "${{ steps.message.outputs.DISCORD_MESSAGE }}"

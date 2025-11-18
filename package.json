@@ -45,9 +45,14 @@
   "scripts": {
     "build:clean": "rimraf -rf dist",
     "build": "npm run build:clean && node ./esbuild.mjs",
-    "dev": "http-server -o"
+    "dev": "http-server -o",
+    "version": "changeset version",
+    "change": "changeset",
+    "publish": "changeset publish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.29.7",
     "esbuild": "^0.25.12",
     "esbuild-postcss": "^0.0.4",
     "http-server": "^14.1.1",
