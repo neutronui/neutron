@@ -4,7 +4,7 @@ import { EOL } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const baseUrl = new URL('https://github.com/neutronui/neutron/releases/tag/');
-const emoji = ['🚀'];
+const emojis = ['🚀'];
 const descriptors = ['new release'];
 const verbs = ['now available'];
 const extraVerbs = ['new'];
@@ -35,23 +35,21 @@ function singularize(text) {
 }
 
 async function generateMessage() {
-  const releases = process.argv.slice(2)[0];
+  const releases = process.argv.slice(2)[0] || '{}';
   const data = JSON.parse(releases);
-  const packageData = (await import('../../package.json', { with: { type: 'json' } }).map(({ name, version }) => {
-    return {
-      name,
-      version,
-      url: new URL(encodeURIComponent(`${name}@${version}`), baseUrl).toString(),
-    }
-  }));
+  const packageData = (await import('../../package.json', { with: { type: 'json' } })).default;
+
+  const { name, version } = packageData;
+  const url = new URL(encodeURIComponent(`${name}@${version}`), baseUrl).toString();
   
-  const emoji = item(emoji);
+  const emoji = item(emojis);
   const descriptor = item(descriptors);
   const verb = item(verbs);
 
   let message = '';
-  let { name, version, url } = packageData;
   message += `${emoji} \`${name}@${version}\` ${singularize(verb)}\nRead the [release notes →](<${url}>)\n`;
+
+  return message;
 }
 
 function setOutput(key, value) {
