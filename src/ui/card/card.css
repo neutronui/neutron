@@ -3,7 +3,7 @@
   flex-flow: column;
   contain: content;
   block-size: var(--card-height, fit-content);
-  inline-size: var(--card-height, fit-content);
+  inline-size: var(--card-width, fit-content);
 
   color: var(--color-text-normal);
   background-color: var(--color-layer-1);
