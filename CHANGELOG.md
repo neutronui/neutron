@@ -1,5 +1,12 @@
 # @neutron-ui/neutron
 
+## 0.1.5
+
+### Patch Changes
+
+- 8579cd9: add missing import for ribbon
+- d47606f: fix incorrect custom property used for card's inline-size property
+
 ## 0.1.4
 
 ### Patch Changes
