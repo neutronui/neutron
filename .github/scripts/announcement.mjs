@@ -3,6 +3,8 @@ import { appendFileSync, existsSync } from 'node:fs';
 import { EOL } from 'node:os';
 import { fileURLToPath } from 'node:url';
 
+/** Based on https://github.com/withastro/astro/blob/main/.github/scripts/announce.mjs */
+
 const baseUrl = new URL('https://github.com/neutronui/neutron/releases/tag/');
 const emojis = ['🚀'];
 const descriptors = ['new release'];
