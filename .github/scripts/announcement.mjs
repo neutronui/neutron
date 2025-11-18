@@ -42,7 +42,7 @@ async function generateMessage() {
   const packageData = (await import('../../package.json', { with: { type: 'json' } })).default;
 
   const { name, version } = packageData;
-  const url = new URL(encodeURIComponent(`${name}@${version}`), baseUrl).toString();
+  const url = new URL(encodeURIComponent(`v${version}`), baseUrl).toString();
   
   const emoji = item(emojis);
   const descriptor = item(descriptors);
