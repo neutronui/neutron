@@ -1,5 +1,11 @@
 # @neutron-ui/neutron
 
+## 0.1.2
+
+### Patch Changes
+
+- 2ceef58: fix publishing errors in ci
+
 ## 0.1.1
 
 ### Patch Changes
