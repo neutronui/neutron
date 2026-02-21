@@ -1,14 +1,9 @@
-@layer neutron;
-@layer neutron.ui, neutron.color-palette, neutron.color-variant, neutron.theme, neutron.base, neutron.utilities;
+@layer nt;
+@layer nt.reset, nt.base, nt.color, nt.theme, nt.ui, nt.utilities;
 
-@import "./root.css" layer(neutron);
+@import "./root.css" layer(nt);
 
-@import "./utilities/gap.css" layer(neutron.utilities);
-@import "./utilities/layout.css" layer(neutron.utilities);
-@import "./utilities/size.css" layer(neutron.utilities);
-@import "./utilities/text.css" layer(neutron.utilities);
-@import "./utilities/variant.css" layer(neutron.utilities);
-@import "./utilities/visually-hidden.css" layer(neutron.utilities);
+@import "./color/default.css" layer(nt.color);
+@import "./themes/default.css" layer(nt.theme);
 
-@import "./themes/default.css";
-@import "./root.css";
+@import "./ui/button.css" layer(nt.ui);

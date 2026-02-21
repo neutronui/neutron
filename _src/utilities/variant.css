@@ -12,7 +12,7 @@
   --color-on-subtle: var(--color-neutral-on-subtle);
 }
 
-.brand,
+:where(.brand),
 :host([variant='brand']) {
   --color-fill-strong: var(--color-brand-fill-strong);
   --color-fill-normal: var(--color-brand-fill-normal);

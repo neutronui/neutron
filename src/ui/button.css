@@ -1,0 +1,147 @@
+@scope (
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  .nt-button
+) {
+  :scope {
+    --_gap: var(--space-xs);
+    --_padding-inline: var(--space-m);
+    --_padding-block: var(--space-2xs);
+    --_fill-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
+    --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+    --_corner-radius: var(--corner-radius-pill);
+    --_stroke-style: var(--stroke-style);
+    --_stroke-width: var(--stroke-width-s);
+    --_stroke-color: var(--_fill-color);
+  }
+
+  :scope {
+    display: flex inline;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    gap: var(--_gap);
+
+    font-family: inherit;
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+    cursor: var(--cursor-pointer, pointer);
+    user-select: none;
+    text-decoration: none;
+    white-space: nowrap;
+
+    block-size: fit-content;
+    inline-size: fit-content;
+    padding-inline: var(--_padding-inline);
+    padding-block: var(--_padding-block);
+
+    background-color: var(--_fill-color);
+    color: var(--_text-color, var(--color-neutral-on-strong));
+    border-color: var(--_stroke-color);
+    border-style: var(--_stroke-style);
+    border-width: var(--_stroke-width);
+    corner-shape: var(--corner-shape, round);
+    border-radius: var(--_corner-radius);
+  }
+
+  &:disabled {
+    opacity: var(--disabled-opacity);
+    cursor: var(--cursor-not-allowed, not-allowed);
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      background-color: color-mix(
+        in oklab,
+        var(--_fill-color),
+        var(--color-mix-hover)
+      );
+    }
+
+    &:active {
+      background-color: color-mix(
+        in oklab,
+        var(--_fill-color),
+        var(--color-mix-active)
+      );
+    }
+  }
+
+  &.outlined {
+    --_fill-color: transparent;
+    --_text-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
+    --_stroke-color: var(--color-stroke-strong, var(--color-neutral-stroke-strong));
+    --_stroke-width: var(--stroke-width-s);
+
+    &:not(:disabled) {
+      &:hover {
+        --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-strong, var(--color-neutral-fill-strong)),
+          var(--color-mix-hover)
+        );
+      }
+
+      &:active {
+        --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-strong, var(--color-neutral-fill-strong)),
+          var(--color-mix-active)
+        );
+      }
+    }
+  }
+
+  &.subtle {
+    --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+
+    &:not(:disabled) {
+      &:hover {
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
+          var(--color-mix-hover)
+        );
+      }
+
+      &:active {
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
+          var(--color-mix-active)
+        );
+      }
+    }
+  }
+
+  &.stealth {
+     --_fill-color: transparent;
+     --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+
+    &:not(:disabled) {
+      &:hover {
+        --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
+          var(--color-mix-stealth)
+        );
+      }
+
+      &:active {
+        --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
+          var(--color-mix-active)
+        );
+      }
+    }
+  }
+}
