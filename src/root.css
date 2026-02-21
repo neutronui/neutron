@@ -50,11 +50,6 @@ body {
   max-width: 100%;
 }
 
-:where(input, button, textarea, select) {
-  font-family: inherit;
-  font-size: inherit;
-}
-
 :where(p, :--heading) {
   overflow-wrap: break-word;
 }

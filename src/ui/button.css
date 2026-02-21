@@ -8,9 +8,9 @@
   :scope {
     --_gap: var(--space-xs);
     --_padding-inline: var(--space-m);
-    --_padding-block: var(--space-2xs);
-    --_fill-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
-    --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+    --_padding-block: var(--space-xs);
+    --_fill-color: var(--color-fill-normal, var(--color-neutral-fill-normal));
+    --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
     --_corner-radius: var(--corner-radius-pill);
     --_stroke-style: var(--stroke-style);
     --_stroke-width: var(--stroke-width-s);
@@ -21,7 +21,7 @@
     display: flex inline;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
+    text-align: center;
     gap: var(--_gap);
 
     font-family: inherit;
@@ -47,13 +47,14 @@
     border-radius: var(--_corner-radius);
   }
 
-  &:disabled {
-    opacity: var(--disabled-opacity);
-    cursor: var(--cursor-not-allowed, not-allowed);
-  }
-
+  /* Element States */
   &:not(:disabled) {
     &:hover {
+      border-color: color-mix(
+        in oklab,
+        var(--_stroke-color),
+        var(--color-mix-hover)
+      );
       background-color: color-mix(
         in oklab,
         var(--_fill-color),
@@ -62,6 +63,11 @@
     }
 
     &:active {
+      border-color: color-mix(
+        in oklab,
+        var(--_stroke-color),
+        var(--color-mix-active)
+      );
       background-color: color-mix(
         in oklab,
         var(--_fill-color),
@@ -70,27 +76,59 @@
     }
   }
 
-  &.outlined {
+  &:is(:disabled, [disabled]) {
+    opacity: var(--disabled-opacity);
+    cursor: var(--cursor-not-allowed, not-allowed);
+  }
+
+  /* Variants */
+  &.plain {
     --_fill-color: transparent;
-    --_text-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
-    --_stroke-color: var(--color-stroke-strong, var(--color-neutral-stroke-strong));
-    --_stroke-width: var(--stroke-width-s);
+    --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
 
     &:not(:disabled) {
       &:hover {
-        --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+        --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
         --_fill-color: color-mix(
           in oklab,
-          var(--color-fill-strong, var(--color-neutral-fill-strong)),
+          var(--color-fill-normal, var(--color-neutral-fill-normal)),
           var(--color-mix-hover)
         );
       }
 
       &:active {
+        --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-normal, var(--color-neutral-fill-normal)),
+          var(--color-mix-active)
+        );
+      }
+    }
+  }
+
+  &.outlined {
+    --_fill-color: transparent;
+    --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
+    --_stroke-color: var(--color-stroke-normal, var(--color-neutral-stroke-normal));
+
+    &:not(:disabled) {
+      &:hover {
+        --_stroke-color: var(--_fill-color);
+        --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
+        --_fill-color: color-mix(
+          in oklab,
+          var(--color-fill-normal, var(--color-neutral-fill-normal)),
+          var(--color-mix-hover)
+        );
+      }
+
+      &:active {
+        --_stroke-color: var(--_fill-color);
         --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
         --_fill-color: color-mix(
           in oklab,
-          var(--color-fill-strong, var(--color-neutral-fill-strong)),
+          var(--color-fill-normal, var(--color-neutral-fill-normal)),
           var(--color-mix-active)
         );
       }
@@ -103,6 +141,7 @@
 
     &:not(:disabled) {
       &:hover {
+        --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
         --_fill-color: color-mix(
           in oklab,
           var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
@@ -111,6 +150,7 @@
       }
 
       &:active {
+        --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
         --_fill-color: color-mix(
           in oklab,
           var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
@@ -121,8 +161,8 @@
   }
 
   &.stealth {
-     --_fill-color: transparent;
-     --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    --_fill-color: transparent;
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
 
     &:not(:disabled) {
       &:hover {
@@ -130,7 +170,7 @@
         --_fill-color: color-mix(
           in oklab,
           var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
-          var(--color-mix-stealth)
+          var(--color-mix-hover)
         );
       }
 
@@ -143,5 +183,32 @@
         );
       }
     }
+  }
+
+  /* Icon */
+  &:has(svg) {
+    &.icon-only {
+      --_padding-inline: var(--_padding-block);
+  
+      svg {
+        inline-size: 1lh;
+        block-size: 1lh;
+        color: currentColor;
+      }
+    }
+  }
+
+  /* Sizes */
+  &.small {
+    --_gap: var(--space-2xs);
+    --_padding-inline: var(--space-s);
+    --_padding-block: var(--space-2xs);
+    font-size: var(--font-size-s);
+  }
+
+  &.large {
+    --_padding-inline: var(--space-l);
+    --_padding-block: var(--space-s);
+    font-size: var(--font-size-l);
   }
 }
