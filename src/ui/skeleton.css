@@ -1,0 +1,58 @@
+:where(.skeleton) {
+  display: flex block;
+  overflow: hidden;
+  width: var(--skeleton-width, 100%);
+  height: var(--skeleton-height, var(--form-control-height));
+  border-radius: var(--corner-radius-s);
+  background-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.circle {
+    aspect-ratio: 1 / 1;
+    height: var(--skeleton-width, 1lh);
+    border-radius: var(--corner-radius-circle);
+  }
+
+  &.rectangle {
+    corner-shape: var(--corner-shape, round);
+  }
+
+  &.text {
+    --skeleton-height: var(--line-height-condensed);
+    corner-shape: var(--corner-shape, round);
+  }
+
+  &.shimmer {
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        270deg,
+        var(--color-fill-subtle, var(--color-neutral-fill-subtle)) 0%,
+        var(--color-fill-normal, var(--color-neutral-fill-normal)) 51.13%,
+        var(--color-fill-subtle, var(--color-neutral-fill-subtle)) 100%
+      );
+      position: absolute;
+      background-repeat: no-repeat;
+      offset-path: ray(90deg sides at center);
+      animation: shimmer calc(var(--duration-ultra-slow) * 4) infinite;
+      animation-timing-function: ease-in-out;
+      offset-position: auto;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    offset-distance: -200%;
+  }
+  100% {
+    offset-distance: 200%;
+  }
+}

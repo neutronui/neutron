@@ -41,6 +41,8 @@
   greet('World');
   </code></pre>
 
+  <code>const x = 10;</code>
+
   <time datetime="2024-06-15T12:00:00Z">June 15, 2024</time>
 
   <div class="test">test random</div>
@@ -55,6 +57,15 @@
     </label>
     <button type="submit">Submit</button>
   </form>
+
+  <button command="show-modal" commandfor="dialog">Open Dialog</button>
+  <dialog id="dialog">
+    <h3>Dialog Title</h3>
+    <p>This is the content of the dialog. It can contain text, images, or other elements.</p>
+    <footer>
+      <button command="close" commandfor="dialog">Close</button>
+    </footer>
+  </dialog>
 
   <mark>mark</mark>
   <div class="badge danger">badge</div>
@@ -87,13 +98,13 @@
       <summary>Additional Details</summary>
       <p>Here are some more details that can be viewed by expanding this section.</p>
     </details>
-    <button interestfor="copy-tip" class="brand" style="--color-brand-50: var(--color-red-50);">
-      copy
-    </button>
-    <div id="copy-tip" class="tooltip" popover="hint" role="tooltip">
-      <span class="content">copy the thing</span>
-      <span class="arrow"></span>
-    </div>
+  </div>
+  <button interestfor="copy-tip" class="brand" style="--color-brand-50: var(--color-red-50);">
+    copy
+  </button>
+  <div id="copy-tip" class="tooltip" popover="hint" role="tooltip">
+    <span class="content">copy the thing</span>
+    <span class="arrow"></span>
   </div>
 </body>
 </html>

@@ -1,0 +1,33 @@
+[class*='flank'] {
+  display: flex;
+  flex-wrap: wrap;
+
+  --content-percentage: fit-content;
+  --flank-size: initial;
+}
+
+[class*='flank']:not([class*='\:end']) > :first-child,
+[class*='flank'][class*='\:start'] > :first-child {
+  flex-basis: var(--flank-size, auto);
+  flex-grow: 1;
+}
+[class*='flank']:not([class*='\:end']) > :last-child,
+[class*='flank'][class*='\:start'] > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: var(--content-percentage, 50%);
+}
+
+[class*='flank'][class*='\:end'] > :last-child {
+  flex-basis: var(--flank-size, auto);
+  flex-grow: 1;
+}
+[class*='flank'][class*='\:end'] > :first-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: var(--content-percentage, 50%);
+}
+
+:where([class*='flank']) {
+  align-items: center;
+}

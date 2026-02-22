@@ -39,7 +39,6 @@ body {
 }
 
 :where(*) {
-  margin: inherit;
   font-feature-settings:
     var(--opentype-case, 'case' off),
     var(--opentype-sinf, 'sinf' off);

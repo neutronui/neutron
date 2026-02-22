@@ -1,0 +1,121 @@
+@scope (.accordion) to (details, .accordion-item) {
+  :scope {
+    --item-gap: var(--space-2xs);
+    --_padding-block: var(--space-nudge);
+  }
+
+  :scope {
+    display: flex block;
+    flex-flow: column;
+    gap: var(--item-gap);
+    block-size: fit-content;
+    inline-size: 100%;
+    padding-block: var(--_padding-block);
+  }
+}
+
+@scope (details, .accordion-item, .nt-accordion-item) {
+  :scope {
+    --icon-collapsed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+    --icon-expanded: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z'/%3E%3C/svg%3E");
+
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-normal));
+    --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+    --_stroke-color: transparent;
+    --_stroke-width: var(--stroke-width-s);
+    --_stroke-style: var(--stroke-style);
+    --_border-radius: var(--corner-radius-s);
+    --_padding-block: var(--space-s);
+    --_padding-inline: var(--space-m);
+  }
+
+  :scope {
+    display: block;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    position: relative;
+    overflow-anchor: none;
+    box-sizing: border-box;
+
+    cursor: var(--cursor-pointer, pointer);
+    user-select: none;
+
+    block-size: min-content;
+    inline-size: 100%;
+    
+    color: var(--_text-color);
+    background-color: var(--_fill-color);
+    border-color: var(--_stroke-color);
+    border-width: var(--_stroke-width);
+    border-style: var(--_stroke-style);
+    border-radius: var(--_border-radius);
+    corner-shape: var(--corner-shape, round);
+  }
+
+  summary {
+    display: flex inline;
+    position: relative;
+    cursor: inherit;
+
+    inline-size: 100%;
+    padding-block: var(--_padding-block);
+    padding-inline: var(--_padding-inline);
+    
+    color: inherit;
+
+    &:hover {
+      background-color: color-mix(
+        in oklab,
+        var(--_fill-color),
+        var(--color-mix-hover)
+      );
+    }
+
+    &:active {
+      background-color: color-mix(
+        in oklab,
+        var(--_fill-color),
+        var(--color-mix-active)
+      );
+    }
+
+    &:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      inset-inline-end: var(--space-xs);
+      align-self: center;
+      background-color: var(--color-text-normal);
+      mask-image: var(--icon-collapsed);
+      mask-repeat: no-repeat;
+    }
+  }
+
+  summary + *, .content {
+    padding-block: var(--_padding-block);
+    padding-inline: var(--_padding-inline);
+  }
+
+  &::details-content {
+    block-size: 0;
+    transition: block-size 400ms ease, content-visibility 400ms ease;
+    transition-behavior: allow-discrete;
+    contain: content;
+  }
+
+  &:is(:open, [open]) summary::after {
+    mask-image: var(--icon-expanded);
+  }
+
+  &:is(:open, [open])::details-content {
+    block-size: auto;
+  }
+}

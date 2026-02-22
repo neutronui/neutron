@@ -1,0 +1,90 @@
+@scope (label, .label, .nt-label) {
+  :scope {
+    --_text-color: var(--form-control-label-color);
+    --_font-weight: var(--form-control-label-font-weight);
+    --_line-height: var(--form-control-label-line-height);
+  }
+
+  :scope {
+    display: inline-block;
+
+    color: var(--_text-color);
+    font-weight: var(--_font-weight);
+    line-height: var(--_line-height);
+  }
+
+  &:has(input:not(
+    [type="button"],
+    [type="checkbox"],
+    [type="color"],
+    [type="file"],
+    [type="hidden"],
+    [type="image"],
+    [type="radio"],
+    [type="range"],
+    [type="reset"],
+    [type="submit"]
+  ),
+  select,
+  textarea) {
+    width: 100%;
+  }
+
+  & + :is(input:not([type="checkbox"], [type="radio"]), textarea, select),
+  & > :is(input:not([type="checkbox"], [type="radio"]), textarea, select) {
+    margin-block-start: var(--space-xs);
+  }
+}
+
+@scope (fieldset, .form-group, .nt-form-group) {
+  :scope {
+    --_stroke-color: var(--color-layer-stroke);
+    --_stroke-style: var(--stroke-style);
+    --_corner-radius: var(--corner-radius-m);
+    --_corner-shape: var(--corner-shape, round);
+    --_padding: var(--space-m);
+  }
+
+  :scope {
+    border: var(--_stroke-style) var(--_stroke-color);
+    border-radius: var(--_corner-radius);
+    corner-shape: var(--_corner-shape);
+    padding: var(--_padding);
+    padding-block-end: var(--space-xl);
+  }
+}
+
+@scope (legend) {
+  :scope {
+    --_padding-inline: var(--space-2xs);
+    --_font-weight: var(--form-control-label-font-weight);
+  }
+
+  :scope {
+    padding: 0;
+    padding-inline: var(--_padding-inline);
+    font-weight: var(--_font-weight);
+  }
+}
+
+@scope (form, .form, .nt-form) {
+  :where(.valid, .invalid, :user-valid, :user-invalid) {
+    --focus-ring: var(--focus-stroke-width) var(--focus-stroke-style) var(--color-focus);
+  }
+
+  :where(.invalid, :user-invalid) {
+    --form-control-stroke-color: var(--color-danger-stroke-strong);
+    --form-control-activated-color: var(--color-danger-fill-strong);
+    --form-control-value-color: var(--color-danger-on-subtle);
+    --color-focus: var(--color-danger-stroke-strong);
+    --color-text-subtle: var(--color-danger-on-subtle);
+  }
+
+  :where(.valid, :user-valid) {
+    --form-control-stroke-color: var(--color-success-stroke-strong);
+    --form-control-activated-color: var(--color-success-fill-strong);
+    --form-control-value-color: var(--color-success-on-subtle);
+    --color-focus: var(--color-success-stroke-strong);
+    --color-text-subtle: var(--color-success-on-subtle);
+  }
+}

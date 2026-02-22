@@ -1,0 +1,22 @@
+:where(.tooltip[popover="hint"]) {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+
+  inset: auto;
+  margin: 0;
+  bottom: calc(anchor(top) + var(--space-xs));
+  justify-self: anchor-center;
+
+  color: var(--color-text-subtle);
+
+  padding-inline: var(--space-s);
+  padding-block: var(--space-xs);
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-condensed);
+  border-width: var(--stroke-width-s);
+  border-style: var(--stroke-style);
+  border-color: var(--color-stroke-subtle);
+  border-radius: var(--corner-radius-s);
+  corner-shape: var(--corner-shape, round);
+}

@@ -1,0 +1,112 @@
+@import '../internal/media-queries.postcss';
+
+:where(:root:has(dialog)) {
+  transition: overflow 0s allow-discrete;
+  transition-delay: 400ms;
+
+  &:has(dialog:open) {
+    overflow: hidden;
+    transition: unset;
+    transition-delay: unset;
+  }
+}
+
+@scope (dialog) {
+  :scope {
+    --_fill-color: var(--color-layer-floating);
+    --_text-color: var(--color-text-normal);
+    --_stroke-color: var(--color-stroke-strong, transparent);
+    --_stroke-width: var(--stroke-width-m);
+    --_stroke-style: var(--stroke-style);
+    --_corner-radius: var(--corner-radius-m);
+    --_padding-block: var(--space-xl);
+    --_padding-inline: var(--space-xl);
+    --_shadow: var(--shadow-l);
+  }
+
+  :scope {
+    flex-flow: column;
+    
+    inset: 0;
+    width: 31rem;
+    max-width: calc(100% - var(--space-2xl));
+    max-height: calc(100% - var(--space-2xl));
+    padding-block: var(--_padding-block);
+    padding-inline: var(--_padding-inline);
+    margin: auto;
+
+    background-color: var(--_fill-color);
+    color: var(--_text-color);
+    border-color: var(--_stroke-color);
+    border-width: var(--_stroke-width);
+    border-style: var(--_stroke-style);
+    border-radius: var(--_corner-radius);
+    corner-shape: var(--corner-shape, round);
+    box-shadow: var(--_shadow);
+
+    @media (--forced-colors) {
+      border-color: white;
+      border-width: 2px;
+      border-style: solid;
+    }
+
+    @media screen and (max-width: 420px) {
+      max-height: 80vh;
+    }
+  }
+
+  @media (--motion-ok) {
+    & {
+      transition:
+        display 400ms allow-discrete,
+        margin-block-start 400ms ease-in,
+        overlay 400ms allow-discrete,
+        opacity 400ms ease-in;
+    }
+
+    &:open {
+      margin-block-start: 25vh;
+    }
+
+    &::backdrop {
+      backdrop-filter: blur(5px);
+    }
+  }
+
+  &:open {
+    display: flex;
+
+    &::bakdrop {
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    @starting-style {
+      margin-block-start: 27vh;
+      opacity: 0;
+    }
+  }
+
+  &:not(:open) {
+    margin-block-start: 27vh;
+
+    &,
+    &::backdrop {
+      opacity: 0;
+    }
+  }
+
+  &::backdrop {
+    background-color: var(--color-overlay-modal);
+    transition: inherit;
+    opacity: 1;
+  }
+
+  footer, .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-2xs);
+  }
+}
