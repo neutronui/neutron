@@ -24,14 +24,17 @@
       <hr />
       <h2>Forms</h2>
       <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <input type="checkbox" />
-        <label>
-          <input type="checkbox" />
-          Check me
-        </label>
-        <button type="submit">Submit</button>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Text input" required />
+        </div>
+        <div class="field">
+          <label for="file">File</label>
+          <input type="file" id="file" name="file" />
+        </div>
+        <footer>
+          <button type="submit">Submit</button>
+        </footer>
       </form>
     </section>
 

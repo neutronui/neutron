@@ -1,0 +1,103 @@
+@scope (
+  .field,
+  .nt-field
+) {
+  :scope {
+    --_accent-color: var(--color-brand-50);
+    --_fill-color: var(--color-fill-normal, var(--color-neutral-fill-normal));
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    --_label-color: var(--color-on-normal, var(--color-neutral-on-normal));
+    --_height: var(--field-size);
+    --_stroke-color: var(--color-stroke-normal, var(--color-neutral-stroke-normal));
+    --_stroke-style: var(--stroke-style);
+    --_stroke-width: var(--stroke-width-s);
+    --_corner-radius: var(--corner-radius-s);
+    --_padding-block: var(--space-xs);
+    --_padding-inline: var(--space-m);
+  }
+
+  :scope {
+    contain: layout;
+    display: grid inline;
+    position: relative;
+  }
+
+  & input,
+  & textarea,
+  & select {
+    background-color: var(--_fill-color);
+    block-size: var(--_height);
+    border-color: var(--_stroke-color);
+    border-style: var(--_stroke-style);
+    border-width: var(--_stroke-width);
+    border-radius: var(--_corner-radius);
+    color: var(--_text-color);
+    corner-shape: var(--corner-shape, round);
+    grid-column: 1 / -1;
+    grid-row: 2;
+    inline-size: 100%;
+    min-inline-size: 0;
+    padding-block: var(--_padding-block);
+    padding-inline: var(--_padding-inline);
+  }
+
+  /* Required/Invalid States */
+  &:has(
+    :not(:placeholder-shown):invalid,
+    :where(
+      :placeholder-shown,
+      option[value=""]:not(:checked),
+      option:checked:not([value=""])
+    ):required
+  ) {
+    :where(.label, label)::after {
+      color: var(--color-danger-on-subtle);
+      content: "*";
+      margin: -0.25em auto auto 0.25em;
+    }
+  }
+
+  /* File */
+  &:has(input[type="file"]) {
+    cursor: var(--cursor-pointer, pointer);
+  }
+}
+
+@scope (input[type="file"]) {
+  :scope {
+    --_accent-color: var(--color-brand-50);
+    --_fill-color: var(--color-fill-normal, var(--color-neutral-fill-normal));
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    --_label-color: var(--color-on-normal, var(--color-neutral-on-normal));
+    --_height: var(--field-size);
+    --_stroke-color: var(--color-stroke-normal, var(--color-neutral-stroke-normal));
+    --_stroke-style: var(--stroke-style);
+    --_stroke-width: var(--stroke-width-s);
+    --_corner-radius: var(--corner-radius-s);
+    --_padding-block: var(--space-xs);
+    --_padding-inline: var(--space-m);
+  }
+
+  :scope {
+    align-self: flex-start;
+    block-size: var(--_height);
+    box-shadow: none;
+    color: var(--_text-color);
+    cursor: inherit;
+    max-inline-size: 100%;
+    padding: 0;
+  }
+
+  &::-webkit-file-upload-button,
+  &::file-selector-button {
+    background-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
+    color: var(--color-on-strong, var(--color-neutral-on-strong));
+    border: none;
+    block-size: calc(100% - var(--space-s) * 2);
+    border-radius: var(--_corner-radius);
+    cursor: inherit;
+    margin-inline-end: 1ex;
+    margin-block-start: var(--space-s);
+    margin-inline-start: var(--space-s);
+  }
+}
