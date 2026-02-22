@@ -5,106 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="src/main.css">
   <title>Document</title>
+  <style>
+    main {
+      display: flex;
+      flex-flow: column;
+      gap: var(--space-l);
+      padding-inline: var(--space-l);
+    }
+  </style>
 </head>
 <body>
-  <ul class="breadcrumb">
-    <li><a class="breadcrumb-item" href="#">Home</a></li>
-    <li><a class="breadcrumb-item" href="#">Library</a></li>
-    <li><a class="breadcrumb-item" href="#">Data</a></li>
-  </ul>
-  <div class="avatar">
-    NB
-  </div>
-  <blockquote>
-    <q>
-      This is a blockquote. It is used to indicate a section that is quoted from another source. Blockquotes are typically indented and styled differently from the main content to set them apart.
-    </q>
-    <p>-- Bob</p>
-  </blockquote>
-  <div class="card" clickable>
-    <img class="media" src="https://generative-placeholders.stefanbohacek.com/image?width=300&height=200&style=cellular-automata&cells=50">
-    <h3 class="title">Card Title</h3>
-    <div class="actions">
-      <button class="">click me</button>
-    </div>
-  </div>
-  <article class="callout success">
-    <h3 class="callout-title uppercase">Callout Title</h3>
-    <p>This is the content of the callout. It provides important information to the reader.</p>
-  </article>
-  <pre><code class="code-block language-js">
-  // Example JavaScript code
+  <header>
+    <h1>Neutron</h1>
+    <p>Pure HTML and CSS</p>
+  </header>
+  <main>
+    <section>
+      <hr />
+      <h2>Forms</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <input type="checkbox" />
+        <label>
+          <input type="checkbox" />
+          Check me
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
 
-  function greet(name) {
-      console.log(`Hello, ${name}!`);
-  }
-  greet('World');
-  </code></pre>
+    <section>
+      <hr />
+      <h2>Typography</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <blockquote>
+        <p>This is a blockquote. It should be styled appropriately.</p>
+        <footer>— Someone Famous</footer>
+      </blockquote>
 
-  <code>const x = 10;</code>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </section>
 
-  <time datetime="2024-06-15T12:00:00Z">June 15, 2024</time>
+    <section>
+      <hr />
+      <h2>Lists</h2>
 
-  <div class="test">test random</div>
+      <ul>
+        <li>Unordered list item 1</li>
+        <li>Unordered list item 2</li>
+        <li>Unordered list item 3</li>
+      </ul>
+      <ol>
+        <li>Ordered list item 1</li>
+        <li>Ordered list item 2</li>
+        <li>Ordered list item 3</li>
+      </ol>
+      <dl>
+        <dt>Definition Term 1</dt>
+        <dd>Definition Description 1</dd>
+        <dt>Definition Term 2</dt>
+        <dd>Definition Description 2</dd>
+      </dl>
+    </section>
 
-  <form>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    <input type="checkbox" />
-    <label>
-      <input type="checkbox" />
-      Check me
-    </label>
-    <button type="submit">Submit</button>
-  </form>
+    <section>
+      <hr />
+      <h2>Inline Text Elements</h2>
 
-  <button command="show-modal" commandfor="dialog">Open Dialog</button>
-  <dialog id="dialog">
-    <h3>Dialog Title</h3>
-    <p>This is the content of the dialog. It can contain text, images, or other elements.</p>
-    <footer>
-      <button command="close" commandfor="dialog">Close</button>
-    </footer>
-  </dialog>
+      <div style="display: flex; flex-flow: column; gap: var(--space-m);">
+        <div style="display: flex; gap: var(--space-m);">
+          <a href="#">Link</a>
+          <b>Bold</b>
+          <em>Italic</em>
+        </div>
+        <div style="display: flex; gap: var(--space-m);">
+          <u>Underline</u>
+          <s>Strikethrough</s>
+          <small>Small</small>
+        </div>
+        <div style="display: flex; gap: var(--space-m);">
+          <span>Text <sub>sub</sub></span>
+          <span>Text <sup>sup</sup></span>
+          <abbr title="Abbreviation">ABBR</abbr>
+        </div>
+        <div style="display: flex; gap: var(--space-m);">
+          <kbd>kbd</kbd>
+          <mark>highlight</mark>
+          <code>code</code>
+        </div>
+      </div>
+    </section>
 
-  <mark>mark</mark>
-  <div class="badge danger">badge</div>
+    <section>
+      <hr />
+      <h2>Media</h2>
+      <img src="https://generative-placeholders.stefanbohacek.com/image?width=300&height=200&style=cellular-automata&cells=50" alt="Placeholder Image">
+      <picture>
+        <source srcset="https://generative-placeholders.stefanbohacek.com/image?width=300&height=200&style=cellular-automata&cells=50" media="(min-width: 600px)">
+        <img src="https://generative-placeholders.stefanbohacek.com/image?width=300&height=200&style=cellular-automata&cells=100" alt="Placeholder Image">
+      </picture>
+    </section>
 
-  <select>
-    <button>
-      <selectedcontent></selectedcontent>
-    </button>
-    <ul class="menu">
-      <option value="option1">Option 1</option>
-      <option value="option2">Option 2</option>
-      <option value="option3">Option 3</option>
-    </ul>
-  </select>
+    <section>
+      <hr />
+      <h2>Buttons</h2>
 
-  <details>
-    <summary>More Information</summary>
-    <p>This section contains additional details that can be expanded or collapsed.</p>
-  </details>
-  <details>
-    <summary>Additional Details</summary>
-    <p>Here are some more details that can be viewed by expanding this section.</p>
-  </details>
-  <div class="accordion">
-    <details name="section1">
-      <summary>More Information</summary>
-      <p>This section contains additional details that can be expanded or collapsed.</p>
-    </details>
-    <details name="section1">
-      <summary>Additional Details</summary>
-      <p>Here are some more details that can be viewed by expanding this section.</p>
-    </details>
-  </div>
-  <button interestfor="copy-tip" class="brand" style="--color-brand-50: var(--color-red-50);">
-    copy
-  </button>
-  <div id="copy-tip" class="tooltip" popover="hint" role="tooltip">
-    <span class="content">copy the thing</span>
-    <span class="arrow"></span>
-  </div>
+      <div>
+        <button>Default</button>
+        <button disabled>Disabled</button>
+        <button class="outlined">Outlined</button>
+        <button class="subtle">Subtle</button>
+        <button class="stealth">Stealth</button>
+        <button class="plain">Plain</button>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
 </body>
 </html>
