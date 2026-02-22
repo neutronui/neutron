@@ -5,32 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="src/main.css">
   <title>Document</title>
-  <style>
-    body {
-      display: flex block;
-      flex-flow: column;
-      gap: var(--space-2xs);
-      padding: var(--space-s);
-    }
-  </style>
 </head>
 <body>
-  <button>Default</button>
-  <button class="outlined">Outlined</button>
-  <button class="subtle">Subtle</button>
-  <button class="stealth">Stealth</button>
-  <button class="plain">Plain</button>
-  <button disabled>Disabled</button>
-  <button class="icon-only">
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17 3H7v2H5v2H3v10h2v2h2v2h10v-2h2v-2h2V7h-2V5h-2zm0 2v2h2v10h-2v2H7v-2H5V7h2V5z"/></svg>
-  </button>
-  <button class="small">
-    Small
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17 3H7v2H5v2H3v10h2v2h2v2h10v-2h2v-2h2V7h-2V5h-2zm0 2v2h2v10h-2v2H7v-2H5V7h2V5z"/></svg>
-  </button>
-  <button class="large">
-    Large
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17 3H7v2H5v2H3v10h2v2h2v2h10v-2h2v-2h2V7h-2V5h-2zm0 2v2h2v10h-2v2H7v-2H5V7h2V5z"/></svg>
-  </button>
+  <ul class="breadcrumb">
+    <li><a class="breadcrumb-item" href="#">Home</a></li>
+    <li><a class="breadcrumb-item" href="#">Library</a></li>
+    <li><a class="breadcrumb-item" href="#">Data</a></li>
+  </ul>
+  <div class="avatar">
+    NB
+  </div>
+  <blockquote>
+    <q>
+      This is a blockquote. It is used to indicate a section that is quoted from another source. Blockquotes are typically indented and styled differently from the main content to set them apart.
+    </q>
+    <p>-- Bob</p>
+  </blockquote>
+  <div class="card" clickable>
+    <img class="media" src="https://generative-placeholders.stefanbohacek.com/image?width=300&height=200&style=cellular-automata&cells=50">
+    <h3 class="title">Card Title</h3>
+    <div class="actions">
+      <button class="">click me</button>
+    </div>
+  </div>
+  <article class="callout success">
+    <h3 class="callout-title uppercase">Callout Title</h3>
+    <p>This is the content of the callout. It provides important information to the reader.</p>
+  </article>
+  <pre><code class="code-block language-js">
+  // Example JavaScript code
+
+  function greet(name) {
+      console.log(`Hello, ${name}!`);
+  }
+  greet('World');
+  </code></pre>
+
+  <time datetime="2024-06-15T12:00:00Z">June 15, 2024</time>
+
+  <div class="test">test random</div>
+
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <input type="checkbox" />
+    <label>
+      <input type="checkbox" />
+      Check me
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+
+  <mark>mark</mark>
+  <div class="badge danger">badge</div>
+
+  <select>
+    <button>
+      <selectedcontent></selectedcontent>
+    </button>
+    <ul class="menu">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </ul>
+  </select>
+
+  <details>
+    <summary>More Information</summary>
+    <p>This section contains additional details that can be expanded or collapsed.</p>
+  </details>
+  <details>
+    <summary>Additional Details</summary>
+    <p>Here are some more details that can be viewed by expanding this section.</p>
+  </details>
+  <div class="accordion">
+    <details name="section1">
+      <summary>More Information</summary>
+      <p>This section contains additional details that can be expanded or collapsed.</p>
+    </details>
+    <details name="section1">
+      <summary>Additional Details</summary>
+      <p>Here are some more details that can be viewed by expanding this section.</p>
+    </details>
+    <button interestfor="copy-tip" class="brand" style="--color-brand-50: var(--color-red-50);">
+      copy
+    </button>
+    <div id="copy-tip" class="tooltip" popover="hint" role="tooltip">
+      <span class="content">copy the thing</span>
+      <span class="arrow"></span>
+    </div>
+  </div>
 </body>
 </html>

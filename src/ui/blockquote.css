@@ -1,0 +1,32 @@
+@scope (
+  blockquote,
+  .blockquote,
+  .nt-blockquote
+) {
+  :scope {
+    --_fill-color: var(--color-neutral-fill-subtle);
+    --_text-color: var(--color-text-normal);
+    --_padding: var(--space-xl);
+    --_corner-radius: var(--corner-radius-m);
+  }
+
+  :scope {
+    position: relative;
+    font-family: var(--font-family-longform);
+    font-size: var(--font-size-l);
+    font-style: italic;
+    background-color: var(--_fill-color);
+    color: var(--_text-color);
+    border-radius: var(--_corner-radius);
+    corner-shape: var(--corner-shape, round);
+    padding: var(--_padding);
+  }
+
+  & > :first-child {
+    margin-block-start: 0;
+  }
+
+  & > :last-child {
+    margin-block-end: 0;
+  }
+}

@@ -1,0 +1,36 @@
+@scope (
+  .breadcrumb,
+  .nt-breadcrumb
+) {
+  :scope {
+    --item-separator: var(--icon-chevron-right, "/");
+
+    --_gap: var(--space-s);
+    --_item-gap: var(--space-xs);
+  }
+
+  :scope {
+    display: flex block;
+    gap: var(--_gap);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    position: relative;
+    display: flex inline;
+    margin: 0;
+
+    &::after {
+      position: absolute;
+      content: var(--item-separator);
+      inset-inline-end: calc(var(--_gap) * -1);
+    }
+  }
+
+  .breadcrumb-item {
+    display: flex inline;
+    gap: var(--_item-gap);
+  }
+}

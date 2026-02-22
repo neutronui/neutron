@@ -1,0 +1,36 @@
+:where(:root) {
+  --form-control-fill-color: var(--color-layer-base);
+
+  --form-control-stroke-color: var(--color-neutral-stroke-strong);
+  --form-control-stroke-style: var(--stroke-style);
+  --form-control-stroke-width: var(--stroke-width-s);
+  --form-control-corner-radius: var(--corner-radius-m);
+
+  --form-control-activated-color: var(--color-brand-fill-strong);
+
+  --form-control-label-color: var(--color-text-normal);
+  --form-control-label-font-weight: var(--font-weight-semibold);
+  --form-control-label-line-height: var(--line-height-condensed);
+
+  --form-control-value-color: var(--color-text-normal);
+  --form-control-value-font-weight: var(--font-weight-body);
+  --form-control-value-line-height: var(--line-height-condensed);
+
+  --form-control-hint-color: var(--color-text-subtle);
+  --form-control-hint-font-weight: var(--font-weight-body);
+  --form-control-hint-line-height: var(--line-height-normal);
+
+  --form-control-placeholder-color: var(--color-gray-50);
+
+  --form-control-required-content: '*';
+  --form-control-required-content-color: inherit;
+  --form-control-required-content-offset: -0.1em;
+
+  --form-control-padding-block: 0.75em;
+  --form-control-padding-inline: 1em;
+  --form-control-height: round(
+    calc(2 * var(--form-control-padding-block) + 1em * var(--form-control-value-line-height)),
+    1px
+  );
+  --form-control-toggle-size: round(1.25em, 1px);
+}

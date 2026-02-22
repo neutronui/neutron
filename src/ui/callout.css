@@ -1,0 +1,35 @@
+@scope(
+  .callout,
+  .nt-callout
+) {
+  :scope {
+    --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    --_corner-radius: var(--corner-radius-m);
+    --_stroke-width: var(--stroke-width-s);
+    --_stroke-style: var(--stroke-style);
+    --_stroke-color: transparent;
+    --_gap: var(--space-xs);
+  }
+
+  :scope {
+    display: block;
+    align-items: stretch;
+    padding: var(--space-m);
+
+    border-width: var(--_stroke-width);
+    border-style: var(--_stroke-style);
+    border-color: var(--_stroke-color);
+    border-radius: var(--_corner-radius);
+    corner-shape: var(--corner-shape, round);
+
+    background-color: var(--_fill-color);
+    color: var(--_text-color);
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: var(--_gap);
+  }
+}

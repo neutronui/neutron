@@ -1,0 +1,43 @@
+@scope(
+  .avatar,
+  .nt-avatar
+) {
+  :scope {
+    --avatar-size: 60px;
+
+    --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    --_corner-radius: var(--corner-radius-circle);
+    --_stroke-width: var(--stroke-width-m);
+    --_stroke-style: var(--stroke-style);
+    --_stroke-color: var(--color-stroke-normal, var(--color-neutral-stroke-normal));
+  }
+
+  :scope {
+    display: flex block;
+    justify-content: center;
+    align-items: center;
+    contain: content;
+
+    font-size: var(--font-size-larger);
+    line-height: var(--line-height-condensed);
+    font-weight: var(--font-weight-bold);
+    
+    color: var(--_text-color);
+    background-color: var(--_fill-color);
+    border-width: var(--_stroke-width);
+    border-style: var(--_stroke-style);
+    border-color: var(--_stroke-color);
+    border-radius: var(--_corner-radius);
+    corner-shape: var(--corner-shape, circle);
+
+    inline-size: var(--avatar-size);
+    block-size: var(--avatar-size);
+    aspect-ratio: 1;
+  }
+
+  img {
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+}

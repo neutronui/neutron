@@ -163,4 +163,9 @@
   --corner-radius-square: 0px;
   --corner-radius-circle: 50%;
   --corner-shape: square;
+
+  --focus-stroke-style: solid;
+  --focus-stroke-width: var(--stroke-width-m);
+  --focus-ring: var(--focus-stroke-width) var(--focus-stroke-style) var(--color-focus);
+  --focus-ring-offset: var(--stroke-width-s);
 }

@@ -8,9 +8,9 @@ await esbuild.build({
   entryPoints: [
     'src/*.css',
     'src/themes/*.css',
-    'src/ui/**/*.css',
-    "src/color/*.css",
-    "src/utilities/*.css",
+    'src/ui/*.css',
+    // "src/color/*.css",
+    // "src/utilities/*.css",
   ],
   outdir: 'dist',
   banner: { css: banner },

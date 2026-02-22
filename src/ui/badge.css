@@ -1,0 +1,39 @@
+@scope (
+  .badge,
+  .nt-badge
+) {
+  :scope {
+    --_gap: var(--space-3xs);
+    --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    --_corner-radius: var(--corner-radius-m);
+    --_stroke-width: var(--stroke-width-s);
+    --_stroke-style: var(--stroke-style);
+    --_stroke-color: transparent;
+    --_padding-inline: var(--space-2xs);
+    --_padding-block: var(--space-3xs);
+  }
+
+  :scope {
+    display: flex inline;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+    font-weight: var(--font-weight-semibold);
+    gap: var(--_gap);
+    padding-inline: var(--_padding-inline);
+    padding-block: var(--_padding-block);
+    background-color: var(--_fill-color);
+    color: var(--_text-color);
+    border-width: var(--_stroke-width);
+    border-style: var(--_stroke-style);
+    border-color: var(--_stroke-color);
+    border-radius: var(--_corner-radius);
+    corner-shape: var(--corner-shape);
+    min-block-size: 1lh;
+    block-size: fit-content;
+    inline-size: fit-content;
+  }
+}

@@ -9,8 +9,8 @@
     --_gap: var(--space-xs);
     --_padding-inline: var(--space-m);
     --_padding-block: var(--space-xs);
-    --_fill-color: var(--color-fill-normal, var(--color-neutral-fill-normal));
-    --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
+    --_fill-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
+    --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
     --_corner-radius: var(--corner-radius-pill);
     --_stroke-style: var(--stroke-style);
     --_stroke-width: var(--stroke-width-s);
@@ -84,25 +84,30 @@
   /* Variants */
   &.plain {
     --_fill-color: transparent;
-    --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
+    --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    text-decoration-thickness: 2px;
+
+    &:focus-visible {
+      text-decoration: underline dashed;
+    }
 
     &:not(:disabled) {
       &:hover {
-        --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
-        --_fill-color: color-mix(
-          in oklab,
-          var(--color-fill-normal, var(--color-neutral-fill-normal)),
-          var(--color-mix-hover)
-        );
+        --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+        background-color: var(--_fill-color);
+        border-color: var(--_stroke-color);
+        text-decoration: underline dashed;
       }
 
       &:active {
-        --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
-        --_fill-color: color-mix(
+        --_text-color: color-mix(
           in oklab,
-          var(--color-fill-normal, var(--color-neutral-fill-normal)),
+          var(--color-on-normal, var(--color-neutral-on-normal)),
           var(--color-mix-active)
         );
+        background-color: var(--_fill-color);
+        border-color: var(--_stroke-color);
+        text-decoration: underline solid;
       }
     }
   }
@@ -110,27 +115,19 @@
   &.outlined {
     --_fill-color: transparent;
     --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
-    --_stroke-color: var(--color-stroke-normal, var(--color-neutral-stroke-normal));
+    --_stroke-color: var(--color-stroke-strong, var(--color-neutral-stroke-strong));
 
     &:not(:disabled) {
       &:hover {
         --_stroke-color: var(--_fill-color);
-        --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
-        --_fill-color: color-mix(
-          in oklab,
-          var(--color-fill-normal, var(--color-neutral-fill-normal)),
-          var(--color-mix-hover)
-        );
+        --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+        --_fill-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
       }
 
       &:active {
         --_stroke-color: var(--_fill-color);
         --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
-        --_fill-color: color-mix(
-          in oklab,
-          var(--color-fill-normal, var(--color-neutral-fill-normal)),
-          var(--color-mix-active)
-        );
+        --_fill-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
       }
     }
   }
@@ -142,20 +139,12 @@
     &:not(:disabled) {
       &:hover {
         --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
-        --_fill-color: color-mix(
-          in oklab,
-          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
-          var(--color-mix-hover)
-        );
+        --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
       }
 
       &:active {
         --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
-        --_fill-color: color-mix(
-          in oklab,
-          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
-          var(--color-mix-active)
-        );
+        --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
       }
     }
   }
@@ -167,20 +156,12 @@
     &:not(:disabled) {
       &:hover {
         --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
-        --_fill-color: color-mix(
-          in oklab,
-          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
-          var(--color-mix-hover)
-        );
+        --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
       }
 
       &:active {
         --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
-        --_fill-color: color-mix(
-          in oklab,
-          var(--color-fill-subtle, var(--color-neutral-fill-subtle)),
-          var(--color-mix-active)
-        );
+        --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
       }
     }
   }

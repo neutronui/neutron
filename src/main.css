@@ -6,4 +6,35 @@
 @import "./color/default.css" layer(nt.color);
 @import "./themes/default.css" layer(nt.theme);
 
+@import "./ui/avatar.css" layer(nt.ui);
+@import "./ui/badge.css" layer(nt.ui);
+@import "./ui/blockquote.css" layer(nt.ui);
+@import "./ui/breadcrumb.css" layer(nt.ui);
 @import "./ui/button.css" layer(nt.ui);
+@import "./ui/callout.css" layer(nt.ui);
+@import "./ui/card.css" layer(nt.ui);
+@import "./ui/checkbox.css" layer(nt.ui);
+@import "./ui/code.css" layer(nt.ui);
+@import "./ui/details.css" layer(nt.ui);
+@import "./ui/dialog.css" layer(nt.ui);
+@import "./ui/form.css" layer(nt.ui);
+@import "./ui/input.css" layer(nt.ui);
+@import "./ui/list.css" layer(nt.ui);
+@import "./ui/media.css" layer(nt.ui);
+@import "./ui/menu.css" layer(nt.ui);
+@import "./ui/ribbon.css" layer(nt.ui);
+@import "./ui/select.css" layer(nt.ui);
+@import "./ui/skeleton.css" layer(nt.ui);
+@import "./ui/spinner.css" layer(nt.ui);
+@import "./ui/switch.css" layer(nt.ui);
+@import "./ui/table.css" layer(nt.ui);
+@import "./ui/text.css" layer(nt.ui);
+@import "./ui/tooltip.css" layer(nt.ui);
+
+@import "./utils/color.css" layer(nt.utilities);
+@import "./utils/form-control.css" layer(nt.utilities);
+@import "./utils/gap.css" layer(nt.utilities);
+@import "./utils/layout.css" layer(nt.utilities);
+@import "./utils/size.css" layer(nt.utilities);
+@import "./utils/text.css" layer(nt.utilities);
+@import "./utils/visually-hidden.css" layer(nt);
