@@ -31,6 +31,9 @@
 @import './ui/form/checkbox.css' layer(nt.ui);
 @import './ui/form/select.css' layer(nt.ui);
 @import './ui/form/input.css' layer(nt.ui);
+@import './ui/form/file-input.css' layer(nt.ui);
+@import './ui/form/color-input.css' layer(nt.ui);
+@import './ui/form/range-input.css' layer(nt.ui);
 @import './ui/form/switch.css' layer(nt.ui);
 
 @import "./utils/color.css" layer(nt.utilities);

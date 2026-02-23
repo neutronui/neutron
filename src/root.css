@@ -58,7 +58,7 @@ body {
 }
 
 :where(input, textarea, progress, meter) {
-  accent-color: var(--form-control-activated-color);
+  accent-color: var(--field-activated-color);
 }
 
 :where(.prose) {

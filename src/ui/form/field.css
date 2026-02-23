@@ -1,29 +1,40 @@
 :where(:root) {
+  /* Accent & activated */
   --field-accent-color: var(--color-brand-50);
+  --field-activated-color: var(--color-fill-strong, var(--color-brand-fill-strong));
+
+  /* Fill & stroke */
   --field-fill-color: var(--color-fill-normal, var(--color-neutral-fill-normal));
-  
   --field-stroke-color: var(--color-stroke-normal, var(--color-neutral-stroke-normal));
   --field-stroke-style: var(--stroke-style);
   --field-stroke-width: var(--stroke-width-s);
   --field-corner-radius: var(--corner-radius-s);
   --field-corner-shape: var(--corner-shape, round);
-  
+
+  /* Label */
   --field-label-color: var(--color-on-normal, var(--color-neutral-on-normal));
+  --field-label-font-size: inherit;
   --field-label-font-weight: var(--font-weight-semibold);
   --field-label-line-height: var(--line-height-condensed);
 
+  /* Value (control text) */
   --field-value-color: var(--color-on-normal, var(--color-neutral-on-normal));
+  --field-value-font-size: 1em;
   --field-value-font-weight: var(--font-weight-body);
   --field-value-line-height: var(--line-height-condensed);
-  
+
+  /* Hint */
   --field-hint-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+  --field-hint-font-size: var(--font-size-smaller);
   --field-hint-font-weight: var(--font-weight-body);
   --field-hint-line-height: var(--line-height-normal);
 
+  /* Placeholder & required */
   --field-placeholder-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
   --field-required-content: "*";
-  --field-required-content-color: inherit;
+  --field-required-content-color: var(--color-danger-on-subtle);
 
+  /* Sizing */
   --field-size: round(
     calc(2 * var(--field-padding-block) + 1em * var(--field-value-line-height)),
     1px
@@ -31,4 +42,98 @@
   --field-toggle-size: round(1.25em, 1px);
   --field-padding-block: var(--space-xs);
   --field-padding-inline: var(--space-m);
+
+  /* Field wrapper spacing */
+  --field-gap: var(--space-xs);
+}
+
+/* --------------------------------------------------
+   .field / .nt-field — wrapper component
+   Groups label + control + hint into a vertical stack
+   with token scoping, required indicator, and sizing.
+   -------------------------------------------------- */
+
+@scope (.field, .nt-field) {
+  :scope {
+    --_gap: var(--field-gap);
+    --_label-color: var(--field-label-color);
+    --_label-font-size: var(--field-label-font-size);
+    --_label-font-weight: var(--field-label-font-weight);
+    --_label-line-height: var(--field-label-line-height);
+    --_hint-color: var(--field-hint-color);
+    --_hint-font-size: var(--field-hint-font-size);
+    --_hint-font-weight: var(--field-hint-font-weight);
+    --_hint-line-height: var(--field-hint-line-height);
+    --_required-content: var(--field-required-content);
+    --_required-content-color: var(--field-required-content-color);
+  }
+
+  :scope {
+    display: flex;
+    flex-flow: column;
+    gap: var(--_gap);
+  }
+
+  /* Label */
+  :scope > label,
+  :scope > .field-label {
+    color: var(--_label-color);
+    font-size: var(--_label-font-size);
+    font-weight: var(--_label-font-weight);
+    line-height: var(--_label-line-height);
+  }
+
+  /* Required indicator on label */
+  &:has(
+    :not(:placeholder-shown):invalid,
+    :where(
+      :placeholder-shown
+      option[value=""]:not(:checked),
+      option:checked:not([value=""])
+    ):required
+  ) {
+    :where(label, .label)::after {
+      content: var(--_required-content);
+      color: var(--_required-content-color);
+      margin: -0.25em auto auto 0.25em;
+    }
+  }
+
+  /* Control fills available width */
+  :scope > :is(
+    input:not([type="checkbox"], [type="radio"], [type="color"]),
+    textarea,
+    select,
+    .select
+  ) {
+    width: 100%;
+  }
+
+  /* Hint text */
+  :scope > .field-hint,
+  :scope > .nt-field-hint {
+    color: var(--_hint-color);
+    font-size: var(--_hint-font-size);
+    font-weight: var(--_hint-font-weight);
+    line-height: var(--_hint-line-height);
+  }
+
+  /* Size modifiers */
+  &.small {
+    font-size: var(--font-size-s);
+    --field-padding-block: var(--space-2xs);
+    --field-padding-inline: var(--space-s);
+  }
+
+  &.large {
+    font-size: var(--font-size-l);
+    --field-padding-block: var(--space-s);
+    --field-padding-inline: var(--space-l);
+  }
+
+  /* Inline layout (label beside control) for toggles */
+  &.inline {
+    flex-flow: row;
+    align-items: center;
+  }
 }

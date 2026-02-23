@@ -1,0 +1,51 @@
+/* --------------------------------------------------
+   Color input
+   -------------------------------------------------- */
+
+@scope (input[type="color"]) {
+  :scope {
+    --_stroke-width: var(--field-stroke-width);
+    --_stroke-color: var(--field-stroke-color);
+    --_corner-radius: var(--field-corner-radius);
+    --_size: var(--field-size);
+  }
+
+  :scope {
+    display: block;
+    block-size: var(--_size);
+    inline-size: var(--_size);
+    padding: calc(var(--_stroke-width) * 2);
+    font-size: 1em;
+    background: transparent;
+    border-width: var(--_stroke-width);
+    border-style: var(--stroke-style);
+    border-color: var(--_stroke-color);
+    border-radius: var(--_corner-radius);
+    corner-shape: var(--field-corner-shape);
+    cursor: var(--cursor-pointer, pointer);
+    forced-color-adjust: none;
+  }
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: inherit;
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &::-webkit-color-swatch {
+    border: none;
+    border-radius: calc(var(--_corner-radius) - var(--_stroke-width) * 3);
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &::-moz-color-swatch {
+    border: none;
+    border-radius: calc(var(--_corner-radius) - var(--_stroke-width) * 3);
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+}

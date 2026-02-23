@@ -1,0 +1,198 @@
+/* --------------------------------------------------
+   Tick-mark helpers (CSS Functions)
+   Requires: CSS attr() with type coercion (Values L5)
+             CSS @function (Mixins & Functions L1)
+   -------------------------------------------------- */
+
+/* Returns the number of discrete steps between min and max */
+@function --tick-count(--min, --max, --step) {
+  result: calc((var(--max) - var(--min)) / var(--step));
+}
+
+/* Builds a repeating gradient of thin vertical tick lines.
+   100% inside the gradient resolves to the background-size width,
+   so the repeat interval is the gradient-box width ÷ count. */
+@function --tick-gradient(--count, --color, --width) {
+  result: repeating-linear-gradient(
+    to right,
+    var(--color) 0 var(--width),
+    transparent var(--width) calc(100% / var(--count))
+  );
+}
+
+/* --------------------------------------------------
+   Range input
+   -------------------------------------------------- */
+
+@scope (input[type="range"]) {
+  :scope {
+    --_thumb-width: 1.4em;
+    --_thumb-height: 1.4em;
+    --_track-size: 0.5em;
+    --_activated-color: var(--field-activated-color);
+    --_fill-color: var(--color-fill-normal, var(--color-neutral-fill-normal));
+  }
+
+  :scope {
+    -webkit-appearance: none;
+    display: flex block;
+    flex-flow: column;
+    position: relative;
+
+    width: 100%;
+    height: var(--_track-size);
+    margin: 0;
+
+    font-size: inherit;
+    line-height: var(--field-size);
+    vertical-align: middle;
+
+    background-color: var(--_fill-color);
+    border-radius: calc(var(--_track-size) / 2);
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--_track-size);
+    border: none;
+    border-radius: 999px;
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: var(--_thumb-width);
+    height: var(--_thumb-height);
+    margin-top: calc(var(--_thumb-height) / -2 + var(--_track-size) / 2);
+
+    background-color: var(--_activated-color);
+    border-width: 0.125em;
+    border-style: solid;
+    border-color: var(--color-layer-base);
+    border-radius: 50%;
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &:enabled {
+    &:focus-visible::-webkit-slider-thumb {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    &::-webkit-slider-thumb {
+      cursor: var(--cursor-pointer, pointer);
+    }
+
+    &::-webkit-slider-thumb:active {
+      cursor: var(--cursor-grabbing, grabbing);
+    }
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &::-moz-range-progress {
+    height: var(--_track-size);
+    background-color: var(--_fill-color);
+    border-radius: 3px;
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: var(--_track-size);
+    background-color: var(--_fill-color);
+    border: none;
+    border-radius: 999px;
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &::-moz-range-thumb {
+    width: var(--_thumb-width);
+    height: var(--_thumb-height);
+
+    background-color: var(--_activated-color);
+    border: solid 0.125em var(--color-layer-base);
+    border-radius: 50%;
+    corner-shape: var(--field-corner-shape);
+  }
+
+  &:enabled {
+    &:focus-visible::-moz-range-thumb {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    &::-moz-range-thumb {
+      cursor: var(--cursor-pointer, pointer);
+    }
+
+    &::-moz-range-thumb:active {
+      cursor: var(--cursor-grabbing, grabbing);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: var(--disabled-opacity);
+    cursor: var(--cursor-not-allowed, not-allowed);
+
+    &::-webkit-slider-thumb {
+      cursor: var(--cursor-not-allowed, not-allowed);
+    }
+
+    &::-moz-range-thumb {
+      cursor: var(--cursor-not-allowed, not-allowed);
+    }
+  }
+
+  /* Tick marks ·············································
+     Reads min/max/step via CSS attr() and renders aligned
+     tick marks as repeating background gradients.
+
+       <input type="range" class="ticks" min="0" max="100" step="10">
+
+     Two gradient layers:
+       1. repeating-linear-gradient — first N ticks (0 … N-1)
+       2. solid linear-gradient     — closing Nth tick
+     Both are inset by half the thumb width so marks sit
+     exactly where the thumb centre can rest.
+     ························································· */
+  &.ticks {
+    --_min: attr(min number, 0);
+    --_max: attr(max number, 100);
+    --_step: attr(step number, 1);
+    --_tick-count: --tick-count(var(--_min), var(--_max), var(--_step));
+    --_tick-color: var(--color-stroke-strong, var(--color-neutral-stroke-strong));
+    --_tick-width: 2px;
+    --_tick-height: var(--_track-size);
+    --_tick-inset: calc(var(--_thumb-width) / 2);
+
+    background-image:
+      --tick-gradient(var(--_tick-count), var(--_tick-color), var(--_tick-width)),
+      linear-gradient(var(--_tick-color), var(--_tick-color));
+    background-size:
+      calc(100% - var(--_thumb-width)) var(--_tick-height),
+      var(--_tick-width) var(--_tick-height);
+    background-position:
+      var(--_tick-inset) center,
+      calc(100% - var(--_tick-inset)) center;
+    background-repeat: no-repeat;
+
+    /* Firefox renders ::-moz-range-track with its own background,
+       which would cover the input's background-image.  Make it
+       transparent so tick marks on the host element show through. */
+    &::-moz-range-track {
+      background-color: transparent;
+    }
+  }
+}
+
+label > input[type="range"] {
+  margin-block-start: 1em;
+}

@@ -1,34 +1,56 @@
 @import '../../internal/media-queries.postcss';
 
-:where(input[type="checkbox"][role="switch"]) {
-  appearance: none;
-  contain: paint;
-  display: flex inline;
-  position: relative;
-  background-color: var(--field-fill-color);
-  cursor: var(--cursor-pointer, pointer);
-  line-height: calc(var(--field-size) - var(--stroke-width) * 2);
-  cursor: var(--cursor-pointer, pointer);
-  user-select: none;
-  block-size: var(--field-toggle-size);
-  inline-size: calc(var(--field-toggle-size) * 2);
-  border-width: var(--field-stroke-width);
-  border-style: var(--field-stroke-style);
-  border-color: var(--field-stroke-color);
-  border-radius: var(--corner-radius-pill);
-  corner-shape: var(--corner-shape);
+/* --------------------------------------------------
+   Switch (toggle)
+   -------------------------------------------------- */
 
+@scope (
+  input[type="checkbox"][role="switch"],
+  .switch,
+  .nt-switch
+) {
+  :scope {
+    --_fill-color: var(--field-fill-color);
+    --_stroke-color: var(--field-stroke-color);
+    --_stroke-style: var(--field-stroke-style);
+    --_stroke-width: var(--field-stroke-width);
+    --_toggle-size: var(--field-toggle-size);
+    --_activated-color: var(--field-activated-color);
+    --_thumb-color: var(--field-value-color);
+  }
+
+  :scope {
+    appearance: none;
+    contain: paint;
+    display: flex inline;
+    position: relative;
+
+    background-color: var(--_fill-color);
+    cursor: var(--cursor-pointer, pointer);
+    user-select: none;
+
+    block-size: var(--_toggle-size);
+    inline-size: calc(var(--_toggle-size) * 2);
+
+    border-width: var(--_stroke-width);
+    border-style: var(--_stroke-style);
+    border-color: var(--_stroke-color);
+    border-radius: var(--corner-radius-pill);
+    corner-shape: var(--corner-shape);
+  }
+
+  /* Thumb */
   &::after {
     content: '';
     display: flex inline;
     position: absolute;
-    background-color: var(--field-value-color);
-    block-size: calc(var(--field-toggle-size) - var(--field-stroke-width) * 4);
-    inline-size: calc(var(--field-toggle-size) - var(--field-stroke-width) * 4);
-    inset: var(--field-stroke-width);
+    background-color: var(--_thumb-color);
+    block-size: calc(var(--_toggle-size) - var(--_stroke-width) * 4);
+    inline-size: calc(var(--_toggle-size) - var(--_stroke-width) * 4);
+    inset: var(--_stroke-width);
     border-radius: var(--corner-radius-circle);
     corner-shape: inherit;
-    
+
     @media (--motion-ok) {
       transition: transform var(--duration-fast) var(--ease-easy);
     }
@@ -40,11 +62,22 @@
   }
 
   &:checked {
-    border-color: var(--field-activated-color);
+    border-color: var(--_activated-color);
 
     &::after {
-      background-color:var(--field-activated-color);
-      transform: translateX(var(--field-toggle-size));
+      background-color: var(--_activated-color);
+      transform: translateX(var(--_toggle-size));
     }
+  }
+
+  &:disabled {
+    opacity: var(--disabled-opacity);
+    cursor: var(--cursor-not-allowed, not-allowed);
+  }
+
+  /* Subtle variant — lighter track fill */
+  &.subtle {
+    --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+    --_stroke-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
   }
 }
