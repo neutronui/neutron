@@ -1,0 +1,32 @@
+@layer nt._native {
+  [class*="container"] {
+    --_inline-size: var(--size-xl);
+    margin-inline: auto;
+    max-inline-size: var(--_inline-size);
+    inline-size: 100vw;
+  }
+
+  .container-xs {
+    --_inline-size: var(--size-xs);
+  }
+
+  .container-s {
+    --_inline-size: var(--size-s);
+  }
+
+  .container-m {
+    --_inline-size: var(--size-m);
+  }
+
+  .container-l {
+    --_inline-size: var(--size-l);
+  }
+
+  .container-xl {
+    --_inline-size: var(--size-xl);
+  }
+
+  .container-2xl {
+    --_inline-size: var(--size-2xl);
+  }
+}

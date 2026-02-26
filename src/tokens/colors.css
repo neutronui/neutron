@@ -91,7 +91,7 @@
     --color-neutral-on-strong: white;
   }
 
-  :where(:root, .dark, .nt-dark) {
+  :where(.dark, .nt-dark) {
     color-scheme: dark;
 
     /* Surface Layers */

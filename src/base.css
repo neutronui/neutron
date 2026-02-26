@@ -9,6 +9,7 @@
     font-weight: var(--font-weight-body);
     line-height: var(--line-height-normal);
     font-size: var(--size-fluid-base);
+    accent-color: var(--color-brand);
   }
 
   body {
