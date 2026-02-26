@@ -1,0 +1,13 @@
+@layer nt.base {
+  :where(:root) {
+    --font-family-body: ui-sans-serif, system-ui, sans-serif;
+    --font-family-heading: var(--font-family-body);
+    --font-family-monospace: ui-monospace, monospace;
+    --font-family-longform: ui-serif, serif;
+
+    --opentype-case: 'case' off;
+    --opentype-sinf: 'sinf' off;
+
+    
+  }
+}

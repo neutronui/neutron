@@ -1,0 +1,175 @@
+@layer nt.base {
+  :where(:root, .light, .nt-light) {
+    color-scheme: light;
+
+    /* Surface Layers */
+    --color-layer-floating: white;
+    --color-layer-base: color-mix(in oklab, var(--color-neutral-95) 20%, transparent);
+    --color-layer-1: var(--color-neutral-90);
+    --color-layer-2: var(--color-neutral-80);
+    --color-layer-3: var(--color-neutral-70);
+    --color-layer-stroke: var(--color-neutral-90);
+
+    --color-layer-tinted-1: color-mix(in oklab, var(--color-layer-1), var(--color-brand) 4%);
+    --color-layer-tinted-2: color-mix(in oklab, var(--color-layer-2), var(--color-brand) 8%);
+    --color-layer-tinted-3: color-mix(in oklab, var(--color-layer-3), var(--color-brand) 16%);
+
+    /* Overlays */
+    --color-overlay-modal: color-mix(in oklab, var(--color-neutral-05) 50%, transparent);
+    --color-overlay-inline: color-mix(in oklab, var(--color-neutral-80) 20%, transparent);
+    --color-shadow: color-mix(in oklab, var(--color-neutral-05) calc(var(--shadow-blur-scale) * 4% + 8%), transparent);
+
+    /* Text */
+    --color-text-normal: var(--color-neutral-10);
+    --color-text-subtle: var(--color-neutral-40);
+    --color-text-link: var(--color-brand-40);
+
+    /* State */
+    --color-focus: var(--color-brand-60);
+    --color-mix-hover: black 10%;
+    --color-mix-active: black 20%;
+
+    /* Fills */
+    --color-brand-fill-subtle: var(--color-brand-95);
+    --color-brand-fill-normal: var(--color-brand-90);
+    --color-brand-fill-strong: var(--color-brand-50);
+    --color-brand-stroke-subtle: var(--color-brand-90);
+    --color-brand-stroke-normal: var(--color-brand-80);
+    --color-brand-stroke-strong: var(--color-brand-60);
+    --color-brand-on-subtle: var(--color-brand-40);
+    --color-brand-on-normal: var(--color-brand-30);
+    --color-brand-on-strong: white;
+
+    --color-success-fill-subtle: var(--color-success-95);
+    --color-success-fill-normal: var(--color-success-90);
+    --color-success-fill-strong: var(--color-success-50);
+    --color-success-stroke-subtle: var(--color-success-90);
+    --color-success-stroke-normal: var(--color-success-80);
+    --color-success-stroke-strong: var(--color-success-60);
+    --color-success-on-subtle: var(--color-success-40);
+    --color-success-on-normal: var(--color-success-30);
+    --color-success-on-strong: white;
+
+    --color-warning-fill-subtle: var(--color-warning-95);
+    --color-warning-fill-normal: var(--color-warning-90);
+    --color-warning-fill-strong: var(--color-warning-50);
+    --color-warning-stroke-subtle: var(--color-warning-90);
+    --color-warning-stroke-normal: var(--color-warning-80);
+    --color-warning-stroke-strong: var(--color-warning-60);
+    --color-warning-on-subtle: var(--color-warning-40);
+    --color-warning-on-normal: var(--color-warning-30);
+    --color-warning-on-strong: white;
+
+    --color-danger-fill-subtle: var(--color-danger-95);
+    --color-danger-fill-normal: var(--color-danger-90);
+    --color-danger-fill-strong: var(--color-danger-50);
+    --color-danger-stroke-subtle: var(--color-danger-90);
+    --color-danger-stroke-normal: var(--color-danger-80);
+    --color-danger-stroke-strong: var(--color-danger-60);
+    --color-danger-on-subtle: var(--color-danger-40);
+    --color-danger-on-normal: var(--color-danger-30);
+    --color-danger-on-strong: white;
+
+    --color-info-fill-subtle: var(--color-info-95);
+    --color-info-fill-normal: var(--color-info-90);
+    --color-info-fill-strong: var(--color-info-50);
+    --color-info-stroke-subtle: var(--color-info-90);
+    --color-info-stroke-normal: var(--color-info-80);
+    --color-info-stroke-strong: var(--color-info-60);
+    --color-info-on-subtle: var(--color-info-40);
+    --color-info-on-normal: var(--color-info-30);
+    --color-info-on-strong: white;
+
+    --color-neutral-fill-subtle: var(--color-neutral-95);
+    --color-neutral-fill-normal: var(--color-neutral-90);
+    --color-neutral-fill-strong: var(--color-neutral-20);
+    --color-neutral-stroke-subtle: var(--color-neutral-90);
+    --color-neutral-stroke-normal: var(--color-neutral-80);
+    --color-neutral-stroke-strong: var(--color-neutral-60);
+    --color-neutral-on-subtle: var(--color-neutral-40);
+    --color-neutral-on-normal: var(--color-neutral-30);
+    --color-neutral-on-strong: white;
+  }
+
+  :where(:root, .dark, .nt-dark) {
+    color-scheme: dark;
+
+    /* Surface Layers */
+    --color-layer-floating: black;
+    --color-layer-base: color-mix(in oklab, var(--color-neutral-05) 20%, transparent);
+    --color-layer-1: var(--color-neutral-10);
+    --color-layer-2: var(--color-neutral-20);
+    --color-layer-3: var(--color-neutral-30);
+    --color-layer-stroke: var(--color-neutral-20);
+
+    --color-layer-tinted-1: color-mix(in oklab, var(--color-layer-1), var(--color-brand) 4%);
+    --color-layer-tinted-2: color-mix(in oklab, var(--color-layer-2), var(--color-brand) 8%);
+    --color-layer-tinted-3: color-mix(in oklab, var(--color-layer-3), var(--color-brand) 16%);
+
+    /* Overlays */
+    --color-overlay-modal: color-mix(in oklab, var(--color-neutral-95) 50%, transparent);
+    --color-overlay-inline: color-mix(in oklab, var(--color-neutral-20) 20%, transparent);
+    --color-shadow: color-mix(in oklab, var(--color-layer-base) calc(var(--shadow-blur-scale) * 32% + 40%), transparent);
+
+    /* Text */
+    --color-text-normal: var(--color-neutral-90);
+    --color-text-subtle: var(--color-neutral-60);
+    --color-text-link: var(--color-brand-60);
+
+    /* State */
+    --color-focus: var(--color-brand-40);
+    --color-mix-hover: black 8%;
+    --color-mix-active: black 16%;
+
+    /* Fills */
+    --color-brand-fill-subtle: var(--color-brand-10);
+    --color-brand-fill-normal: var(--color-brand-20);
+    --color-brand-fill-strong: var(--color-brand-50);
+    --color-brand-border-subtle: var(--color-brand-20);
+    --color-brand-border-normal: var(--color-brand-30);
+    --color-brand-border-strong: var(--color-brand-40);
+    --color-brand-on-subtle: var(--color-brand-60);
+    --color-brand-on-normal: var(--color-brand-70);
+    --color-brand-on-strong: white;
+
+    --color-success-fill-subtle: var(--color-success-10);
+    --color-success-fill-normal: var(--color-success-20);
+    --color-success-fill-strong: var(--color-success-50);
+    --color-success-border-subtle: var(--color-success-20);
+    --color-success-border-normal: var(--color-success-30);
+    --color-success-border-strong: var(--color-success-40);
+    --color-success-on-subtle: var(--color-success-60);
+    --color-success-on-normal: var(--color-success-70);
+    --color-success-on-strong: white;
+
+    --color-warning-fill-subtle: var(--color-warning-10);
+    --color-warning-fill-normal: var(--color-warning-20);
+    --color-warning-fill-strong: var(--color-warning-50);
+    --color-warning-border-subtle: var(--color-warning-20);
+    --color-warning-border-normal: var(--color-warning-30);
+    --color-warning-border-strong: var(--color-warning-40);
+    --color-warning-on-subtle: var(--color-warning-60);
+    --color-warning-on-normal: var(--color-warning-70);
+    --color-warning-on-strong: white;
+
+    --color-danger-fill-subtle: var(--color-danger-10);
+    --color-danger-fill-normal: var(--color-danger-20);
+    --color-danger-fill-strong: var(--color-danger-50);
+    --color-danger-border-subtle: var(--color-danger-20);
+    --color-danger-border-normal: var(--color-danger-30);
+    --color-danger-border-strong: var(--color-danger-40);
+    --color-danger-on-subtle: var(--color-danger-60);
+    --color-danger-on-normal: var(--color-danger-70);
+    --color-danger-on-strong: white;
+
+    --color-neutral-fill-subtle: var(--color-neutral-10);
+    --color-neutral-fill-normal: var(--color-neutral-20);
+    --color-neutral-fill-strong: var(--color-neutral-90);
+    --color-neutral-border-subtle: var(--color-neutral-20);
+    --color-neutral-border-normal: var(--color-neutral-30);
+    --color-neutral-border-strong: var(--color-neutral-40);
+    --color-neutral-on-subtle: var(--color-neutral-60);
+    --color-neutral-on-normal: var(--color-neutral-70);
+    --color-neutral-on-strong: var(--color-neutral-05);
+  }
+}
