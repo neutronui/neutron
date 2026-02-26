@@ -1,0 +1,156 @@
+@layer nt._native {
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-normal);
+    font-size: var(--size-fluid-base);
+  }
+
+  body {
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-size: inherit;
+
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: clip;
+  }
+
+  :where(
+    p, ol, ul, dl, dd, form, fieldset, audio, video,
+    iframe, fencedframe, blockquote, geolocation, details,
+    table, pre, figure, address
+  ) {
+    margin: 0;
+    
+    &:not(:last-child) {
+      margin-block-end: var(--content-spacing);
+    }
+  }
+
+  /* Headings */
+  @supports (:heading(1)) {
+    :heading {
+      --exponent: var(--heading-level, 1);
+      --font-heading-size-min: calc(var(--font-base-min) * pow(var(--font-scale-min), var(--exponent)));
+      --font-heading-size-max: calc(var(--font-base-max) * pow(var(--font-scale-max), var(--exponent)));
+      --font-heading-fluid-rate: calc(
+        (var(--font-heading-size-max) - var(--font-heading-size-min)) * 100 / var(--fluid-range)
+      );
+
+      font-family: var(--font-family-heading);
+      font-weight: var(--font-weight-heading);
+      line-height: var(--line-height-condensed);
+      text-box-trim: trim-both;
+      margin: 0;
+      margin-block-end: var(--size-m);
+      font-size: clamp(
+        var(--font-heading-size-min),
+        var(--font-heading-size-min) + var(--font-heading-fluid-rate) * (100vw - var(--fluid-min-width)) / 100,
+        var(--font-heading-size-max)
+      );
+    }
+
+    :heading(1) {
+      --heading-level: 5;
+    }
+
+    :heading(2) {
+      --heading-level: 4;
+    }
+
+    :heading(3) {
+      --heading-level: 3;
+    }
+
+    :heading(4) {
+      --heading-level: 2;
+    }
+
+    :heading(5) {
+      --heading-level: 1;
+    }
+
+    :heading(6) {
+      --heading-level: 0;
+    }
+  }
+
+  @supports not (:heading(1)) {
+    :--heading {
+      --exponent: var(--heading-level, 1);
+      --font-heading-size-min: calc(var(--font-base-min) * pow(var(--font-scale-min), var(--exponent)));
+      --font-heading-size-max: calc(var(--font-base-max) * pow(var(--font-scale-max), var(--exponent)));
+      --font-heading-fluid-rate: calc(
+        (var(--font-heading-size-max) - var(--font-heading-size-min)) * 100 / var(--fluid-range)
+      );
+
+      font-family: var(--font-family-heading);
+      font-weight: var(--font-weight-heading);
+      line-height: var(--line-height-condensed);
+      text-box-trim: trim-both;
+      margin: 0;
+      margin-block-end: var(--size-m);
+      font-size: clamp(
+        var(--font-heading-size-min),
+        var(--font-heading-size-min) + var(--font-heading-fluid-rate) * (100vw - var(--fluid-min-width)) / 100,
+        var(--font-heading-size-max)
+      );
+    }
+
+    h1 {
+      --heading-level: 5;
+    }
+
+    h2 {
+      --heading-level: 4;
+    }
+
+    h3 {
+      --heading-level: 3;
+    }
+
+    h4 {
+      --heading-level: 2;
+    }
+
+    h5 {
+      --heading-level: 1;
+    }
+
+    h6 {
+      --heading-level: 0;
+    }
+  }
+}
+
+@layer nt._state {
+  :is(
+    button, [href], input,
+    select, textarea, summary, [tabindex]
+  ):focus-visible {
+    outline-color: var(--color-focus);
+    outline-style: var(--focus-stroke-style, var(--stroke-style, solid));
+    outline-width: var(--focus-stroke-width, var(--stroke-width-m));
+    outline-offset: var(--focus-stroke-offset, 2px);
+  }
+
+  [hidden] {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms;
+      animation-iteration-count: 1;
+      transition-duration: 0.01ms;
+      scroll-behavior: auto;
+    }
+  }
+}

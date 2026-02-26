@@ -1,4 +1,4 @@
-@layer nt.base {
+@layer nt._base {
   :where(:root, .light, .nt-light) {
     color-scheme: light;
 

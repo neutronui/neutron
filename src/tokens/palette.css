@@ -1,4 +1,4 @@
-@layer nt.base {
+@layer nt._base {
   :where(:root) {
     --color-cyan-gte-60: calc(100% - (clamp(0, 60 - var(--color-cyan-key), 1) * 100%));
     --color-gray-gte-60: calc(100% - (clamp(0, 60 - var(--color-gray-key), 1) * 100%));

@@ -1,0 +1,63 @@
+@layer nt._base {
+  :where(:root) {
+    --scale-minor-second: 1.067;
+    --scale-major-second: 1.125;
+    --scale-minor-third: 1.2;
+    --scale-major-third: 1.25;
+    --scale-perfect-fourth: 1.333;
+    --scale-augmented-fourth: 1.414;
+    --scale-perfect-fifth: 1.5;
+    --scale-golden-ratio: 1.618;
+
+    --fluid-min-width: 320px;
+    --fluid-max-width: 1440px;
+    --fluid-range: calc(var(--fluid-max-width) - var(--fluid-min-width));
+    --size-base-min: 1rem;
+    --size-base-max: 1.125rem;
+
+    --size-scale-min: var(--scale-minor-third);
+    --size-scale-max: var(--scale-perfect-fourth);
+
+    --size-fluid-base: clamp(
+      var(--size-base-min),
+      var(--size-base-min) + (var(--size-base-max) - var(--size-base-min)) * (100vw - var(--fluid-min-width)) / var(--fluid-range),
+      var(--size-base-max)
+    );
+
+    --size-step-min: calc(var(--size-base-min) * pow(var(--size-scale-min), var(--step-exponent, 0)));
+    --size-step-max: calc(var(--size-base-max) * pow(var(--size-scale-max), var(--step-exponent, 0)));
+    --size-step-fluid-rate: calc(
+      (var(--size-step-max) - var(--size-step-min)) * 100 / var(--fluid-range)
+    );
+    --size-step-fluid: clamp(
+      var(--size-step-min),
+      var(--size-step-min) + var(--size-step-fluid-rate) * (100vw - var(--fluid-min-width)) / 100,
+      var(--size-step-max)
+    );
+
+    --size-none: 0;
+    --size-3xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -3));
+    --size-2xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -2));
+    --size-xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -1));
+    --size-s: var(--size-base-min);
+    --size-m: calc(var(--size-base-min) * pow(var(--size-scale-min), 1));
+    --size-l: calc(var(--size-base-min) * pow(var(--size-scale-min), 2));
+    --size-xl: calc(var(--size-base-min) * pow(var(--size-scale-min), 3));
+    --size-2xl: calc(var(--size-base-min) * pow(var(--size-scale-min), 4));
+    --size-3xl: calc(var(--size-base-min) * pow(var(--size-scale-min), 5));
+
+    --content-spacing: var(--space-l);
+    
+    --stroke-width-s: 1px;
+    --stroke-width-m: 2px;
+    --stroke-width-l: 4px;
+
+    --corner-radius-s: 4px;
+    --corner-radius-m: 8px;
+    --corner-radius-l: 16px;
+    --corner-radius-pill: 9999px;
+    --corner-radius-circle: 50%;
+    --corner-radius-square: 0px;
+    --corner-shape: square;
+  }
+}
