@@ -1,0 +1,14 @@
+@layer nt._native {
+  .cluster {
+    --cluster-gap: var(--size-m, 1em);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--cluster-gap);
+    justify-content: flex-start;
+    align-items: center;
+
+    > * {
+      margin: 0;
+    }
+  }
+}

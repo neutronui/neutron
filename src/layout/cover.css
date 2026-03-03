@@ -1,0 +1,25 @@
+@layer nt._native {
+  .cover {
+    --cover-block-size: 100vh;
+    display: flex;
+    flex-flow: column;
+    min-block-size: var(--cover-block-size);
+    padding: 0;
+
+    > * {
+      margin-block: var(--size-m);
+    }
+
+    > :first-child:not(.featured) {
+      margin-block-start: 0;
+    }
+
+    > :last-child:not(.featured) {
+      margin-block-end: 0;
+    }
+
+    > .featured {
+      margin-block: auto;
+    }
+  }
+}

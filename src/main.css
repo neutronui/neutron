@@ -1,11 +1,5 @@
 @layer nt;
-@layer nt._base,
-nt.theme,
-nt._native,
-nt.extensions,
-nt._utilities,
-nt._tokens,
-nt._state;
+@layer nt._base, nt.theme, nt._native, nt.extensions, nt._utilities, nt._tokens, nt._state;
 
 @import "./tokens/palette.css";
 @import "./tokens/colors.css";
@@ -14,4 +8,14 @@ nt._state;
 
 @import "./base.css";
 
+@import "./layout/box.css";
+@import "./layout/center.css";
+@import "./layout/cluster.css";
 @import "./layout/container.css";
+@import "./layout/cover.css";
+@import "./layout/frame.css";
+@import "./layout/grid.css";
+@import "./layout/split.css";
+@import "./layout/stack.css";
+
+@import "./functions.css" supports(width: --x(--y));

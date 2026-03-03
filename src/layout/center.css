@@ -1,0 +1,18 @@
+@layer nt._native {
+  .center {
+    --center-inline-size: 100%;
+    
+    align-items: center;
+    box-sizing: content-box;
+    display: flex;
+    flex-flow: column;
+    margin-inline: auto;
+    max-inline-size: var(--center-inline-size);
+    text-align: center;
+    
+    &.gutters {
+      --center-gutter-size: 144px;
+      padding-inline: var(--center-gutter-size);
+    }
+  }
+}

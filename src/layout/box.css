@@ -1,0 +1,14 @@
+@layer nt._native {
+  .box {
+    padding: var(--size-m, 1em);
+    border-width: var(--stroke-width, 1px);
+    border-style: var(--stroke-style, solid);
+    border-color: var(--color-stroke-strong, var(--color-neutral-stroke-strong));
+    color: var(--color-on-normal, var(--color-neutral-on-normal));
+    background-color: var(--color-fill-normal, var(--color-neutral-fill-normal));
+
+    > * {
+      color: inherit;
+    }
+  }
+}

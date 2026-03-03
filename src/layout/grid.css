@@ -1,0 +1,13 @@
+@layer nt._native {
+  .grid {
+    --grid-gap: var(--size-m, 1em);
+    --grid-min: 10ch;
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min), 100%), 1fr));
+
+    > * {
+      margin: 0;
+    }
+  }
+}

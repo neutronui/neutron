@@ -1,0 +1,37 @@
+@layer nt._utilities {
+
+  @function --opacity(--color, --opacity) {
+    result: oklch(from var(--color) l c h / var(--opacity));
+  }
+  
+  @function --conditional-radius(--radius, --edge-dist: 4px) {
+    result: clamp(
+      0px,
+      ((100vw - var(--edge-dist)) - 100%) * 1e5,
+      var(--radius)
+    );
+  }
+
+  @supports (color-scheme(dark)) and (if(red: 1; else: 0)) {
+    @function --light-dark(--l, --d) {
+      result: if(color-scheme(dark): var(--d); else: var(--l));
+    }
+  }
+
+  @supports (if(red: 1; else: 0)) {
+    @function --light-dark(--l, --d) {
+      result: if(
+        style(--scheme: dark): var(--d);
+        else: var(--l)
+      );
+    }
+  }
+
+  @function --light-dark(--l, --d) {
+    result: var(--l);
+
+    @media (prefers-color-scheme: dark) {
+      result: var(--d);
+    }
+  }
+}

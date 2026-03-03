@@ -1,0 +1,13 @@
+@layer nt._native {
+  .stack {
+    --stack-gap: var(--size-m, 1em);
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap);
+    justify-content: flex-start;
+
+    > * {
+      margin: 0;
+    }
+  }
+}

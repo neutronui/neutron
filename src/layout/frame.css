@@ -1,0 +1,15 @@
+@layer nt._native {
+  .frame {
+    --frame-aspect-ratio: 16 / 9;
+    aspect-ratio: var(--frame-aspect-ratio);
+    display: grid;
+    place-content: center;
+
+    > img,
+    > video {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+    }
+  }
+}

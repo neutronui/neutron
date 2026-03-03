@@ -1,32 +1,28 @@
 @layer nt._native {
-  [class*="container"] {
-    --_inline-size: var(--size-xl);
+  @property --container-name {
+    syntax: <custom-ident>;
+    inherits: false;
+    initial-value: none;
+  }
+
+  .container {
+    --container-inline-size: auto;
+    inline-size: 100cqi;
+    max-inline-size: var(--container-inline-size);
     margin-inline: auto;
-    max-inline-size: var(--_inline-size);
-    inline-size: 100vw;
-  }
 
-  .container-xs {
-    --_inline-size: var(--size-xs);
-  }
+    &.queryable {
+      --container-name: unset;
+      container-name: var(--container-name);
+      container-type: inline-size;
+    }
 
-  .container-s {
-    --_inline-size: var(--size-s);
-  }
+    @supports (x: attr(x type(*))) {
+      --container-inline-size: attr(data-width type(<length>), auto);
 
-  .container-m {
-    --_inline-size: var(--size-m);
-  }
-
-  .container-l {
-    --_inline-size: var(--size-l);
-  }
-
-  .container-xl {
-    --_inline-size: var(--size-xl);
-  }
-
-  .container-2xl {
-    --_inline-size: var(--size-2xl);
+      &.queryable {
+        --container-name: attr(data-name type(<custom-ident>), unset);
+      }
+    }
   }
 }
