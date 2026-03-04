@@ -22,6 +22,8 @@
 
     --opentype-case: 'case' off;
     --opentype-sinf: 'sinf' off;
+    --opentype-smcp: 'smcp' off;
+    --opentype-c2sc: 'c2sc' off;
 
     --link-decoration-default: underline color-mix(in oklab, currentColor 70%, transparent) dotted;
     --link-decoration-hover: underline;

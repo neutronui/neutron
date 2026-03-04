@@ -9,7 +9,7 @@
     height: 1ex;
   }
 
-  @container style(font-variant-caps: all-petite-caps) {
+  @container style(--opentype-smcp: 'smcp' on) and style(--opentype-c2sc: 'c2sc' on) {
     .icon {
       width: 1.1ex;
       height: 1.1ex;
@@ -17,9 +17,14 @@
   }
 
   .with-icon {
-    container-type: normal;
     display: flex inline;
     align-items: baseline;
-    gap: 1em;
+    gap: 0.5em;
+  }
+
+  .icon-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }

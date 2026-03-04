@@ -18,10 +18,29 @@
     font-weight: inherit;
     line-height: inherit;
     font-size: inherit;
+  
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
 
     margin: 0;
     min-height: 100vh;
     overflow-x: clip;
+  }
+
+  /* Text */
+  :where(*) {
+    font-feature-settings:
+      var(--opentype-case, 'case' off),
+      var(--opentype-sinf, 'sinf' off),
+      var(--opentype-smcp, 'smcp' off),
+      var(--opentype-c2sc, 'c2sc' off);
+  }
+
+  :where(td, math, time[datetime*=":"]) {
+    font-variant-numeric: tabular-nums lining-nums slashed-zero;
   }
 
   :where(
