@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="cross" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2">
+    <path id="cross" d="M1,1 9,9 M9,1 1,9" />
+  </symbol>
+</svg>

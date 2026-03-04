@@ -15,6 +15,12 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <hr />
+    <button class="with-icon">
+      <svg class="icon">
+        <use href="./src/icons.svg#cross"></use>
+      </svg>
+      Close
+    </button>
   </header>
   <main>
     <section class="cover" style="--cover-block-size: 80vh;">
@@ -27,8 +33,19 @@
         <p>To get started with Neutron, simply include the CSS file in your project and start using the utility classes.</p>
         <p>Neutron provides a wide range of utility classes for layout, typography, colors, and more.</p>
       </div>
+      <p>
+        <style>
+          @scope {
+            :scope {
+              &::first-letter {
+                initial-letter: 2;
+              }
+            }
+          }
+        </style>
+        lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
     </section>
-  </main>
   </main>
 </body>
 </html>

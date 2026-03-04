@@ -1,17 +1,129 @@
 @layer nt._utilities {
 
+  /* =======================================
+    Color Functions
+  ======================================= */
+
+  /**
+    * Adjusts the opacity of a color.
+    * @param --color The color to adjust.
+    * @param --opacity The opacity value (0 to 1 or percentage).
+    * @returns The color with the adjusted opacity.
+    *
+    * @example --opacity(red, 0.5) -> oklch(0.627966 0.257704 29.2346 / 0.5)
+  */
   @function --opacity(--color, --opacity) {
     result: oklch(from var(--color) l c h / var(--opacity));
   }
-  
-  @function --conditional-radius(--radius, --edge-dist: 4px) {
-    result: clamp(
-      0px,
-      ((100vw - var(--edge-dist)) - 100%) * 1e5,
-      var(--radius)
-    );
+
+  /**
+    * Tints a color by mixing it with white.
+    * @param --color The color to tint.
+    * @param --amount The amount of tinting (0% to 100%).
+    * @returns The tinted color.
+    *
+    * @example --tint(red, 20%) -> oklab(0.702372 0.179913 0.100692)
+  */
+  @function --tint(--color, --amount: 10%) {
+    result: color-mix(in oklab, var(--color), white var(--amount));
   }
 
+  /**
+    * Shades a color by mixing it with black.
+    * @param --color The color to shade.
+    * @param --amount The amount of shading (0% to 100%).
+    * @returns The shaded color.
+    *
+    * @example --shade(red, 20%) -> oklab(0.502373 0.179904 0.100688)
+  */
+  @function --shade(--color, --amount: 10%) {
+    result: color-mix(in oklab, var(--color), black var(--amount));
+  }
+
+  /**
+    * Saturates a color by increasing its chroma.
+    * @param --color The color to saturate.
+    * @param --amount The saturation factor (1 for no change, >1 to increase).
+    * @returns The saturated color.
+    *
+    * @example --saturate(red, 1.5) -> oklch(0.627966 0.386556 29.2346)
+  */
+  @function --saturate(--color, --amount: 1.2) {
+    result: oklch(from var(--color) l clamp(0, calc(c * var(--amount)), 0.4) h);
+  }
+
+  /**
+    * Lightens a color by increasing its lightness.
+    * @param --color The color to lighten.
+    * @param --amount The amount of lightening (0% to 100%).
+    * @returns The lightened color.
+    *
+    * @example --lighten(red, 20%) -> oklch(0.753559 0.257704 29.2346)
+  */
+  @function --lighten(--color, --amount: 10%) {
+    result: oklch(from var(--color) l clamp(0, calc(l + var(--amount) / 100%), 1) c h);
+  }
+
+  /**
+    * Darkens a color by decreasing its lightness.
+    * @param --color The color to darken.
+    * @param --amount The amount of darkening (0% to 100%).
+    * @returns The darkened color.
+    *
+    * @example --darken(red, 20%) -> oklch(0.502373 0.257704 29.2346)
+  */
+  @function --darken(--color, --amount: 10%) {
+    result: oklch(from var(--color) l clamp(0, calc(l - var(--amount) / 100%), 1) c h);
+  }
+
+  /**
+    * Rotates the hue of a color.
+    * @param --color The color to rotate.
+    * @param --degrees The degrees to rotate the hue (positive for clockwise, negative for counterclockwise).
+    * @returns The color with the rotated hue.
+    *
+    * @example --rotate-hue(red, 30deg) -> oklch(0.627966 0.257704 59.2346)
+  */
+  @function --rotate-hue(--color, --degrees: 30deg) {
+    result: oklch(from var(--color) l c calc(h + var(--degrees)));
+  }
+
+  /**
+    * Computes the complementary color.
+    * @param --color The color to find the complement of.
+    * @returns The complementary color.
+    *
+    * @example --complement(red) -> oklch(0.627966 0.257704 209.2346)
+  */
+  @function --complement(--color) {
+    result: oklch(from var(--color) l c calc(h + 180));
+  }
+
+  /**
+    * Inverts a color by inverting its lightness and hue.
+    * @param --color The color to invert.
+    * @returns The inverted color.
+    *
+    * @example --invert(red) -> oklch(1 0.257704 209.235)
+  */
+  @function --invert(--color) {
+    result: oklch(from var(--color) calc(100 - l) c calc(h + 180));
+  }
+
+  /**
+    * Converts a color to grayscale by setting its chroma to zero.
+    * @param --color The color to convert to grayscale.
+    * @returns The grayscale color.
+    *
+    * @example --grayscale(red) -> oklch(0.627966 0 29.2346)
+  */
+  @function --grayscale(--color) {
+    result: oklch(from var(--color) l 0 h);
+  }
+
+  /* =======================================
+    Theme Functions
+  ======================================= */
   @supports (color-scheme(dark)) and (if(red: 1; else: 0)) {
     @function --light-dark(--l, --d) {
       result: if(color-scheme(dark): var(--d); else: var(--l));
@@ -21,7 +133,7 @@
   @supports (if(red: 1; else: 0)) {
     @function --light-dark(--l, --d) {
       result: if(
-        style(--scheme: dark): var(--d);
+        style(--color-scheme: dark): var(--d);
         else: var(--l)
       );
     }
@@ -33,5 +145,25 @@
     @media (prefers-color-scheme: dark) {
       result: var(--d);
     }
+  }
+
+  /* =======================================
+    Layout Functions
+  ======================================= */
+
+  /**
+    * Computes a responsive border radius that flips to 0 as the viewport width approaches the edge.
+    * @param --radius The maximum border radius to apply.
+    * @param --edge-dist The distance from the edge at which the radius should flip (default: 4px).
+    * @returns A responsive border radius value that clamps to 0 at the edge and to --radius at larger widths.
+    *
+    * @example --conditional-radius(16px) -> 16px on wide screens, 0px as viewport width approaches 4px from either edge.
+  */
+  @function --conditional-radius(--radius, --edge-dist: 4px) {
+    result: clamp(
+      0px,
+      ((100vw - var(--edge-dist)) - 100%) * 1e5,
+      var(--radius)
+    );
   }
 }
