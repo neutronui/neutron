@@ -1,5 +1,9 @@
 @layer nt._utilities {
   /* Text Utilities */
+  .small-caps {
+    --opentype-smcp: 'smcp' on;
+  }
+
   .all-small-caps {
     --opentype-smcp: 'smcp' on;
     --opentype-c2sc: 'c2sc' on;
