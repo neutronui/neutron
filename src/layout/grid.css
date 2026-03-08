@@ -1,4 +1,4 @@
-@layer nt._native {
+@layer nt._core {
   .grid {
     --grid-gap: var(--size-m, 1em);
     --grid-min: 10ch;

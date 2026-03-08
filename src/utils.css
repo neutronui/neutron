@@ -8,4 +8,16 @@
     --opentype-smcp: 'smcp' on;
     --opentype-c2sc: 'c2sc' on;
   }
+
+  [class*="heading-"] {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-condensed);
+    text-wrap: balance;
+  }
+
+  /* Misc Utilities */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
 }

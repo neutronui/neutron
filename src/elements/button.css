@@ -1,0 +1,130 @@
+@layer nt._core {
+  @scope (
+    button,
+    .nt-button,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"]
+  ) {
+    :scope {
+      --_gap: var(--size-xs);
+      --_padding-inline: var(--size-s);
+      --_padding-block: var(--size-3xs);
+      --_fill-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
+      --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+      --_corner-radius: var(--corner-radius-s);
+      --_stroke-style: var(--stroke-style);
+      --_stroke-width: var(--stroke-width-s);
+      --_stroke-color: var(--_fill-color);
+    }
+
+    :scope {
+      display: flex inline;
+      align-items: center;
+      justify-content: center;
+      gap: var(--_gap);
+
+      font-family: inherit;
+      font-size: var(--font-size-m);
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-normal);
+      cursor: var(--cursor-pointer, pointer);
+      user-select: none;
+      text-decoration: none;
+      white-space: nowrap;
+
+      block-size: fit-content;
+      inline-size: fit-content;
+      padding-inline: var(--_padding-inline);
+      padding-block: var(--_padding-block);
+
+      background-color: var(--_fill-color);
+      color: var(--_text-color);
+      border-color: var(--_stroke-color);
+      border-style: var(--_stroke-style);
+      border-width: var(--_stroke-width);
+      border-radius: var(--_corner-radius);
+      corner-shape: var(--corner-shape, round);
+    }
+
+    &:disabled {
+      cursor: var(--cursor-not-allowed, not-allowed);
+      opacity: var(--opacity-disabled, 0.5);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        border-color: color-mix(
+          in oklab,
+          var(--_stroke-color),
+          var(--color-mix-hover)
+        );
+        background-color: color-mix(
+          in oklab,
+          var(--_fill-color),
+          var(--color-mix-hover)
+        );
+      }
+
+      &:active {
+        border-color: color-mix(
+          in oklab,
+          var(--_stroke-color),
+          var(--color-mix-active)
+        );
+        background-color: color-mix(
+          in oklab,
+          var(--_fill-color),
+          var(--color-mix-active)
+        );
+      }
+    }
+
+    /* Variants */
+    &.plain {
+      --_fill-color: transparent;
+      --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+      --_text-decoration: none dashed 2px;
+      text-decoration: var(--_text-decoration);
+
+      &.inline {
+        padding: 0;
+        line-height: inherit;
+        position: relative;
+        padding-inline-end: 1ch;
+
+        &::after {
+          position: absolute;
+          content: "";
+          mask-image: var(--_icon-url);
+          mask-size: 1.5ch;
+          mask-repeat: no-repeat;
+          width: 1.5ch;
+          height: 1.5ch;
+          background-color: var(--color-brand-on-normal, currentColor);
+          inset-inline-end: 0;
+          inset-block-start: 0;
+        }
+      }
+
+      &:focus-visible {
+        text-decoration-line: underline;
+      }
+
+      &:not(:disabled) {
+        &:hover {
+          --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
+          background-color: var(--_fill-color);
+          text-decoration-line: underline;
+        }
+
+        &:active {
+          --_text-color: var(--color-brand-on-normal);
+          background-color: var(--_fill-color);
+          text-decoration-line: underline;
+          text-decoration-style: solid;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.icon-cursor-click {
+  --_icon-url: url("/src/icons.svg#cursor-click-icon");
+}
+
+.icon-link {
+  --_icon-url: url("/src/icons.svg#link-icon");
+}

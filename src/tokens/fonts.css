@@ -32,5 +32,9 @@
     --font-scale-max: var(--size-scale-max);
     --font-base-min: var(--size-base-min);
     --font-base-max: var(--size-base-max);
+
+    --font-size-s: var(--size-s);
+    --font-size-m: var(--size-m);
+    --font-size-l: var(--size-l);
   }
 }

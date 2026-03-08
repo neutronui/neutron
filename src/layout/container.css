@@ -1,4 +1,4 @@
-@layer nt._native {
+@layer nt._core {
   @property --container-name {
     syntax: <custom-ident>;
     inherits: false;

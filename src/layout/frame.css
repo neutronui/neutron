@@ -1,4 +1,4 @@
-@layer nt._native {
+@layer nt._core {
   .frame {
     --frame-aspect-ratio: 16 / 9;
     aspect-ratio: var(--frame-aspect-ratio);

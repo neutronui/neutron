@@ -1,4 +1,4 @@
-@layer nt._native {
+@layer nt._core {
   .cluster {
     --cluster-gap: var(--size-m, 1em);
     display: flex;

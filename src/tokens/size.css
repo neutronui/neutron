@@ -36,9 +36,9 @@
     );
 
     --size-none: 0;
-    --size-3xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -3));
-    --size-2xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -2));
-    --size-xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -1));
+    --size-3xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -6));
+    --size-2xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -4));
+    --size-xs: calc(var(--size-base-min) * pow(var(--size-scale-min), -2));
     --size-s: var(--size-base-min);
     --size-m: calc(var(--size-base-min) * pow(var(--size-scale-min), 1));
     --size-l: calc(var(--size-base-min) * pow(var(--size-scale-min), 2));

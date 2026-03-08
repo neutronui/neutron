@@ -1,10 +1,10 @@
-@layer nt._native {
+@layer nt._core {
   .cover {
     --cover-block-size: 100vh;
     display: flex;
     flex-flow: column;
     min-block-size: var(--cover-block-size);
-    padding: 0;
+    padding: var(--size-s);
 
     > * {
       margin-block: var(--size-m);

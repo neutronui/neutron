@@ -1,4 +1,4 @@
-@layer nt._native {
+@layer nt._core {
   .center {
     --center-inline-size: 100%;
     

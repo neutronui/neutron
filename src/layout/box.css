@@ -1,4 +1,4 @@
-@layer nt._native {
+@layer nt._core {
   .box {
     padding: var(--size-m, 1em);
     border-width: var(--stroke-width, 1px);

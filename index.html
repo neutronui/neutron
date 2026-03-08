@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark smooth-scroll">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="dist/main.css">
+  <link rel="stylesheet" href="src/main.css">
   <title>Document</title>
+  <style>
+    body {
+      display: grid;
+      grid-template-rows: max-content 1fr;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -14,16 +20,41 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <hr />
     <button class="with-icon all-small-caps">
       <svg class="icon">
-        <use href="./src/icons.svg#cross"></use>
+        <use href="./src/icons.svg#link"></use>
       </svg>
       Close
     </button>
+    <button class="with-icon all-small-caps plain">
+      <svg class="icon">
+        <use href="./src/icons.svg#link"></use>
+      </svg>
+      Close
+    </button>
+    <button class="with-icon all-small-caps outlined">
+      <svg class="icon">
+        <use href="./src/icons.svg#link"></use>
+      </svg>
+      Close
+    </button>
+    <button class="with-icon all-small-caps subtle">
+      <svg class="icon">
+        <use href="./src/icons.svg#link-mask"></use>
+      </svg>
+      Close
+    </button>
+    <button class="with-icon all-small-caps stealth">
+      <svg class="icon">
+        <use href="./src/icons.svg#link"></use>
+      </svg>
+      Close
+    </button>
+    <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. <button class="plain inline icon-link">inline button</button> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <hr />
   </header>
   <main>
-    <section class="cover" style="--cover-block-size: 80vh;">
+    <section class="cover" style="--cover-block-size: 100%;">
       <h1 class="featured center">Welcome to Neutron</h1>
       <a class="center" href="#getting_started">👇</a>
     </section>

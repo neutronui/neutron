@@ -1,5 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <symbol id="cross" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2">
-    <path id="cross" d="M1,1 9,9 M9,1 1,9" />
+<svg xmlns="http://www.w3.org/2000/svg">
+  <style>svg > svg { display: none; } svg > svg:target { display: block; }</style>
+  <symbol id="cursor-click" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="9" y="7" width="2" height="16" />
+    <rect x="11" y="7" width="2" height="2" />
+    <rect x="13" y="9" width="2" height="2" />
+    <rect x="15" y="11" width="2" height="2" />
+    <rect x="17" y="13" width="2" height="2" />
+    <rect x="19" y="15" width="2" height="2" />
+    <rect x="11" y="21" width="2" height="2" />
+    <rect x="13" y="19" width="2" height="2" />
+    <rect x="15" y="17" width="6" height="2" />
+    <rect x="15" y="5" width="2" height="2" />
+    <rect x="5" y="10" width="2" height="2" />
+    <rect x="5" y="5" width="2" height="2" />
+    <rect x="9" y="1" width="2" height="4" />
+    <rect x="3" y="3" width="2" height="2" />
+    <rect x="3" y="12" width="2" height="2" />
+    <rect x="17" y="3" width="2" height="2" />
   </symbol>
+  <symbol id="link" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="4" y="6" width="7" height="2" />
+    <rect x="4" y="16" width="7" height="2" />
+    <rect x="2" y="8" width="2" height="8" />
+    <rect width="7" height="2" transform="matrix(-1 0 0 1 20 6)" />
+    <rect width="7" height="2" transform="matrix(-1 0 0 1 20 16)" />
+    <rect width="2" height="8" transform="matrix(-1 0 0 1 22 8)" />
+    <rect x="7" y="11" width="10" height="2" />
+  </symbol>
+  <svg id="cursor-click-icon" viewBox="0 0 24 24" width="100%" height="100%">
+    <use href="#cursor-click" fill="currentColor" />
+  </svg>
+  <svg id="link-icon" viewBox="0 0 24 24" width="100%" height="100%">
+    <use href="#link" fill="currentColor" />
+  </svg>
 </svg>
