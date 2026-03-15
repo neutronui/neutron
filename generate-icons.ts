@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+//@ts-ignore
+import svgFlatten from 'svg-flatten';
 
 const iconsSourceDir = path.join('./src', 'icons');
 const iconsOutputFile = path.join('./src', 'icons.svg');
@@ -24,11 +26,17 @@ const icons: IconData[] = [];
 for (const file of svgFiles) {
   const filePath = path.join(iconsSourceDir, file);
   const content = fs.readFileSync(filePath, 'utf-8');
+  const flattenedContent = svgFlatten(content)
+    .pathify()
+    .flatten()
+    .transform()
+    .value();
+    console.log('Flattened', file, 'to', flattenedContent.length, 'characters');
   const id = path.basename(file, '.svg');
-  const viewBoxMatch = content.match(/viewBox="([^"]+)"/);
+  const viewBoxMatch = flattenedContent.match(/viewBox="([^"]+)"/);
   const viewBox = viewBoxMatch ? viewBoxMatch[1] : '0 0 24 24';
-  const innerContentMatch = content.match(/<svg[^>]*>([\s\S]*?)<\/svg>/);
-  const innerContent = innerContentMatch ? innerContentMatch[1].trim() : content.trim();
+  const innerContentMatch = flattenedContent.match(/<svg[^>]*>([\s\S]*?)<\/svg>/);
+  const innerContent = innerContentMatch ? innerContentMatch[1].trim() : flattenedContent.trim();
 
   const innerContentWithCurrentColor = innerContent.replace(/fill="[^"]*"/g, '');
 

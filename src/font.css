@@ -1,0 +1,12 @@
+@layer nt._base {
+  @font-face {
+    font-family: "Departure";
+    src:
+      local("Departure Mono Regular"),
+      url("/src/DepartureMono-Regular.woff2") format("woff2");
+  }
+
+  :root {
+    --font-family-body: "Departure"
+  }
+}

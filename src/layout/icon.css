@@ -11,15 +11,15 @@
 
   @container style(--opentype-smcp: 'smcp' on) and style(--opentype-c2sc: 'c2sc' on) {
     .icon {
-      width: 1.1ex;
-      height: 1.1ex;
+      width: 0.9cap;
+      height: 0.9cap;
     }
   }
 
   .with-icon {
     display: flex inline;
     align-items: baseline;
-    gap: 0.5em;
+    gap: 0.25em;
   }
 
   .icon-only {

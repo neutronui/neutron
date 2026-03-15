@@ -51,6 +51,7 @@
     --stroke-width-s: 1px;
     --stroke-width-m: 2px;
     --stroke-width-l: 4px;
+    --stroke-style: solid;
 
     --corner-radius-s: 4px;
     --corner-radius-m: 8px;

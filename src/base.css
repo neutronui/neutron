@@ -11,6 +11,7 @@
     line-height: var(--line-height-normal);
     font-size: var(--size-fluid-base);
     accent-color: var(--color-brand);
+    cursor: var(--cursor-default, default);
   }
 
   body {
@@ -53,6 +54,18 @@
     &:not(:last-child) {
       margin-block-end: var(--content-spacing);
     }
+  }
+
+  :lang(en) > * {
+    quotes: "“" "”" "‘" "’";
+  }
+
+  :lang(en-GB) > * {
+    quotes: '‘' '’' '“' '”';
+  }
+
+  :lang(fr) > * {
+    quotes: '«?0202F' '?0202F»' '“' '”';
   }
 
   /* Headings */

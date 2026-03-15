@@ -64,6 +64,11 @@
           var(--_fill-color),
           var(--color-mix-hover)
         );
+        color: color-mix(
+          in oklab,
+          var(--_text-color),
+          var(--color-mix-hover)
+        );
       }
 
       &:active {
@@ -75,6 +80,11 @@
         background-color: color-mix(
           in oklab,
           var(--_fill-color),
+          var(--color-mix-active)
+        );
+        color: color-mix(
+          in oklab,
+          var(--_text-color),
           var(--color-mix-active)
         );
       }
@@ -97,10 +107,10 @@
           position: absolute;
           content: "";
           mask-image: var(--_icon-url);
-          mask-size: 1.5ch;
+          mask-size: 1cap;
           mask-repeat: no-repeat;
-          width: 1.5ch;
-          height: 1.5ch;
+          width: 1cap;
+          height: 1cap;
           background-color: var(--color-brand-on-normal, currentColor);
           inset-inline-end: 0;
           inset-block-start: 0;
@@ -116,6 +126,7 @@
           --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
           background-color: var(--_fill-color);
           text-decoration-line: underline;
+          border-color: transparent;
         }
 
         &:active {
@@ -123,8 +134,31 @@
           background-color: var(--_fill-color);
           text-decoration-line: underline;
           text-decoration-style: solid;
+          border-color: transparent;
         }
       }
+    }
+
+    &.outlined {
+      --_fill-color: transparent;
+      --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+      --_stroke-color: var(--color-stroke-strong, var(--color-neutral-stroke-strong));
+
+      &:not(:disabled) {
+        &:hover {
+          --_fill-color: var(--color-fill-strong, var(--color-neutral-fill-strong));
+          --_text-color: var(--color-on-strong, var(--color-neutral-on-strong));
+        }
+      }
+    }
+
+    &.subtle {
+      --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+      --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+    }
+
+    &.stealth {
+      --_fill-color: transparent;
     }
   }
 }

@@ -1,0 +1,53 @@
+@layer nt._core {
+  @scope (
+     .blockquote,
+    .nt-blockquote
+  ) {
+    :scope {
+      --_fill-color: var(--color-neutral-fill-subtle);
+      --_text-color: var(--color-text-normal);
+      --_padding: var(--size-xl);
+      --_corner-radius: var(--corner-radius-m);
+    }
+
+    :scope {
+      background-color: var(--_fill-color);
+      color: var(--_text-color);
+      border-radius: var(--_corner-radius);
+      corner-shape: var(--corner-shape, round);
+      padding: var(--_padding);
+    }
+    
+    blockquote {
+      position: relative;
+      font-family: var(--font-family-longform);
+      font-size: var(--font-size-l);
+
+      p {
+        @supports (hanging-punctuation: first last) {
+          hanging-punctuation: first last;
+
+          &:first-of-type::before {
+            margin-inline-start: 0;
+          }
+        }
+        
+        &:first-of-type {
+          &::before {
+            margin-inline-start: -1cap;
+            content: open-quote;
+          }
+
+          &::after {
+            content: close-quote;
+          }
+        }
+      }
+    }
+
+    cite {
+      color: var(--color-text-subtle);
+      font-size: var(--font-size-m);
+    }
+  }
+}
