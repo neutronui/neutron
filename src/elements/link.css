@@ -1,0 +1,21 @@
+@layer nt._core {
+  @scope (a, .link, .nt-link) {
+    :scope {
+      --_text-color: var(--color-text-link);
+    }
+    
+    :scope {
+      color: var(--_text-color);
+      text-underline-position: from-font;
+    }
+
+    &:not(:visited) {
+      text-decoration: underline dashed 2px;
+    }
+
+    &:visited {
+      text-decoration: underline;
+      text-decoration-style: solid;
+    }
+  }
+}

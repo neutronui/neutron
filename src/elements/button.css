@@ -96,6 +96,7 @@
       --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
       --_text-decoration: none dashed 2px;
       text-decoration: var(--_text-decoration);
+      text-underline-position: from-font;
 
       &.inline {
         padding: 0;
@@ -111,7 +112,7 @@
           mask-repeat: no-repeat;
           width: 1cap;
           height: 1cap;
-          background-color: var(--color-brand-on-normal, currentColor);
+          background-color: var(--color-on-normal, var(--color-neutral-on-normal));
           inset-inline-end: 0;
           inset-block-start: 0;
         }
@@ -130,7 +131,7 @@
         }
 
         &:active {
-          --_text-color: var(--color-brand-on-normal);
+          --_text-color: var(--color-on-normal, var(--color-neutral-on-normal));
           background-color: var(--_fill-color);
           text-decoration-line: underline;
           text-decoration-style: solid;
@@ -159,6 +160,13 @@
 
     &.stealth {
       --_fill-color: transparent;
+      --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+
+      &:not(:disabled) {
+        &:hover {
+          border-color: transparent;
+        }
+      }
     }
   }
 }
