@@ -3,10 +3,30 @@
     font-family: "Departure";
     src:
       local("Departure Mono Regular"),
-      url("/src/DepartureMono-Regular.woff2") format("woff2");
+      url("./DepartureMono-Regular.woff2") format("woff2-variations");
+  }
+
+  @font-face {
+    font-family: "Space Grotesk";
+    src:
+      local("Space Grotesk Light"),
+      url("./SpaceGrotesk[wght].woff2") format("woff2-variations");
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 100 800;
+  }
+
+  @font-face {
+    font-family: "Fraunces";
+    src:
+      url("./Fraunces.ttf") format("truetype");
+    font-weight: 100 900;
+    font-variation-settings: "WONK" 1;
   }
 
   :root {
-    --font-family-body: "Departure"
+    --font-family-heading: "Departure";
+    --font-family-body: "Space Grotesk";
+    --font-family-longform: "Fraunces";
   }
 }

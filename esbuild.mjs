@@ -16,5 +16,12 @@ await esbuild.build({
   banner: { css: banner },
   bundle: true,
   write: true,
+  loader: {
+    '.woff2': 'copy',
+    '.ttf': 'copy',
+    '.otf': 'copy',
+    '.svg': 'copy',
+    '.png': 'copy',
+  },
   plugins: [postcss()],
 });

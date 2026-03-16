@@ -61,7 +61,7 @@ const svgContent = [
 
 // Generate icons.css (mask-image references the -icon suffixed SVG)
 const cssContent = icons.map(icon => {
-  const iconUrl = `url("/src/icons.svg#${icon.id}-icon")`;
+  const iconUrl = `url("./icons.svg#${icon.id}-icon")`;
   return `.icon-${icon.id} {\n  --_icon-url: ${iconUrl};\n}`;
 }).join('\n\n');
 

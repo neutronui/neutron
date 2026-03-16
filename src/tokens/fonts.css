@@ -3,7 +3,7 @@
 @layer nt._base {
   :where(:root) {
     --font-family-body: ui-sans-serif, system-ui, sans-serif;
-    --font-family-heading: var(--font-family-body);
+    --font-family-heading: ui-sans-serif, system-ui, sans-serif;
     --font-family-monospace: ui-monospace, monospace;
     --font-family-longform: ui-serif, serif;
 

@@ -1,5 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg">
 <style>svg > svg { display: none; } svg > svg:target { display: block; }</style>
+<symbol id="arrow-big-down" viewBox="0 0 24 24" fill="currentColor"><path  d="M8,3 16,3 16,5 8,5z"/>
+  <path  d="M8,5 10,5 10,11 8,11z"/>
+  <path  d="M3,11 8,11 8,13 3,13z"/>
+  <path  d="M3,13 5,13 5,15 3,15z"/>
+  <path  d="M5,15 7,15 7,17 5,17z"/>
+  <path  d="M7,17 9,17 9,19 7,19z"/>
+  <path  d="M9,19 11,19 11,21 9,21z"/>
+  <path  d="M11,21 13,21 13,23 11,23z"/>
+  <path  d="M13,19 15,19 15,21 13,21z"/>
+  <path  d="M15,17 17,17 17,19 15,19z"/>
+  <path  d="M17,15 19,15 19,17 17,17z"/>
+  <path  d="M19,11 21,11 21,15 19,15z"/>
+  <path  d="M16,11 19,11 19,13 16,13z"/>
+  <path  d="M14,5 16,5 16,11 14,11z"/></symbol>
 <symbol id="cursor-click" viewBox="0 0 24 24" fill="currentColor"><path  d="M9,7 11,7 11,23 9,23z"/>
   <path  d="M11,7 13,7 13,9 11,9z"/>
   <path  d="M13,9 15,9 15,11 13,11z"/>
@@ -32,6 +46,7 @@
   <path  d="M20 16L13 16 13 18 20 18z"/>
   <path  d="M22 8L20 8 20 16 22 16z"/>
   <path  d="M7,11 17,11 17,13 7,13z"/></symbol>
+<svg id="arrow-big-down-icon" viewBox="0 0 24 24" width="100%" height="100%"><use href="#arrow-big-down" fill="currentColor" /></svg>
 <svg id="cursor-click-icon" viewBox="0 0 24 24" width="100%" height="100%"><use href="#cursor-click" fill="currentColor" /></svg>
 <svg id="cursor-minimal-icon" viewBox="0 0 24 24" width="100%" height="100%"><use href="#cursor-minimal" fill="currentColor" /></svg>
 <svg id="link-icon" viewBox="0 0 24 24" width="100%" height="100%"><use href="#link" fill="currentColor" /></svg>

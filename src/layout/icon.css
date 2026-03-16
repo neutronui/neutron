@@ -1,24 +1,12 @@
 @layer nt._utilities {
   .icon {
-    width: 1cap;
-    height: 1cap;
-  }
-
-  .lowercase > .icon {
-    width: 1ex;
-    height: 1ex;
-  }
-
-  @container style(--opentype-smcp: 'smcp' on) and style(--opentype-c2sc: 'c2sc' on) {
-    .icon {
-      width: 0.9cap;
-      height: 0.9cap;
-    }
+    width: 1em;
+    height: 1em;
   }
 
   .with-icon {
     display: flex inline;
-    align-items: baseline;
+    align-items: center;
     gap: 0.25em;
   }
 

@@ -1,6 +1,7 @@
 @layer nt._core {
   @scope (
     button,
+    .button,
     .nt-button,
     input[type="button"],
     input[type="reset"],

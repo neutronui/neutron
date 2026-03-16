@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="smooth-scroll">
+<html lang="en" class="dark smooth-scroll">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/main.css">
+  <link rel="stylesheet" href="dist/main.css">
   <title>Document</title>
   <style>
     body {
@@ -56,7 +56,14 @@
   <main>
     <section class="cover" style="--cover-block-size: 100%;">
       <h1 class="featured center">Welcome to Neutron</h1>
-      <a class="center" href="#getting_started">👇</a>
+      <a class="center neutral with-icon heading-l" href="#getting_started">
+        <svg class="icon">
+          <use href="/src/icons.svg#arrow-big-down"></use>
+        </svg>
+      </a>
+    </section>
+    <section id="getting_started">
+      <h2>Getting Started</h2>
       <div class="blockquote">
         <blockquote>
           <p>
@@ -67,9 +74,6 @@
           — Neutron Team
         </cite>
       </div>
-    </section>
-    <section id="getting_started">
-      <h2>Getting Started</h2>
       <div class="stack">
         <p>To get started with Neutron, simply include the CSS file in your project and start using the utility classes.</p>
         <p>Neutron provides a wide range of utility classes for layout, typography, colors, and more.</p>

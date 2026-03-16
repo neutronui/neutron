@@ -1,8 +1,8 @@
 @layer nt._base {
   :where(:root) {
-    --cursor-default: url("/src/assets/default.png") 4 1, auto;
-    --cursor-pointer: url("/src/assets/pointer.png") 4 1, pointer;
-    --cursor-text: url("/src/assets/text.png") 4 1, text;
-    --cursor-move: url("/src/assets/move.png") 4 1, move;
+    --cursor-default: url("../assets/default.png") 4 1, auto;
+    --cursor-pointer: url("../assets/pointer.png") 4 1, pointer;
+    --cursor-text: url("../assets/text.png") 4 1, text;
+    --cursor-move: url("../assets/move.png") 4 1, move;
   }
 }

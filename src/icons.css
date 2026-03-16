@@ -1,11 +1,15 @@
+.icon-arrow-big-down {
+  --_icon-url: url("./icons.svg#arrow-big-down-icon");
+}
+
 .icon-cursor-click {
-  --_icon-url: url("/src/icons.svg#cursor-click-icon");
+  --_icon-url: url("./icons.svg#cursor-click-icon");
 }
 
 .icon-cursor-minimal {
-  --_icon-url: url("/src/icons.svg#cursor-minimal-icon");
+  --_icon-url: url("./icons.svg#cursor-minimal-icon");
 }
 
 .icon-link {
-  --_icon-url: url("/src/icons.svg#link-icon");
+  --_icon-url: url("./icons.svg#link-icon");
 }

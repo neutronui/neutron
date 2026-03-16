@@ -1,21 +1,25 @@
 @layer nt._core {
-  @scope (a, .link, .nt-link) {
+  @scope (a, .text, .nt-link) {
     :scope {
-      --_text-color: var(--color-text-link);
+      --_text-color: var(--color-on-normal, var(--color-text-link));
+      --_text-decoration: underline dashed 2px var(--_text-color);
     }
-    
+
     :scope {
       color: var(--_text-color);
+      text-decoration: var(--_text-decoration);
       text-underline-position: from-font;
+      cursor: var(--cursor-pointer, pointer);
+    }
+    
+    &:hover {
+      --_text-color: color-mix(in oklab, var(--color-text-link), var(--color-mix-hover));
+      --_text-decoration: underline solid 2px var(--_text-color);
     }
 
-    &:not(:visited) {
-      text-decoration: underline dashed 2px;
-    }
-
-    &:visited {
-      text-decoration: underline;
-      text-decoration-style: solid;
+    &:active {
+      --_text-color: color-mix(in oklab, var(--color-text-link), var(--color-mix-active));
+      --_text-decoration: underline solid 2px var(--_text-color);
     }
   }
 }
