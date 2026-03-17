@@ -24,6 +24,7 @@
 @import "./elements/blockquote.css";
 @import "./elements/button.css";
 @import "./elements/link.css";
+@import "./elements/text.css";
 
 @import "./utils/color.css";
 @import "./functions.css" supports(width: --x(--y));

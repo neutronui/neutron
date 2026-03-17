@@ -1,0 +1,13 @@
+@layer nt._core {
+  /* Inline Text */
+  :where(strong, b) {
+    font-weight: var(--font-weight-bold);
+
+    @supports (font-variation-settings: "wght" 700) {
+      font-weight: normal;
+      font-variation-settings: "wght" 700;
+    }
+  }
+
+  /* Block Text */
+}
