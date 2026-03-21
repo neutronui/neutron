@@ -1,0 +1,22 @@
+@layer nt._core {
+  :where(ul, ol) {
+    padding: 0;
+  }
+
+  :where(li > :is(ul, ol)) {
+    margin-inline-start: 0.25em;
+  }
+
+  :where(ul) {
+    list-style: disc;
+  }
+
+  :where(li) {
+    margin-inline-start: 1.125em;
+    padding: 0;
+  }
+
+  :where(dt) {
+    font-weight: var(--font-weight-bold);
+  }
+}

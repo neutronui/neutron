@@ -1,0 +1,56 @@
+@layer nt._core {
+  @scope (table) {
+    :scope {
+      --cell-padding-block: var(--size-s);
+      --cell-padding-inline: var(--size-m);
+      --color-fill-alt-row: color-mix(in oklab, var(--color-fill-subtle, var(--color-neutral-fill-subtle)) 60%, transparent);
+    }
+
+    :scope {
+      width: 100%;
+      border: none;
+      border-collapse: collapse;
+    }
+
+    caption {
+      color: var(--color-text-subtle);
+      font-size: var(--font-size-smaller);
+
+      &:has(+ *) {
+        margin-block-end: 0.75em;
+      }
+    }
+
+    tbody {
+      tr {
+        border-top: var(--stroke-width-s) var(--stroke-style) var(--color-stroke-subtle, var(--color-neutral-stroke-subtle));
+
+        :where(table.alt-rows) &:nth-child(odd) {
+          background-color: var(--color-fill-alt-row);
+        }
+
+        &:hover {
+          background-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+
+          &,
+          + tr {
+            border-top-color: var(--color-stroke-normal, var(--color-neutral-stroke-normal));
+          }
+        }
+      }
+    }
+
+    td,
+    th {
+      text-align: start;
+      padding-block: var(--cell-padding-block);
+      padding-inline: var(--cell-padding-inline);
+    }
+
+    th {
+      --cell-padding-block: var(--size-xs);
+      font-size: var(--font-size-s);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+}

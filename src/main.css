@@ -24,6 +24,9 @@
 @import "./elements/blockquote.css";
 @import "./elements/button.css";
 @import "./elements/link.css";
+@import "./elements/list.css";
+@import "./elements/media.css";
+@import "./elements/table.css";
 @import "./elements/text.css";
 
 @import "./utils/color.css";
