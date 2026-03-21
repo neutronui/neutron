@@ -9,6 +9,12 @@
     body {
       display: grid;
       grid-template-rows: max-content 1fr;
+      animation: 3s infinite flip-synthesis;
+    }
+
+    @keyframes flip-synthesis {
+      0% { font-synthesis: none; }
+      100% { font-synthesis: initial; }
     }
   </style>
 </head>
@@ -90,6 +96,7 @@
         </style>
         lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </p>
+      <b>bold text</b>
     </section>
   </main>
 </body>
