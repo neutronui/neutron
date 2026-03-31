@@ -1,0 +1,61 @@
+@layer nt._core {
+  @scope (select) {
+    :scope {
+      --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+      --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+      --_corner-radius: var(--corner-radius-s);
+      --_padding-block: var(--size-3xs);
+      --_padding-inline: var(--size-s);
+      --_stroke-color: var(--color-stroke-subtle, var(--color-neutral-stroke-subtle));
+      --_stroke-width: var(--stroke-width-s);
+    }
+
+    :scope {
+      display: flex block;
+      position: relative;
+      overflow: hidden;
+      inline-size: fit-content;
+      background-color: var(--_fill-color);
+      color: var(--_text-color);
+      border-color: var(--_stroke-color);
+      border-width: var(--_stroke-width);
+      border-style: var(--stroke-style);
+      border-radius: var(--_corner-radius);
+      corner-shape: var(--corner-shape, round);
+      padding-block: var(--_padding-block);
+      padding-inline: var(--_padding-inline);
+      font-size: var(--font-size-m);
+      line-height: var(--line-height-normal);
+      cursor: var(--cursor-pointer);
+    }
+
+    &:disabled {
+      opacity: var(--disabled-opacity);
+      cursor: var(--cursor-not-allowed);
+    }
+
+    option {
+      cursor: pointer;
+    }
+  }
+
+  @scope (select:has(button)) {
+    :scope {
+
+    }
+
+    :scope {
+
+    }
+  }
+
+  @scope (.select:not(:has(button))) {
+    :scope {
+
+    }
+
+    :scope {
+
+    }
+  }
+}

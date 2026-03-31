@@ -1,3 +1,5 @@
+@import "./internal/selectors.postcss";
+
 @layer nt._core {
   *,
   *::before,
@@ -11,7 +13,6 @@
     line-height: var(--line-height-normal);
     font-size: var(--size-fluid-base);
     accent-color: var(--color-brand);
-    cursor: var(--cursor-default, default);
   }
 
   body {
@@ -169,7 +170,8 @@
     button, [href], input,
     select, textarea, summary, [tabindex]
   ):focus-visible {
-    outline-color: var(--color-focus);
+    box-shadow: 0 0 0 var(--focus-stroke-width, var(--stroke-width-m)) var(--color-focus-inner);
+    outline-color: var(--color-focus-outer);
     outline-style: var(--focus-stroke-style, var(--stroke-style, solid));
     outline-width: var(--focus-stroke-width, var(--stroke-width-m));
     outline-offset: var(--focus-stroke-offset, 2px);

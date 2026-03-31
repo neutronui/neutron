@@ -2,6 +2,10 @@
   --_icon-url: url("./icons.svg#arrow-big-down-icon");
 }
 
+.icon-check {
+  --_icon-url: url("./icons.svg#check-icon");
+}
+
 .icon-cursor-click {
   --_icon-url: url("./icons.svg#cursor-click-icon");
 }

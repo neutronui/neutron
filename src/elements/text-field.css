@@ -1,0 +1,55 @@
+@layer nt._core {
+  @scope(
+    input:is(
+      [type="text"],
+      [type="search"],
+      [type="url"],
+      [type="tel"],
+      [type="email"],
+      [type="password"],
+      [type="date"],
+      [type="month"],
+      [type="week"],
+      [type="time"],
+      [type="datetime-local"]
+    )
+  ) {
+    :scope {
+      --_fill-color: var(--color-fill-subtle, var(--color-neutral-fill-subtle));
+      --_text-color: var(--color-on-subtle, var(--color-neutral-on-subtle));
+      --_stroke-color: var(--color-stroke-subtle, var(--color-neutral-stroke-subtle));
+      --_stroke-style: var(--stroke-style, solid);
+      --_stroke-width: var(--stroke-width, 1px);
+      --_corner-radius: var(--corner-radius-s, 4px);
+      --_corner-shape: var(--corner-shape, rounded);
+      --_padding-block: var(--size-2xs);
+      --_padding-inline: var(--size-3xs);
+    }
+
+    :scope {
+      display: flex block;
+      width: 100%;
+      padding-block: var(--_padding-block);
+      padding-inline: var(--_padding-inline);
+      color: var(--_text-color);
+      background-color: var(--_fill-color);
+      border-color: var(--_stroke-color);
+      border-style: var(--_stroke-style);
+      border-width: var(--_stroke-width);
+      border-radius: var(--_corner-radius);
+      corner-shape: var(--_corner-shape);
+      font-family: inherit;
+      font-size: var(--font-size-m);
+      line-height: var(--line-height-normal);
+      caret-shape: var(--caret-shape, block);
+      caret-color: var(--caret-color, var(--_text-color));
+      cursor: var(--cursor-text);
+    }
+
+    &:is(:user-invalid, .invalid) {
+      --_stroke-color: var(--color-danger-stroke-strong);
+      --caret-color: var(--color-danger-stroke-strong);
+      --color-focus: var(--color-danger-stroke-strong);
+    }
+  }
+}

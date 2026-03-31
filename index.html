@@ -10,6 +10,7 @@
       display: grid;
       grid-template-rows: max-content 1fr;
       animation: 3s infinite flip-synthesis;
+      padding-inline: var(--size-s);
     }
 
     @keyframes flip-synthesis {
@@ -26,37 +27,6 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    <button class="with-icon">
-      <svg class="icon">
-        <use href="./src/icons.svg#link"></use>
-      </svg>
-      close
-    </button>
-    <button class="with-icon plain">
-      <svg class="icon">
-        <use href="./src/icons.svg#link"></use>
-      </svg>
-      close
-    </button>
-    <button class="with-icon outlined">
-      <svg class="icon">
-        <use href="./src/icons.svg#link"></use>
-      </svg>
-      close
-    </button>
-    <button class="with-icon subtle">
-      <svg class="icon">
-        <use href="./src/icons.svg#link"></use>
-      </svg>
-      close
-    </button>
-    <button class="with-icon stealth">
-      <svg class="icon">
-        <use href="./src/icons.svg#link"></use>
-      </svg>
-      close
-    </button>
-    <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. <button class="plain inline icon-link">inline button</button> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     <hr />
   </header>
   <main>
@@ -67,6 +37,34 @@
           <use href="/src/icons.svg#arrow-big-down"></use>
         </svg>
       </a>
+    </section>
+    <section>
+      <form>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="preferences">Preferences</label>
+          <select id="preferences" name="preferences">
+            <option value="news">News</option>
+            <option value="updates">Updates</option>
+            <option value="offers">Offers</option>
+          </select>
+        </div>
+        <div class="field">
+          <select disabled id="frequency" name="frequency">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+          </select>
+        </div>
+        <button type="submit">subscribe</button>
+      </form>
     </section>
     <section>
       <table class="alt-rows">

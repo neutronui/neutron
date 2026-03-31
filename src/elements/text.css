@@ -8,7 +8,6 @@
   }
 
   :where(h1) {
-    font-size: var(--font-size-3xl);
     font-variant-ligatures: discretionary-ligatures;
     font-size-adjust: 0.521;
   }
